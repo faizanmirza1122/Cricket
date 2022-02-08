@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TeamSelectionController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\MatchesController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,3 +57,8 @@ Route::get('/matches-repaly', [MatchesController::class, 'matchesRepaly'])->name
 
 Route::get('/news', [MatchesController::class, 'news'])->name('news');
 Route::get('/shop', [MatchesController::class, 'shop'])->name('shop');
+Route::get('/news', [MatchesController::class, 'news'])->name('news');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+

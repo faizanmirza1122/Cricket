@@ -20,7 +20,7 @@ class MatchesController extends Controller
 
     public function matchesStanding()
     {
-        return view('matches.standing');
+        return view('matches.standings');
     }
 
     public function matchStats1()

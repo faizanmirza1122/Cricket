@@ -100,8 +100,8 @@
 							</li>
 							<li class=""><a href="#">Match Overviews</a>
 								<ul class="main-nav__sub">
-									<li class=""><a href="{{ route('matches-overview1') }}ml">Match Overview v1</a></li>
-									<li class=""><a href="{{ route('matches-overview2') }}ml">Match Overview v2</a></li>
+									<li class=""><a href="{{ route('matches-overview1') }}">Match Overview v1</a></li>
+									<li class=""><a href="{{ route('matches-overview2') }}">Match Overview v2</a></li>
 								</ul>
 							</li>
 							<li class=""><a href="{{ route('matches-repaly') }}">Match Replay</a></li>
