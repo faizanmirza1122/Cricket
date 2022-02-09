@@ -171,7 +171,17 @@
 						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span></a>
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
-						<a href="#" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
+
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+
+                                <span class="dropdown-item"><i class="icon-switch2"></i> Logout</span>
+                            </x-jet-responsive-nav-link>
+                        </form>
 					</div>
 				</li>
 			</ul>
@@ -300,9 +310,9 @@
 							</ul>
 						</li>
 						<li class="nav-item">
-							<a href="changelog.html" class="nav-link">
+							<a href="{{ route('index.edit') }}" class="nav-link">
 								<i class="icon-list-unordered"></i>
-								<span>Changelog</span>
+								<span>Index</span>
 							</a>
 						</li>
 						<li class="nav-item"><a href="../../../RTL/default/full/index.html" class="nav-link"><i class="icon-width"></i> <span>RTL version</span></a></li>

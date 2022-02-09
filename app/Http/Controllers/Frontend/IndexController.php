@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Index;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class IndexController extends Controller
 {
@@ -14,7 +17,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('admin.index.edit');
     }
 
     /**
@@ -35,7 +38,28 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+            'title' => ['required'],
+            'subtitle' => ['required'],
+            'logo' => ['nullable'],
+            'image' => ['nullable'],
+        ]);
+        // Index::create($data);
+
+        $data = $request->all();
+        dd($data);
+        if($request->file('logo'))  {
+            $image = $request->file('logo');
+            $imageName =Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public' , $image, $imageName);
+            $data['logo'] = $imageName;
+        }else{
+            $data['logo'] = [];
+        }
+
+
+
+        return redirect()->back()->with('success', 'Index is successfully saved');
     }
 
     /**

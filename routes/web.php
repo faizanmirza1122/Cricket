@@ -59,6 +59,10 @@ Route::get('/news', [MatchesController::class, 'news'])->name('news');
 Route::get('/shop', [MatchesController::class, 'shop'])->name('shop');
 Route::get('/news', [MatchesController::class, 'news'])->name('news');
 
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/index/edit', [IndexController::class, 'index'])->name('index.edit');
+Route::post('/index/store', [IndexController::class, 'store'])->name('index.store');
+});
 
