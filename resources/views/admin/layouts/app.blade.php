@@ -9,7 +9,7 @@
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="global_assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="{{ asset('../../../../global_assets/css/icons/icomoon/styles.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('admin/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('admin/assets/css/bootstrap_limitless.min.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('admin/assets/css/layout.min.css') }}" rel="stylesheet" type="text/css">
@@ -18,21 +18,21 @@
 	<!-- /global stylesheets -->
 
 	<!-- Core JS files -->
-	<script src="{{ asset('global_assets/js/main/jquery.min.js') }}"></script>
-	<script src="{{ asset('global_assets/js/main/bootstrap.bundle.min.js') }}"></script>
-	<script src="{{ asset('global_assets/js/plugins/loaders/blockui.min.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/main/jquery.min.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/main/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/plugins/loaders/blockui.min.js') }}"></script>
 	<!-- /core JS files -->
 
 	<!-- Theme JS files -->
-	<script src="{{ asset('global_assets/js/plugins/visualization/d3/d3.min.js') }}"></script>
-	<script src="{{ asset('global_assets/js/plugins/visualization/d3/d3_tooltip.js') }}"></script>
-	<script src="{{ asset('global_assets/js/plugins/forms/styling/switchery.min.js') }}"></script>
-	<script src="{{ asset('global_assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
-	<script src="{{ asset('global_assets/js/plugins/ui/moment/moment.min.js') }}"></script>
-	<script src="{{ asset('global_assets/js/plugins/pickers/daterangepicker.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/plugins/visualization/d3/d3.min.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/plugins/visualization/d3/d3_tooltip.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/plugins/forms/styling/switchery.min.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/plugins/ui/moment/moment.min.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/plugins/pickers/daterangepicker.js') }}"></script>
 
 	<script src="{{ asset('admin/assets/js/app.js') }}"></script>
-	<script src="{{ asset('global_assets/js/demo_pages/dashboard.js') }}"></script>
+	<script src="{{ asset('../../../../global_assets/js/demo_pages/dashboard.js') }}"></script>
 	<!-- /theme JS files -->
 @yield('head')
 <style>
@@ -193,8 +193,8 @@
 	<!-- Page content -->
 	<div class="page-content">
 
-		<!-- Main sidebar -->
-		<div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
+		<!-- /main sidebar -->
+        <div class="sidebar sidebar-dark sidebar-main sidebar-expand-md">
 
 			<!-- Sidebar mobile toggler -->
 			<div class="sidebar-mobile-toggler text-center">
@@ -218,11 +218,11 @@
 					<div class="card-body">
 						<div class="media">
 							<div class="mr-3">
-								<a href="#"><img src="global_assets/images/placeholders/placeholder.jpg" width="38" height="38" class="rounded-circle" alt=""></a>
+								<a href="#"><img src="../../../../global_assets/images/placeholders/placeholder.jpg" width="38" height="38" class="rounded-circle" alt=""></a>
 							</div>
 
 							<div class="media-body">
-								<div class="media-title font-weight-semibold">Admin</div>
+								<div class="media-title font-weight-semibold">Victoria Baker</div>
 								<div class="font-size-xs opacity-50">
 									<i class="icon-pin font-size-sm"></i> &nbsp;Santa Ana, CA
 								</div>
@@ -244,27 +244,30 @@
 						<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
-							<a href="/admin/dashboard" class="nav-link active">
+							<a href="index.html" class="nav-link">
 								<i class="icon-home4"></i>
 								<span>
 									Dashboard
+									<span class="d-block font-weight-normal opacity-50">No active orders</span>
 								</span>
 							</a>
 						</li>
-						<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Home</span></a>
-
-							<ul class="nav nav-group-sub" data-submenu-title="Themes">
-								<li class="nav-item"><a href="index.html" class="nav-link active">Default</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
+                        <li class="nav-item">
 							<a href="{{ route('main.edit') }}" class="nav-link">
 								<i class="icon-list-unordered"></i>
 								<span>Main</span>
 							</a>
 						</li>
-						<!-- /main -->
+                        <li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Home</span></a>
+
+							<ul class="nav nav-group-sub" data-submenu-title="Themes">
+								<li class="nav-item"><a href="{{ route('home.create') }}" class="nav-link ">Create</a></li>
+                                <li class="nav-item"><a href="{{ route('home.index') }}" class="nav-link ">View All</a></li>
+							</ul>
+						</li>
+
+
 					</ul>
 				</div>
 				<!-- /main navigation -->
@@ -273,7 +276,6 @@
 			<!-- /sidebar content -->
 
 		</div>
-		<!-- /main sidebar -->
 
 
 		<!-- Main content -->

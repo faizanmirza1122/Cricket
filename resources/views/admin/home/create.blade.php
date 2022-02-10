@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-	<!-- Main content -->
+    <!-- Main content -->
     <div class="content-wrapper">
 
         <!-- Page header -->
@@ -13,9 +13,12 @@
 
                 <div class="header-elements d-none">
                     <div class="d-flex justify-content-center">
-                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
-                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
-                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
+                        <a href="#" class="btn btn-link btn-float text-default"><i
+                                class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-primary"></i>
+                            <span>Invoices</span></a>
+                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-primary"></i>
+                            <span>Schedule</span></a>
                     </div>
                 </div>
             </div>
@@ -57,9 +60,9 @@
             </div>
         </div>
         <!-- /page header -->
-    <span class="text-center">
-        @include('flash-message')
-    </span>
+        <span class="text-center">
+            @include('flash-message')
+        </span>
 
         <!-- Content area -->
         <div class="content">
@@ -69,43 +72,38 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('main.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('home.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
+
                         <fieldset class="mb-3">
                             <legend class="text-uppercase font-size-sm font-weight-bold">Create Home</legend>
 
-                            <div class="form-group form-group-float">
-                                <label class="d-block">Side Poster Heading</label>
-                                    <input type="text" name="side-poster-heading" value="" class="form-control" placeholder="Enter your Side Poster Heading...">
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Title</label>
+                                <input type="text" name="title" value="" class="form-control"
+                                    placeholder="Enter your side poster title...">
                             </div>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Side Poster Title</label>
-                                    <input type="text" name="side-poster-title" value="" class="form-control" placeholder="Enter your feature title...">
+                                <label class="d-block">Subtitle</label>
+                                <input type="text" name="subtitle" value="" class="form-control"
+                                    placeholder="Enter your side poster subtitle...">
                             </div>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Side Poster Subtitle</label>
-                                    <input type="text" name="side-poster-subtitle" value="" class="form-control" placeholder="Enter your feature subtitle...">
-                            </div>
-
-                            <div class="form-group form-group-float">
-                                <label class="d-block">Side Poster Background Image</label>
-                                <input type="file" class="form-control" name="side-poster-bg" id="side-poster-bg">
+                                <label class="d-block">Date</label>
+                                <input class="form-control" type="date" name="date">
+                                <span class="form-text text-muted">Using <code>input type="date"</code></span>
                             </div>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Featured Title</label>
-                                    <input type="text" name="featured-title" value="" class="form-control" placeholder="Enter your side poster title...">
-                            </div>
-
-                            <div class="form-group  form-group-float">
-                                <label class="d-block">Featured Subtitle</label>
-                                    <input type="text" name="featured-subtitle" value="" class="form-control" placeholder="Enter your side poster subtitle...">
+                                <label class="d-block">Description</label>
+                                <textarea rows="3" cols="3" class="form-control" placeholder="Default textarea"
+                                    name="description"></textarea>
                             </div>
 
                             <div class="form-group form-group-float">
-                                <label class="d-block">Featured Image</label>
+                                <label class="d-block">Image</label>
                                 <input type="file" class="form-control" name="image" id="image">
                             </div>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\MatchesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\HomeController as HmeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +59,9 @@ Route::get('/matches-repaly', [MatchesController::class, 'matchesRepaly'])->name
 
 Route::get('/news', [MatchesController::class, 'news'])->name('news');
 Route::get('/shop', [MatchesController::class, 'shop'])->name('shop');
-Route::get('/news', [MatchesController::class, 'news'])->name('news');
+Route::get('/contact', [MatchesController::class, 'contact'])->name('contact');
+Route::get('/faqs', [MatchesController::class, 'faqs'])->name('faqs');
+Route::get('/about', [MatchesController::class, 'about'])->name('about');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
@@ -66,5 +69,13 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::get('/main/edit', [MainController::class, 'index'])->name('main.edit');
     Route::post('/main/store', [MainController::class, 'store'])->name('main.store');
+
+    Route::get('/home', [HmeController::class, 'index'])->name('home.index');
+    Route::get('/home/create', [HmeController::class, 'create'])->name('home.create');
+    Route::post('/home/store', [HmeController::class, 'store'])->name('home.store');
+    Route::get('/home/{id}/edit', [HmeController::class, 'edit'])->name('home.edit');
+    Route::patch('/home/{id}/update', [HmeController::class, 'update'])->name('home.update');
+    Route::delete('/home/{id}/delete', [HmeController::class, 'destroy'])->name('home.destroy');
+
 });
 

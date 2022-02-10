@@ -78,4 +78,19 @@ class MatchesController extends Controller
         return view('shop');
     }
 
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function faqs()
+    {
+        return view('faqs');
+    }
+
+    public function about()
+    {
+        return view('about');
+    }
+
 }
