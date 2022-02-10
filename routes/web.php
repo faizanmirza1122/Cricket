@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\TeamSelectionController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\MatchesController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,9 +61,10 @@ Route::get('/shop', [MatchesController::class, 'shop'])->name('shop');
 Route::get('/news', [MatchesController::class, 'news'])->name('news');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/index/edit', [IndexController::class, 'index'])->name('index.edit');
-Route::post('/index/store', [IndexController::class, 'store'])->name('index.store');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/main/edit', [MainController::class, 'index'])->name('main.edit');
+    Route::post('/main/store', [MainController::class, 'store'])->name('main.store');
 });
 

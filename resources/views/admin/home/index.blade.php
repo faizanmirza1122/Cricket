@@ -7,7 +7,7 @@
         <div class="page-header page-header-light">
             <div class="page-header-content header-elements-md-inline">
                 <div class="page-title d-flex">
-                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Forms</span> - Basic Inputs</h4>
+                    <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Main</span></h4>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
 
@@ -23,9 +23,9 @@
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                 <div class="d-flex">
                     <div class="breadcrumb">
-                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Home</a>
-                        <a href="form_inputs.html" class="breadcrumb-item">Forms</a>
-                        <span class="breadcrumb-item active">Basic inputs</span>
+                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
+                        <a href="form_inputs.html" class="breadcrumb-item">Main</a>
+                        <span class="breadcrumb-item active">Edit</span>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -57,50 +57,51 @@
             </div>
         </div>
         <!-- /page header -->
-
+    <span class="text-center">
+        @include('flash-message')
+    </span>
 
         <!-- Content area -->
         <div class="content">
 
             <!-- Form inputs -->
             <div class="card">
-                <div class="card-header header-elements-inline">
-                    <h5 class="card-title">Basic form inputs</h5>
-                    <div class="header-elements">
-                        <div class="list-icons">
-                            <a class="list-icons-item" data-action="collapse"></a>
-                            <a class="list-icons-item" data-action="reload"></a>
-                            <a class="list-icons-item" data-action="remove"></a>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="card-body">
-                    <p class="mb-4">Examples of standard form controls supported in an example form layout. Individual form controls automatically receive some global styling. All textual <code>&lt;input></code>, <code>&lt;textarea></code>, and <code>&lt;select></code> elements with <code>.form-control</code> are set to <code>width: 100%;</code> by default. Wrap labels and controls in <code>.form-group</code> for optimum spacing. Labels in horizontal form require <code>.col-form-label</code> class.</p>
 
-                    <form action="{{ route('index.store') }}" method="post" >
+                    <form action="{{ route('main.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <fieldset class="mb-3">
-                            <legend class="text-uppercase font-size-sm font-weight-bold">Basic inputs</legend>
+                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit Main</legend>
 
                             <div class="form-group form-group-float">
                                 <label class="d-block">Title</label>
-                                    <input type="text" name="title" class="form-control" placeholder="Enter your title...">
+                                    <input type="text" name="title" value="" class="form-control" placeholder="Enter your title...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Subtitle</label>
-                                    <input type="text" name="subtitle" class="form-control" placeholder="Enter your subtitle...">
+                                    <input type="text" name="subtitle" value="" class="form-control" placeholder="Enter your subtitle...">
                             </div>
 
                             <div class="form-group form-group-float">
+                                @if ($main->logo)
+                                <img src="{{ asset('storage/' . $main->logo ) }}" width="100px"/>
+                                @else
+
+                                 @endif
                                 <label class="d-block">Logo</label>
-                                <input type="file" class="form-control" src="/file.txt" value="10" name="logo" size="30" id="logo">
+                                <input type="file" class="form-control" name="logo" id="logo">
                             </div>
 
                             <div class="form-group form-group-float">
+                                @if ($main->image)
+                                <img src="{{ asset('storage/' . $main->image) }}" width="100px">
+                                @else
+
+                                 @endif
                                 <label class="d-block">Background Image</label>
-                                <input type="file" class="form-control" src="/file.txt" value="10" name="image" size="30" id="image">
+                                <input type="file" class="form-control" name="image" id="image">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Save</button>
