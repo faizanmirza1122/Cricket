@@ -244,7 +244,7 @@
 						<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
 						<li class="nav-item">
-							<a href="index.html" class="nav-link">
+							<a href="/dashboard" class="nav-link">
 								<i class="icon-home4"></i>
 								<span>
 									Dashboard
@@ -266,6 +266,26 @@
                                 <li class="nav-item"><a href="{{ route('home.index') }}" class="nav-link ">View All</a></li>
 							</ul>
 						</li>
+                        <li class="nav-item">
+							<a href="{{ route('about.edit') }}" class="nav-link">
+								<i class="icon-list-unordered"></i>
+								<span>About</span>
+							</a>
+						</li>
+                        <li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Faqs</span></a>
+
+							<ul class="nav nav-group-sub" data-submenu-title="Themes">
+								<li class="nav-item"><a href="{{ route('faqs.create') }}" class="nav-link ">Create</a></li>
+                                <li class="nav-item"><a href="{{ route('faqs.index') }}" class="nav-link ">View All</a></li>
+							</ul>
+						</li>
+                        <li class="nav-item">
+							<a href="{{ route('contact.edit') }}" class="nav-link">
+								<i class="icon-list-unordered"></i>
+								<span>Contact Us</span>
+							</a>
+						</li>
 
 
 					</ul>
@@ -282,8 +302,6 @@
 		<div class="content-wrapper">
 
             @yield('content')
-
-
 
 			<!-- Footer -->
 			<div class="navbar navbar-expand-lg navbar-light">

@@ -7,33 +7,28 @@
         <main class="site-content contact-us-page" id="wrapper">
 			<div class="site-content__inner">
 				<div class="site-content__holder">
-					<h1 class="page-title h3">Contact us</h1>
+					<h1 class="page-title h3">{{ $contact->title }}</h1>
 					<div class="page-content">
-						<h4 class="text-sm">Contact info</h4>
+						<h4 class="text-sm">{{ $contact->contact_info }}</h4>
 						<p>
-							If you have any questions, just send us and email and don’t forget to follow and like all our social accounts to keep updated!
-						</p>
+                            {!! $contact->description !!}
+                        </p>
 						<div class="info-box">
-							<div class="info-box__label">General inquiries</div>
-							<div class="info-box__content"><a href="mailto:#">inquiries<span class="color-primary">@</span>necromancers.com</a></div>
+							<div class="info-box__label">{{ $contact->general_inquries_title }}</div>
+							<div class="info-box__content"><a href="mailto:#">{{ $contact->general_inquries_email }}</a></div>
 						</div>
 						<ul class="social-menu social-menu--links">
-							<li><a href="https://www.facebook.com/danfisher.dev/"></a></li>
-							<li><a href="https://twitter.com/danfisher_dev"></a></li>
-							<li><a href="https://twitch.tv"></a></li>
-							<li><a href="https://discordapp.com"></a></li>
+							<li><a href="{{ $contact->social_link_1 }}"></a></li>
+							<li><a href="{{ $contact->social_link_2 }}"></a></li>
+							<li><a href="{{ $contact->social_link_3 }}"></a></li>
 						</ul>
-						<h4 class="text-sm">Join our team</h4>
+						<h4 class="text-sm">{{ $contact->join_our_team }}</h4>
 						<p>
-							We’re always looking for new talent to join our teams. If you wanna join us, just send us and email and we’ll get back to you!
-						</p>
+                            {!!  $contact->join_team_description !!}
+                        </p>
 						<div class="info-box">
-							<div class="info-box__label">Max Parker - Recruiter</div>
-							<div class="info-box__content"><a href="mailto:#">mp-recruit<span class="color-primary">@</span>necromancers.com</a></div>
-						</div>
-						<div class="info-box">
-							<div class="info-box__label">Be our partner!</div>
-							<div class="info-box__content"><a href="mailto:#">partners<span class="color-primary">@</span>necromancers.com</a></div>
+							<div class="info-box__label">{{ $contact->be_our_partner_text }}</div>
+							<div class="info-box__content"><a href="mailto:{{ $contact->be_our_partner_email }}">{{ $contact->be_our_partner_email }}</a></div>
 						</div>
 						<span class="spacer-lg">&nbsp;</span>
 						<h4>Send us a message</h4>
@@ -61,7 +56,7 @@
 						</form>
 					</div>
 					<!-- Google Map -->
-					<div class="gm-map gm-map--aside" data-map-style="necromancers" data-map-address="645 5th Ave, New York, US" data-map-icon="assets/img/map-marker.png" data-map-zoom="15">
+					<div class="gm-map gm-map--aside" data-map-style="necromancers" data-map-address="{{ $contact->map }}" data-map-icon="assets/img/map-marker.png" data-map-zoom="15">
 						<div class="gm-map__info">
 							Necromancers</br>
 							<span class="color-primary">Headquarters</span>

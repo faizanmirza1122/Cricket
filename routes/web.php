@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TeamSelectionController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\MatchesController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\HomeController as HmeController;
 use Illuminate\Support\Facades\Route;
@@ -74,8 +77,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/home/create', [HmeController::class, 'create'])->name('home.create');
     Route::post('/home/store', [HmeController::class, 'store'])->name('home.store');
     Route::get('/home/{id}/edit', [HmeController::class, 'edit'])->name('home.edit');
-    Route::patch('/home/{id}/update', [HmeController::class, 'update'])->name('home.update');
+    Route::put('/home/{id}/update', [HmeController::class, 'update'])->name('home.update');
     Route::delete('/home/{id}/delete', [HmeController::class, 'destroy'])->name('home.destroy');
+
+    Route::get('/about', [AboutController::class, 'index'])->name('about.edit');
+    Route::post('/about/store', [AboutController::class, 'store'])->name('about.store');
+
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact.edit');
+    Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
+    Route::resource('/faqs', FaqsController::class)->except('show');
 
 });
 

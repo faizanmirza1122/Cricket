@@ -88,7 +88,8 @@
 					</div>
 				</article>
                     @empty
-                    <h1> No data Found </h1>
+                    <h1 class="d-flex " style="font-size:30;color: white;position: absolute;top: 50%;;
+                    transform: translateY(-50%);"> No data Found </h1>
                     @endforelse
 
 

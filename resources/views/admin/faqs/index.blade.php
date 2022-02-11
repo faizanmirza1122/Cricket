@@ -14,15 +14,15 @@
             <div class="page-header page-header-light">
                 <div class="page-header-content header-elements-md-inline">
                     <div class="page-title d-flex">
-                        <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Main</span></h4>
+                        <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">FAQS</span></h4>
                         <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                     </div>
                 </div>
                 <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                     <div class="d-flex">
                         <div class="breadcrumb">
-                            <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
-                            <a href="form_inputs.html" class="breadcrumb-item">Home</a>
+                            <a href="index.html" class="breadcrumb-item"><i class="icon-faq2 mr-2"></i> Dashboard</a>
+                            <a href="form_inputs.html" class="breadcrumb-item">faq</a>
                             <span class="breadcrumb-item active">Index</span>
                         </div>
 
@@ -38,43 +38,39 @@
                 <!-- Basic datatable -->
                 <div class="card">
                     <div class="card-body ">
-                        <a class="btn btn-primary" href="{{ route('home.create') }}"> Add New Home item</a>
+                        <a class="btn btn-primary" href="{{ route('faqs.create') }}"> Add New faq item</a>
                     </div>
 
                     <table class="table datatable-basic">
                         <thead>
                             <tr>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Subtitle</th>
-                                <th>Date</th>
+                                <th>ID</th>
+                                <th>Question</th>
+                                <th>Answer</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($homes as $home)
+                            @forelse($faqs as $key => $faq)
                                 <tr>
 
-                                    <td><img src="{{ asset('storage/' . $home->image) }}" width="100px"></td>
-                                    <td>{{ $home->title }}</td>
-                                    <td>{{ $home->subtitle }}</td>
-                                    <td>{{ $home->date }}</td>
+                                    <td>{{ $key +1 }}</td>
+                                    <td>{{ $faq->question }}</td>
+                                    <td>{{ $faq->answer }}</td>
                                     <td class="text-center">
                                         <div class="list-icons">
                                             <div class="dropdown">
                                                 <a href="#" class="list-icons-item" data-toggle="dropdown">
                                                     <i class="icon-menu9"></i>
                                                 </a>
-                                                <form action="{{ route('home.destroy', $home->id) }}" method="POST">
+                                                <form action="{{ route('faqs.destroy', $faq->id) }}" method="POST">
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a href="{{ route('home.edit', $home->id) }}"
-                                                            class="dropdown-item"><i class="icon-file-pdf"></i> edit</a>
-                                                        {{-- <a href="{{ route('home.destroy', $home->id) }}"
-                                                            class="dropdown-item"><i class="icon-file-word"></i> Delete</a> --}}
+                                                        <a href="{{ route('faqs.edit', $faq->id) }}" class="dropdown-item"><i class="icon-file-pdf"></i> edit</a>
                                                         <button type="submit" class="btn bg-transparent dropdown-item"><i
                                                                 class="icon-file-word"></i> Delete</button>
 
-                                                    </div>
+
+                                                     </div>
                                                     @csrf
                                                     @method('DELETE')
 

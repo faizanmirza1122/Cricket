@@ -121,15 +121,12 @@
 							<li class=""><a href="blog-post.html">Post Page</a></li> --}}
 						</ul>
 					</li>
-					<li class="">
+					<li >
 						<a href="#">About us</a>
 						<ul class="main-nav__sub">
 							<li class=""><a href="{{ route('contact') }}">Contact</a></li>
 							<li class=""><a href="{{ route('faqs') }}">FAQS</a></li>
 							<li class=""><a href="{{ route('about') }}">About</a></li>
-							{{-- <li class=""><a href="shop-2.html">Shop Page v2</a></li>
-							<li class=""><a href="shop-product.html">Product Page</a></li>
-							<li class=""><a href="shop-checkout.html">Checkout Page</a></li> --}}
 						</ul>
 					</li>
 					<li class="">

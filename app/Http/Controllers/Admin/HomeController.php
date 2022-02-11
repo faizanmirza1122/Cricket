@@ -54,7 +54,7 @@ class HomeController extends Controller
             $data['image'] = $imageName;
         }
         $data = Home::create($data);
-        return redirect()->back()->with('message', 'Home has been added successfully');
+        return redirect()->route('home.index')->with('message', 'Home has been added successfully');
 
     }
 
@@ -77,7 +77,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Home $home)
+    public function update(Request $request, $id)
     {
         $data = $request->validate([
             'title' => ['nullable'],
@@ -93,9 +93,16 @@ class HomeController extends Controller
             Storage::putFileAs('public', $image, $imageName);
             $data['image'] = $imageName;
         }
-        // dd($data);
-        $home->update($data);
-        return redirect()->back()->with('message', 'Home has been added successfully');
+
+        $data = Home::find($id);
+        // Getting values from the blade template form
+        $data->title =  $request->get('title');
+        $data->subtitle = $request->get('subtitle');
+        $data->date = $request->get('date');
+        $data->description = $request->get('description');
+        $data->image = $imageName;
+        $data->save();
+        return redirect()->back()->with('message', 'Home has been updated successfully');
     }
 
     /**

@@ -7,7 +7,7 @@ use App\Models\Main;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Image;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -20,16 +20,6 @@ class MainController extends Controller
     {
         $main = Main::orderBy('id', 'DESC')->first();
         return view('admin.main.edit', ['main' => $main]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -62,54 +52,9 @@ class MainController extends Controller
         }
 
         // $data = $data->storeImage();
-        $data = Main::updateOrCreate(['id' => $request->get('id')],$data);
-
+        $data = Main::updateOrCreate(['user_id' => Auth::user()->id],$data);
 
         return redirect()->back()->with('success', 'Index is successfully saved');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

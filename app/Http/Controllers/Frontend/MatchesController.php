@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
+use App\Models\Contact;
+use App\Models\Faqs;
 use Illuminate\Http\Request;
 
 class MatchesController extends Controller
@@ -80,17 +83,20 @@ class MatchesController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $contact = Contact::orderBy('id', 'DESC')->first();
+        return view('contact', compact('contact'));
     }
 
     public function faqs()
     {
-        return view('faqs');
+        $faqs = Faqs::orderBy('id', 'DESC')->get();
+        return view('faqs', compact('faqs'));
     }
 
     public function about()
     {
-        return view('about');
+        $about = About::orderBy('id', 'DESC')->first();
+        return view('about', compact('about'));
     }
 
 }
