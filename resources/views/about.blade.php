@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Content
-          ================================================== -->
+              ================================================== -->
     <div class="site-wrapper site-layout--default">
         <main class="site-content" id="wrapper">
             <div class="site-content__inner">
@@ -40,7 +40,7 @@
 
                     </div>
                     <div class="spacer"></div>
-                    <h4>{{ $about->why_us_title }}</h4>
+                    <h4>{{ $about->why_us_title  ?? '' }}</h4>
                     <div class="spacer"></div>
                     <p>
                         {!! $about->why_us_description ?? '' !!}

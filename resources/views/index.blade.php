@@ -45,6 +45,7 @@
 @if ($main)
 <body class="site-layout--landing preloader-is--active bg-image bg-fixed "  style="background-image: url('{{ asset('storage/' . $main->image ) }}')">
     @else
+    <body class="site-layout--landing preloader-is--active bg-image bg-fixed ">
 @endif
 
 	<div class="site-wrapper">
@@ -165,27 +166,27 @@
 		<footer id="footer" class="footer text-center">
 			<ul class="social-menu social-menu--landing social-menu--landing-glitch">
 				<li>
-					<a href="https://www.facebook.com/danfisher.dev/" target="_blank">
+					<a href="{{ $main->social_link_1 ?? '' }}" target="_blank">
 						<i class="fab fa-facebook-square"></i>
-						<span class="link-subtitle">Facebook</span>Necrogame
+						<span class="link-subtitle">{{ $main->social_link_name_1 ?? '' }}</span>{{ $main->social_link_text_1 ?? '' }}
 					</a>
 				</li>
 				<li>
-					<a href="https://twitter.com/danfisher_dev" target="_blank">
+					<a href="{{ $main->social_link_2 ?? '' }}" target="_blank">
 						<i class="fab fa-twitter"></i>
-						<span class="link-subtitle">Twitter</span>Necrotwt
+						<span class="link-subtitle">{{ $main->social_link_name_2 ?? '' }}</span>{{ $main->social_link_text_2 ?? '' }}
 					</a>
 				</li>
 				<li>
-					<a href="https://twitch.tv" target="_blank">
+					<a href="{{ $main->social_link_3 ?? '' }}" target="_blank">
 						<i class="fab fa-twitch"></i>
-						<span class="link-subtitle">Twitch</span>Necroplays
+						<span class="link-subtitle">{{ $main->social_link_name_3 ?? '' }}</span>{{ $main->social_link_text_3 ?? '' }}
 					</a>
 				</li>
 				<li>
-					<a href="https://discordapp.com/" target="_blank">
+					<a href="{{ $main->social_link_4 ?? '' }}" target="_blank">
 						<i class="fab fa-discord"></i>
-						<span class="link-subtitle">Discord</span>Necrochat
+						<span class="link-subtitle">{{ $main->social_link_name_4 ?? '' }}</span>{{ $main->social_link_text_4 ?? '' }}
 					</a>
 				</li>
 			</ul>

@@ -9,5 +9,5 @@ class Main extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'subtitle', 'logo', 'image', 'user_id'];
+    protected $guarded = [];
 }

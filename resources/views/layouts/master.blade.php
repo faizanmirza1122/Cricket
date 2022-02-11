@@ -49,15 +49,17 @@
 
 			<!-- Logo - Image Based -->
 			<div class="header-logo header-logo--img">
-				<a href="index.html"><img src="assets/img/logo.png" srcset="assets/img/logo@2x.png 2x" alt="Necromancers"></a>
+                @if ($logo)
+				<a href="{{ route('index') }}"><img src="{{ asset('storage/'. $logo->image) }}" srcset="assets/img/logo@2x.png 2x" alt=""></a>
+                @else
+                @endif
 			</div>
 			<!-- Logo - Image Based / End -->
-
 
 			<!-- Main Navigation -->
 			<nav class="main-nav">
 				<ul class="main-nav__list">
-					<li class="active"><a href="home.html">Home</a></li>
+					<li class="active"><a href="{{ route('home') }}">Home</a></li>
 					<li class="">
 						<a href="#">Teams</a>
 						<ul class="main-nav__sub">
@@ -114,11 +116,6 @@
 					<li class=""><a href="#">News</a>
 						<ul class="main-nav__sub">
 							<li class=""><a href="{{ route('news') }}">News v1</a></li>
-							{{-- <li class=""><a href="blog-2.html">News v2</a></li>
-							<li class=""><a href="blog-3.html">News v3</a></li>
-							<li class=""><a href="blog-4.html">News v4</a></li>
-							<li class=""><a href="blog-classic.html">News Classic</a></li>
-							<li class=""><a href="blog-post.html">Post Page</a></li> --}}
 						</ul>
 					</li>
 					<li >

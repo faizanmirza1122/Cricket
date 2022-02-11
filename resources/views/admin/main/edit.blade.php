@@ -1,8 +1,16 @@
 @extends('admin.layouts.app')
 @section('content')
-	<!-- Main content -->
+    <!-- Main content -->
     <div class="content-wrapper">
-
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <!-- Page header -->
         <div class="page-header page-header-light">
             <div class="page-header-content header-elements-md-inline">
@@ -10,56 +18,23 @@
                     <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Main</span></h4>
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
-
-                <div class="header-elements d-none">
-                    <div class="d-flex justify-content-center">
-                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
-                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calculator text-primary"></i> <span>Invoices</span></a>
-                        <a href="#" class="btn btn-link btn-float text-default"><i class="icon-calendar5 text-primary"></i> <span>Schedule</span></a>
-                    </div>
-                </div>
             </div>
 
             <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
                 <div class="d-flex">
                     <div class="breadcrumb">
-                        <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
-                        <a href="form_inputs.html" class="breadcrumb-item">Main</a>
-                        <span class="breadcrumb-item active">Edit</span>
+                        <a href="/admin/dashboard" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
+                        <a href="#" class="breadcrumb-item">Main</a>
                     </div>
 
                     <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
                 </div>
-
-                <div class="header-elements d-none">
-                    <div class="breadcrumb justify-content-center">
-                        <a href="#" class="breadcrumb-elements-item">
-                            <i class="icon-comment-discussion mr-2"></i>
-                            Support
-                        </a>
-
-                        <div class="breadcrumb-elements-item dropdown p-0">
-                            <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-gear mr-2"></i>
-                                Settings
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a href="#" class="dropdown-item"><i class="icon-user-lock"></i> Account security</a>
-                                <a href="#" class="dropdown-item"><i class="icon-statistics"></i> Analytics</a>
-                                <a href="#" class="dropdown-item"><i class="icon-accessibility"></i> Accessibility</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="#" class="dropdown-item"><i class="icon-gear"></i> All settings</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- /page header -->
-    <span class="text-center">
-        @include('flash-message')
-    </span>
+        <span class="text-center">
+            @include('flash-message')
+        </span>
 
         <!-- Content area -->
         <div class="content">
@@ -76,33 +51,98 @@
 
                             <div class="form-group form-group-float">
                                 <label class="d-block">Title</label>
-                                    <input type="text" name="title" value="{{ $main->title ?? '' }}" class="form-control" placeholder="Enter your title...">
+                                <input type="text" name="title" value="{{ $main->title ?? '' }}" class="form-control"
+                                    placeholder="Enter your title...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Subtitle</label>
-                                    <input type="text" name="subtitle" value="{{ $main->subtitle ?? '' }}" class="form-control" placeholder="Enter your subtitle...">
+                                <input type="text" name="subtitle" value="{{ $main->subtitle ?? '' }}"
+                                    class="form-control" placeholder="Enter your subtitle...">
                             </div>
 
                             <div class="form-group form-group-float">
                                 @if ($main)
-                                <img src="{{ asset('storage/' . $main->logo ) }}" width="100px"/>
+                                    <img src="{{ asset('storage/' . $main->logo) }}" width="100px" />
                                 @else
-
-                                 @endif
+                                @endif
                                 <label class="d-block">Logo</label>
                                 <input type="file" class="form-control" name="logo" id="logo">
                             </div>
 
                             <div class="form-group form-group-float">
                                 @if ($main)
-                                <img src="{{ asset('storage/' . $main->image) }}" width="100px">
+                                    <img src="{{ asset('storage/' . $main->image) }}" width="100px">
                                 @else
-
-                                 @endif
+                                @endif
                                 <label class="d-block">Background Image</label>
                                 <input type="file" class="form-control" name="image" id="image">
                             </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link 1</label>
+                                <input type="text" name="social_link_1" value="{{ $main->social_link_1 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_1...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Name 1</label>
+                                <input type="text" name="social_link_name_1" value="{{ $main->social_link_name_1 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_name_1...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Text 1</label>
+                                <input type="text" name="social_link_text_1" value="{{ $main->social_link_text_1 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_text_1...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link 2</label>
+                                <input type="text" name="social_link_2" value="{{ $main->social_link_2 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_2...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Name 2</label>
+                                <input type="text" name="social_link_name_2" value="{{ $main->social_link_name_2 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_name_2...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Text 2</label>
+                                <input type="text" name="social_link_text_2" value="{{ $main->social_link_text_2 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_text_2...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link 3</label>
+                                <input type="text" name="social_link_3" value="{{ $main->social_link_3 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_3...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Name 3</label>
+                                <input type="text" name="social_link_name_3" value="{{ $main->social_link_name_3 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_name_3...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Text 3</label>
+                                <input type="text" name="social_link_text_3" value="{{ $main->social_link_text_3 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_text_3...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link 4</label>
+                                <input type="text" name="social_link_4" value="{{ $main->social_link_4 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_4...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Name 4</label>
+                                <input type="text" name="social_link_name_4" value="{{ $main->social_link_name_4 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_name_4...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Text 4</label>
+                                <input type="text" name="social_link_text_4" value="{{ $main->social_link_text_4 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_text_4...">
+                            </div>
+
 
                             <button type="submit" class="btn btn-primary">Save</button>
 

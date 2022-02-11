@@ -35,6 +35,18 @@ class MainController extends Controller
             'subtitle' => ['required'],
             'logo' => ['nullable'],
             'image' => ['nullable'],
+            'social_link_1' => ['nullable', 'url'],
+            'social_link_name_1' => ['nullable'],
+            'social_link_text_1' => ['nullable'],
+            'social_link_2' => ['nullable', 'url'],
+            'social_link_name_2' => ['nullable'],
+            'social_link_text_2' => ['nullable'],
+            'social_link_3' => ['nullable', 'url'],
+            'social_link_name_3' => ['nullable'],
+            'social_link_text_3' => ['nullable'],
+            'social_link_4' => ['nullable', 'url'],
+            'social_link_name_4' => ['nullable'],
+            'social_link_text_4' => ['nullable'],
         ]);
 
         if ($request->file('image')) {
