@@ -9,5 +9,5 @@ class AllMember extends Model
 {
     use HasFactory;
 
-    protected $guard = [];
+    protected $fillable = ['designation', 'name', 'age', 'joining_date', 'image', 'country', 'description', 'social_media_link_1', 'social_media_link_2', 'social_media_link_3'];
 }

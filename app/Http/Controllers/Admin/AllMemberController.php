@@ -47,9 +47,9 @@ class AllMemberController extends Controller
             'country' => ['required'],
             'description' => ['required'],
             'image' => ['required'],
-            'social_media_link_1' => ['required', 'url'],
-            'social_media_link_2' => ['required', 'url'],
-            'social_media_link_3' => ['required', 'url'],
+            'social_media_link_1' => ['nullable', 'url'],
+            'social_media_link_2' => ['nullable', 'url'],
+            'social_media_link_3' => ['nullable', 'url'],
         ]);
 
         if ($request->file('image')) {
@@ -59,7 +59,7 @@ class AllMemberController extends Controller
             $data['image'] = $imageName;
         }
         $data = AllMember::create($data);
-        return redirect()->route('team.index')->with('message', 'Team Member has been added successfully');
+        return redirect()->route('management-team-members.index')->with('message', 'Team Member has been added successfully');
     }
 
     /**
@@ -70,8 +70,8 @@ class AllMemberController extends Controller
      */
     public function edit($id)
     {
-        $members = AllMember::find($id);
-        return view('admin.team.edit', compact('home'));
+        $member = AllMember::find($id);
+        return view('admin.team.edit', compact('member'));
     }
 
     /**
@@ -131,7 +131,7 @@ class AllMemberController extends Controller
         $members = AllMember::find($id);
         $members->delete();
 
-        return redirect()->route('home.index')
+        return redirect()->route('management-team-members.index')
             ->with('success', 'Team Member deleted successfully');
     }
 }

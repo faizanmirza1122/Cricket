@@ -16,7 +16,7 @@
                 <div class="d-flex">
                     <div class="breadcrumb">
                         <a href="/admin/dashboard" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
-                        <a href="{{ route('home.index') }}" class="breadcrumb-item">Home</a>
+                        <a href="{{ route('management-team-members.index') }}" class="breadcrumb-item">Staff Page</a>
                         <span class="breadcrumb-item active">Edit</span>
                     </div>
 
@@ -34,7 +34,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('home.update', $home->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('management-team-members.update', $member->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         {{ method_field('PUT') }}
                         @include('flash-message')
@@ -48,40 +48,69 @@
                             </div>
                         @endif
                         <fieldset class="mb-3">
-                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit Home</legend>
-                            @include('flash-message')
+                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit Staff Page</legend>
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Title</label>
-                                <input type="text" name="title" value="{{ $home->title ?? '' }}" class="form-control"
-                                    placeholder="Enter your side poster title...">
+                                <label class="d-block">Name</label>
+                                <input type="text" name="name" value="{{ $member->name ?? '' }}" class="form-control"
+                                    placeholder="Enter name...">
                             </div>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Subtitle</label>
-                                <input type="text" name="subtitle" value="{{ $home->subtitle ?? '' }}"
-                                    class="form-control" placeholder="Enter your side poster subtitle...">
+                                <label class="d-block">Designation</label>
+                                <input type="text" name="designation" value="{{ $member->designation ?? '' }}"
+                                    class="form-control" placeholder="Enter designation...">
                             </div>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Date</label>
-                                <input class="form-control" type="date" name="date" value="{{ $home->date ?? '' }}">
+                                <label class="d-block">age</label>
+                                <input type="number" name="age" value="{{ $member->age ?? '' }}"
+                                    class="form-control" placeholder="Enter age...">
+                            </div>
 
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Joining Date</label>
+                                <input class="form-control" type="date" name="joining_date" value="{{ $member->joining_date ?? '' }}">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Country</label>
+                                <input type="text" name="country" value="{{ $member->country ?? '' }}"
+                                    class="form-control" placeholder="Enter country...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Description</label>
-                                <textarea rows="3" cols="3" class="form-control" placeholder="Default textarea"
-                                    name="description">{{ $home->description ?? '' }}</textarea>
+                                <textarea rows="3" cols="3" class="form-control" placeholder="Enter Description.."
+                                    name="description">{{ $member->description ?? '' }}</textarea>
                             </div>
 
                             <div class="form-group form-group-float">
-                                @if ($home)
-                                    <img src="{{ asset('storage/' . $home->image) }}" width="100px">
+                                @if ($member)
+                                    <img src="{{ asset('storage/' . $member->image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Image</label>
                                 <input type="file" class="form-control" name="image" id="image">
                             </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">social Media Link 1</label>
+                                <input type="text" name="social_media_link_1" value="{{ $member->social_media_link_1 ?? '' }}" class="form-control"
+                                    placeholder="Enter social media link 1...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">social Media Link 2</label>
+                                <input type="text" name="social_media_link_2" value="{{ $member->social_media_link_2 ?? '' }}" class="form-control"
+                                    placeholder="Enter social media link 2...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">social Media Link 3</label>
+                                <input type="text" name="social_media_link_3" value="{{ $member->social_media_link_3 ?? '' }}" class="form-control"
+                                    placeholder="Enter social media link 3...">
+                            </div>
+
 
                             <button type="submit" class="btn btn-primary">Save</button>
 

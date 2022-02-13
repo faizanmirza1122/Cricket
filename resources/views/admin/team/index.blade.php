@@ -43,9 +43,10 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Image</th>
-                                <th>Title</th>
-                                <th>Subtitle</th>
-                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>joining_date</th>
+                                <th>Age</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -55,18 +56,19 @@
 
                                     <td>{{ $key + 1 }}</td>
                                     <td><img src="{{ asset('storage/' . $team->image) }}" width="100px"></td>
-                                    <td>{{ $team->title }}</td>
-                                    <td>{{ $team->subtitle }}</td>
-                                    <td>{{ $team->date }}</td>
+                                    <td>{{ $team->name }}</td>
+                                    <td>{{ $team->designation }}</td>
+                                    <td>{{ $team->joining_date }}</td>
+                                    <td>{{ $team->age }}</td>
                                     <td class="text-center">
                                         <div class="list-icons">
                                             <div class="dropdown">
                                                 <a href="#" class="list-icons-item" data-toggle="dropdown">
                                                     <i class="icon-menu9"></i>
                                                 </a>
-                                                <form action="{{ route('team.destroy', $team->id) }}" method="POST">
+                                                <form action="{{ route('management-team-members.destroy', $team->id) }}" method="POST">
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a href="{{ route('team.edit', $team->id) }}"
+                                                        <a href="{{ route('management-team-members.edit', $team->id) }}"
                                                             class="dropdown-item"><i class="icon-pencil7"></i> edit</a>
                                                         <button type="submit" class="btn bg-transparent dropdown-item"><i
                                                                 class="icon-trash"></i> Delete</button>

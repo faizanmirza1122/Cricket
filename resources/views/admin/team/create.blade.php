@@ -50,37 +50,37 @@
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Designation</label>
-                                <input type="text" name="designation" value="" class="form-control"
+                                <input type="text" name="designation" value="{{ old('designation') }}" class="form-control"
                                     placeholder="Enter designation...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Name</label>
-                                <input type="text" name="name" class="form-control"
+                                <input type="text" value="{{ old('name') }}" name="name" class="form-control"
                                     placeholder="Enter name...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Age</label>
-                                <input type="number" name="age" class="form-control"
+                                <input type="number" value="{{ old('age') }}" name="age" class="form-control"
                                     placeholder="Enter age...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Joining Date</label>
-                                <input class="form-control" type="date" name="joining_date">
+                                <input class="form-control" type="date" value="{{ old('date') }}" name="joining_date">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Country</label>
-                                <input type="number" name="age" class="form-control"
+                                <input type="text" value="{{ old('country') }}" name="country" class="form-control"
                                     placeholder="Enter country...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Description</label>
                                 <textarea rows="3" cols="3" class="form-control" placeholder="Description.."
-                                    name="description"></textarea>
+                                    name="description">{{ old('description') }}</textarea>
                             </div>
 
                             <div class="form-group form-group-float">
@@ -90,17 +90,17 @@
 
                             <div class="form-group form-group-float">
                                 <label class="d-block">Social Media Link 1</label>
-                                <input type="text" class="form-control" name="social_media_link_1" id="social_media_link_1">
+                                <input type="text" value="{{ old('social_media_link_1') }}" class="form-control" name="social_media_link_1" id="social_media_link_1">
                             </div>
 
                             <div class="form-group form-group-float">
                                 <label class="d-block">Social Media Link 2</label>
-                                <input type="text" class="form-control" name="social_media_link_2" id="social_media_link_2">
+                                <input type="text" value="{{ old('social_media_link_2') }}" class="form-control" name="social_media_link_2" id="social_media_link_2">
                             </div>
 
                             <div class="form-group form-group-float">
                                 <label class="d-block">Social Media Link 3</label>
-                                <input type="text" class="form-control" name="social_media_link_3" id="social_media_link_3">
+                                <input type="text" value="{{ old('social_media_link_3') }}" class="form-control" name="social_media_link_3" id="social_media_link_3">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Save</button>
