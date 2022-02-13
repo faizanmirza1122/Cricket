@@ -84,7 +84,7 @@
 						<div class="staff-member__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 						<ul class="social-menu social-menu--links">
 							<li><a href="https://www.facebook.com/danfisher.dev/"></a></li>
-							<li><a href="https://twitter.com/danfisher_dev/"></a></li>
+							<li><a href="https://instagram.com/"></a></li>
 							<li><a href="discordapp.com"></a></li>
 						</ul>
 					</div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\AllMemberController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TeamSelectionController;
@@ -87,6 +88,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 
     Route::resource('/faqs', FaqsController::class)->except('show');
+
+    Route::resource('/management-team-members', AllMemberController::class)->except('show');
 
     Route::post('logout', [AboutController::class, 'logout'])->name('logout');
 
