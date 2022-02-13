@@ -144,7 +144,7 @@
 						<div class="media">
 							<div class="">
                                 @if ($logo)
-								<a href="#"><img src="{{ asset('storage/' . $logo->image) }}" width="70" height="70"  alt=""></a>
+								<a href="#"><img src="{{ asset('storage/' . $logo->logo) }}" width="70" height="70"  alt=""></a>
                                 @else
 
                                 @endif
