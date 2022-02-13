@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Cricket Match</title>
+	<title>BNW ESPORTS</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -137,6 +137,22 @@
 				<!-- Main navigation -->
 				<div class="card card-sidebar-mobile">
 					<ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                      	<!-- User menu -->
+				<div class="sidebar-user">
+					<div class="card-body d-flex justify-content-center">
+						<div class="media">
+							<div class="">
+                                @if ($logo)
+								<a href="#"><img src="{{ asset('storage/' . $logo->image) }}" width="70" height="70"  alt=""></a>
+                                @else
+
+                                @endif
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /user menu -->
 
 						<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>

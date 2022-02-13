@@ -5,7 +5,7 @@
 
 	<!-- Basic Page Needs
 	================================================== -->
-	<title>Necromancers - eSports Team &amp; Gaming HTML Template</title>
+	<title>BNW ESPORTS</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="eSports Team &amp; Gaming HTML Template">
@@ -14,8 +14,8 @@
 
 	<!-- Favicons
 	================================================== -->
-	<link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
-	<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/favicon-120.png">
+	{{-- <link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicons/favicon-120.png"> --}}
 	<link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicons/favicon-152.png">
 
 	<!-- Mobile Specific Metas
