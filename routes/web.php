@@ -88,5 +88,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::resource('/faqs', FaqsController::class)->except('show');
 
+    Route::post('logout', [AboutController::class, 'logout'])->name('logout');
+
 });
 

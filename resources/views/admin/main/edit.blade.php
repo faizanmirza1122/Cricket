@@ -2,15 +2,6 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
         <!-- Page header -->
         <div class="page-header page-header-light">
             <div class="page-header-content header-elements-md-inline">
@@ -32,9 +23,6 @@
             </div>
         </div>
         <!-- /page header -->
-        <span class="text-center">
-            @include('flash-message')
-        </span>
 
         <!-- Content area -->
         <div class="content">
@@ -46,6 +34,16 @@
 
                     <form action="{{ route('main.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
+                        @include('flash-message')
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <fieldset class="mb-3">
                             <legend class="text-uppercase font-size-sm font-weight-bold">Edit Main</legend>
 

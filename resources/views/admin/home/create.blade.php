@@ -25,10 +25,6 @@
             </div>
         </div>
         <!-- /page header -->
-        <span class="text-center">
-            @include('flash-message')
-        </span>
-
         <!-- Content area -->
         <div class="content">
 
@@ -39,7 +35,16 @@
 
                     <form action="{{ route('home.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-
+                        @include('flash-message')
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <fieldset class="mb-3">
                             <legend class="text-uppercase font-size-sm font-weight-bold">Create Home</legend>
 

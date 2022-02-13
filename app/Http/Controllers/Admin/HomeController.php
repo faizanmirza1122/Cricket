@@ -40,11 +40,11 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title' => ['nullable'],
-            'subtitle' => ['nullable'],
-            'date' => ['nullable'],
-            'description' => ['nullable'],
-            'image' => ['nullable'],
+            'title' => ['required'],
+            'subtitle' => ['required'],
+            'date' => ['required'],
+            'description' => ['required'],
+            'image' => ['required'],
         ]);
 
         if ($request->file('image')) {

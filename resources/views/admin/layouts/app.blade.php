@@ -87,10 +87,8 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
-						<a href="#" class="dropdown-item"><i class="icon-coins"></i> My balance</a>
-						<a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-blue ml-auto">58</span></a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
+						{{-- <div class="dropdown-divider"></div>
+						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a> --}}
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -152,12 +150,12 @@
 						</li>
                         <li class="nav-item">
 							<a href="{{ route('main.edit') }}" class="nav-link">
-								<i class="icon-list-unordered"></i>
+								<i class="icon-color-sampler"></i>
 								<span>Main</span>
 							</a>
 						</li>
                         <li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Home</span></a>
+							<a href="#" class="nav-link"><i class="icon-library2"></i> <span>Home</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Themes">
 								<li class="nav-item"><a href="{{ route('home.create') }}" class="nav-link ">Create</a></li>
@@ -166,12 +164,12 @@
 						</li>
                         <li class="nav-item">
 							<a href="{{ route('about.edit') }}" class="nav-link">
-								<i class="icon-list-unordered"></i>
+								<i class="icon-users4"></i>
 								<span>About</span>
 							</a>
 						</li>
                         <li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-color-sampler"></i> <span>Faqs</span></a>
+							<a href="#" class="nav-link"><i class="icon-bubbles3"></i> <span>Faqs</span></a>
 
 							<ul class="nav nav-group-sub" data-submenu-title="Themes">
 								<li class="nav-item"><a href="{{ route('faqs.create') }}" class="nav-link ">Create</a></li>
@@ -180,7 +178,7 @@
 						</li>
                         <li class="nav-item">
 							<a href="{{ route('contact.edit') }}" class="nav-link">
-								<i class="icon-list-unordered"></i>
+								<i class="icon-phone-wave"></i>
 								<span>Contact Us</span>
 							</a>
 						</li>

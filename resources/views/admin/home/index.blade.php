@@ -67,11 +67,9 @@
                                                 <form action="{{ route('home.destroy', $home->id) }}" method="POST">
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a href="{{ route('home.edit', $home->id) }}"
-                                                            class="dropdown-item"><i class="icon-file-pdf"></i> edit</a>
-                                                        {{-- <a href="{{ route('home.destroy', $home->id) }}"
-                                                            class="dropdown-item"><i class="icon-file-word"></i> Delete</a> --}}
+                                                            class="dropdown-item"><i class="icon-pencil7"></i> edit</a>
                                                         <button type="submit" class="btn bg-transparent dropdown-item"><i
-                                                                class="icon-file-word"></i> Delete</button>
+                                                                class="icon-trash"></i> Delete</button>
 
                                                     </div>
                                                     @csrf

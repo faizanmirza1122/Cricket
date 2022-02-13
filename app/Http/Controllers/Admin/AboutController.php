@@ -32,22 +32,22 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'side_image_2' => ['nullable'],
-            'title' => ['nullable'],
-            'subtitle' => ['nullable'],
-            'description' => ['nullable'],
+            'side_logo_1' => ['nullable'],
+            'title' => ['required'],
+            'subtitle' => ['required'],
+            'description' => ['required'],
             'image' => ['nullable'],
-            'why_us_title' => ['nullable'],
-            'why_us_description' => ['nullable'],
+            'why_us_title' => ['required'],
+            'why_us_description' => ['required'],
             'logo_1' => ['nullable'],
-            'logo_number_1' => ['nullable'],
-            'logo_name_1' => ['nullable'],
-            'logo2' => ['nullable'],
-            'logo_number_2' => ['nullable'],
-            'logo_name_2' => ['nullable'],
+            'logo_number_1' => ['required'],
+            'logo_name_1' => ['required'],
+            'logo_2' => ['nullable'],
+            'logo_number_2' => ['required'],
+            'logo_name_2' => ['required'],
             'logo_3' => ['nullable'],
-            'logo_number_3' => ['nullable'],
-            'logo_name_3' => ['nullable'],
+            'logo_number_3' => ['required'],
+            'logo_name_3' => ['required'],
             'user_id' => ['nullable'],
         ]);
 
@@ -89,4 +89,8 @@ class AboutController extends Controller
         return redirect()->back()->with('success', 'About is successfully saved');
     }
 
+    public function logout(Request $request) {
+            Auth::logout();
+            return redirect('/admin/login')->with(['msg_body' => 'You signed out!']);
+    }
 }

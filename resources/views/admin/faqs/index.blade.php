@@ -37,6 +37,8 @@
                     </div>
 
                     <table class="table datatable-basic">
+                        @include('flash-message')
+
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -49,7 +51,7 @@
                             @forelse($faqs as $key => $faq)
                                 <tr>
 
-                                    <td>{{ $key +1 }}</td>
+                                    <td>{{ $key + 1 }}</td>
                                     <td>{{ $faq->question }}</td>
                                     <td>{{ $faq->answer }}</td>
                                     <td class="text-center">
@@ -60,12 +62,13 @@
                                                 </a>
                                                 <form action="{{ route('faqs.destroy', $faq->id) }}" method="POST">
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a href="{{ route('faqs.edit', $faq->id) }}" class="dropdown-item"><i class="icon-file-pdf"></i> edit</a>
+                                                        <a href="{{ route('faqs.edit', $faq->id) }}"
+                                                            class="dropdown-item"><i class="icon-pencil7"></i> edit</a>
                                                         <button type="submit" class="btn bg-transparent dropdown-item"><i
-                                                                class="icon-file-word"></i> Delete</button>
+                                                                class="icon-trash"></i> Delete</button>
 
 
-                                                     </div>
+                                                    </div>
                                                     @csrf
                                                     @method('DELETE')
 

@@ -34,7 +34,7 @@ class FaqsController extends Controller
     {
         $data = $request->validate([
             'question' => ['required'],
-            'answer' => ['nullable'],
+            'answer' => ['required'],
         ]);
 
         $data = Faqs::create($data);

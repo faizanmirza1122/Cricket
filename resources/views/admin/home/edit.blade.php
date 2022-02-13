@@ -25,9 +25,6 @@
             </div>
         </div>
         <!-- /page header -->
-        <span class="text-center">
-            @include('flash-message')
-        </span>
 
         <!-- Content area -->
         <div class="content">
@@ -37,9 +34,19 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('home.update' , $home->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('home.update', $home->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        {{ method_field("PUT") }}
+                        {{ method_field('PUT') }}
+                        @include('flash-message')
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <fieldset class="mb-3">
                             <legend class="text-uppercase font-size-sm font-weight-bold">Edit Home</legend>
                             @include('flash-message')
@@ -51,8 +58,8 @@
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Subtitle</label>
-                                <input type="text" name="subtitle" value="{{ $home->subtitle ?? '' }}" class="form-control"
-                                    placeholder="Enter your side poster subtitle...">
+                                <input type="text" name="subtitle" value="{{ $home->subtitle ?? '' }}"
+                                    class="form-control" placeholder="Enter your side poster subtitle...">
                             </div>
 
                             <div class="form-group  form-group-float">
@@ -69,7 +76,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($home)
-                                <img src="{{ asset('storage/' . $home->image) }}" width="100px">
+                                    <img src="{{ asset('storage/' . $home->image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Image</label>

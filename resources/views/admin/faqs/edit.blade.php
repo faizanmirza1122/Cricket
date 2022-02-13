@@ -25,9 +25,6 @@
             </div>
         </div>
         <!-- /page header -->
-        <span class="text-center">
-            @include('flash-message')
-        </span>
 
         <!-- Content area -->
         <div class="content">
@@ -37,9 +34,10 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('faqs.update', $faqs->id) }}" method="post" >
+                    <form action="{{ route('faqs.update', $faqs->id) }}" method="post">
                         @csrf
                         @method('PUT')
+                        @include('flash-message')
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>

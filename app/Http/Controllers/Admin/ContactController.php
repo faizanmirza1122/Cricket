@@ -32,19 +32,19 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'map' => ['nullable', 'url'],
-            'title' => ['nullable'],
-            'contact_info' => ['nullable'],
-            'description' => ['nullable'],
-            'general_inquries_title' => ['nullable'],
-            'general_inquries_email' => ['nullable'],
-            'social_link_1' => ['nullable', 'url'],
-            'social_link_2' => ['nullable', 'url'],
-            'social_link_3' => ['nullable', 'url'],
-            'join_team_title' => ['nullable'],
-            'join_team_description' => ['nullable'],
-            'be_our_partner_text' => ['nullable'],
-            'be_our_partner_email' => ['nullable'],
+            'map' => ['required', 'url'],
+            'title' => ['required'],
+            'contact_info' => ['required'],
+            'description' => ['required'],
+            'general_inquries_title' => ['required'],
+            'general_inquries_email' => ['required'],
+            'social_link_1' => ['required', 'url'],
+            'social_link_2' => ['required', 'url'],
+            'social_link_3' => ['required', 'url'],
+            'join_team_title' => ['required'],
+            'join_team_description' => ['required'],
+            'be_our_partner_text' => ['required'],
+            'be_our_partner_email' => ['required'],
             'user_id' => ['nullable'],
         ]);
 
