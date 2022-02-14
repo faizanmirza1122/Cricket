@@ -42,11 +42,10 @@ Route::get('/team-overview-2', [TeamSelectionController::class, 'to2'])->name('t
 //teams.player-page
 Route::get('/player-page', [TeamSelectionController::class, 'playerPage'])->name('player-page');
 
-//teams.staff-member
-Route::get('/staff-member', [TeamSelectionController::class, 'staffMember'])->name('staff-member');
 
 //teams.staff-page
 Route::get('/management-and-staff', [TeamSelectionController::class, 'staffPage'])->name('staff-page');
+Route::get('management-and-staff/{slug}/staff-member', [TeamSelectionController::class, 'staffMember'])->name('staff-member');
 
 //Matches
 Route::get('/matches-scores', [MatchesController::class, 'scores'])->name('matches-scores');

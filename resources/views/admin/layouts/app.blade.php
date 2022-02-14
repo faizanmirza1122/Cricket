@@ -35,6 +35,7 @@
 
     <script src="{{ asset('admin/assets/js/app.js') }}"></script>
     <script src="{{ asset('../../../../global_assets/js/demo_pages/dashboard.js') }}"></script>
+
     <!-- /theme JS files -->
     @yield('head')
     <style>

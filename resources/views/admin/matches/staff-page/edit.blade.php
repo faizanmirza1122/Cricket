@@ -111,6 +111,12 @@
                                     placeholder="Enter social media link 3...">
                             </div>
 
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Previous Work</label>
+                                <textarea rows="3" cols="3" class="form-control" placeholder="Enter previous work.."
+                                    name="previous_work"> {{ old('previous_work', $member->previous_work ?? '' ) }} </textarea>
+                            </div>
+
 
                             <button type="submit" class="btn btn-primary">Save</button>
 

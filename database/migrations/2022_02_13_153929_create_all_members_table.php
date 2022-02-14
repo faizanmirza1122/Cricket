@@ -17,6 +17,7 @@ class CreateAllMembersTable extends Migration
             $table->id();
             $table->string('designation');
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->text('age');
             $table->date('joining_date');
             $table->string('country');
@@ -25,6 +26,7 @@ class CreateAllMembersTable extends Migration
             $table->text('social_media_link_1');
             $table->text('social_media_link_2');
             $table->text('social_media_link_3');
+            $table->text('previous_work')->nullable();
             $table->timestamps();
         });
     }

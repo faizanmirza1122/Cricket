@@ -48,10 +48,6 @@ class TeamSelectionController extends Controller
         return view('teams.player-page');
     }
 
-    public function staffMember()
-    {
-        return view('teams.staff-member');
-    }
 
     public function staffPage()
     {
@@ -59,4 +55,10 @@ class TeamSelectionController extends Controller
         return view('teams.staff-page', compact('teams'));
     }
 
+    public function staffMember()
+    {
+        $team = AllMember::get();
+        $teamMember = AllMember::where('slug', $team->id);
+        return view('teams.staff-member', compact('teamMember'));
+    }
 }

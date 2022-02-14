@@ -46,7 +46,7 @@
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Designation</th>
-                                <th>joining_date</th>
+                                <th>Joining Date</th>
                                 <th>Age</th>
                                 <th class="text-center">Actions</th>
                             </tr>
