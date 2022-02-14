@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\AllMember;
 use Illuminate\Http\Request;
 
 class TeamSelectionController extends Controller
@@ -54,7 +55,8 @@ class TeamSelectionController extends Controller
 
     public function staffPage()
     {
-        return view('teams.staff-page');
+        $teams = AllMember::orderBy('id', 'DESC')->get();
+        return view('teams.staff-page', compact('teams'));
     }
 
 }

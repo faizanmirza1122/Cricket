@@ -68,9 +68,10 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a href="{{ route('home.edit', $home->id) }}"
                                                             class="dropdown-item"><i class="icon-pencil7"></i> edit</a>
-                                                        <button type="submit" class="btn bg-transparent dropdown-item"><i
+                                                        <a onclick="return confirm('Are you sure?')" >
+                                                            <button type="submit" class="btn bg-transparent dropdown-item"><i
                                                                 class="icon-trash"></i> Delete</button>
-
+                                                        </a>
                                                     </div>
                                                     @csrf
                                                     @method('DELETE')

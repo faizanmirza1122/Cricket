@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\HomeController as HmeController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,7 +63,7 @@ Route::get('/matches-overview-2', [MatchesController::class, 'matchesOverview2']
 Route::get('/matches-repaly', [MatchesController::class, 'matchesRepaly'])->name('matches-repaly');
 
 
-Route::get('/news', [MatchesController::class, 'news'])->name('news');
+Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/shop', [MatchesController::class, 'shop'])->name('shop');
 Route::get('/contact', [MatchesController::class, 'contact'])->name('contact');
 Route::get('/faqs', [MatchesController::class, 'faqs'])->name('faqs');
@@ -90,6 +92,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('/faqs', FaqsController::class)->except('show');
 
     Route::resource('/management-team-members', AllMemberController::class)->except('show');
+
+    Route::resource('/news', NewsController::class)->except('show');
 
     Route::post('logout', [AboutController::class, 'logout'])->name('logout');
 

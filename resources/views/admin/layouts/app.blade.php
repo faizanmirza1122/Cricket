@@ -186,6 +186,18 @@
                                         class="nav-link ">View All</a></li>
                             </ul>
                         </li>
+
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-library2"></i> <span>News</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="{{ route('news.create') }}"
+                                        class="nav-link ">Create</a></li>
+                                <li class="nav-item"><a href="{{ route('news.index') }}"
+                                        class="nav-link ">View All</a></li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Team</span></a>
 

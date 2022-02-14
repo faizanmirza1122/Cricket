@@ -21,7 +21,7 @@ class CreateAllMembersTable extends Migration
             $table->date('joining_date');
             $table->string('country');
             $table->longText('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->text('social_media_link_1');
             $table->text('social_media_link_2');
             $table->text('social_media_link_3');

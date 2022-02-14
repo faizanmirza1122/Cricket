@@ -64,30 +64,26 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a href="{{ route('faqs.edit', $faq->id) }}"
                                                             class="dropdown-item"><i class="icon-pencil7"></i> edit</a>
-                                                        <button type="submit" class="btn bg-transparent dropdown-item"><i
-                                                                class="icon-trash"></i> Delete</button>
-
-
+                                                        <a onclick="return confirm('Are you sure?')">
+                                                            <button type="submit"
+                                                                class="btn bg-transparent dropdown-item"><i
+                                                                    class="icon-trash"></i> Delete</button>
+                                                        </a>
                                                     </div>
                                                     @csrf
                                                     @method('DELETE')
-
                                                 </form>
                                             </div>
                                         </div>
                                     </td>
-
                                 </tr>
                             @empty
                                 <h1 class="text-center ">No Data Found </h1>
                             @endforelse
-
                         </tbody>
                     </table>
                 </div>
                 <!-- /basic datatable -->
-
-
 
             </div>
             <!-- /content area -->

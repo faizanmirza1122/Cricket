@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\AllMember;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class AllMemberController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AllMemberController extends Controller
      */
     public function index()
     {
-        $teams = AllMember::orderBy('id', 'DESC')->get();
-        return view('admin.team.index', compact('teams'));
+        $news = News::orderBy('id', 'DESC')->get();
+        return view('admin.news.index', compact('news'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AllMemberController extends Controller
      */
     public function create()
     {
-        return view('admin.team.create');
+        return view('admin.news.create');
     }
 
     /**
@@ -40,16 +40,11 @@ class AllMemberController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'designation' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
-            'age' => ['required'],
-            'joining_date' => ['required'],
-            'country' => ['required'],
+            'category' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
+            'date' => ['required'],
             'description' => ['required'],
             'image' => ['required'],
-            'social_media_link_1' => ['nullable', 'url'],
-            'social_media_link_2' => ['nullable', 'url'],
-            'social_media_link_3' => ['nullable', 'url'],
         ]);
 
         if ($request->file('image')) {
@@ -58,8 +53,8 @@ class AllMemberController extends Controller
             Storage::putFileAs('public', $image, $imageName);
             $data['image'] = $imageName;
         }
-        $data = AllMember::create($data);
-        return redirect()->route('management-team-members.index')->with('message', 'Team Member has been added successfully');
+        $data = News::create($data);
+        return redirect()->route('news.index')->with('message', 'News has been added successfully');
     }
 
     /**
@@ -70,8 +65,8 @@ class AllMemberController extends Controller
      */
     public function edit($id)
     {
-        $member = AllMember::find($id);
-        return view('admin.team.edit', compact('member'));
+        $news = News::find($id);
+        return view('admin.news.edit', compact('news'));
     }
 
     /**
@@ -84,16 +79,11 @@ class AllMemberController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'designation' => ['nullable', 'string', 'max:255'],
-            'name' => ['nullable', 'string', 'max:255'],
-            'age' => ['nullable'],
-            'joining_date' => ['nullable'],
-            'country' => ['nullable'],
-            'description' => ['nullable'],
-            'image' => ['required'],
-            'social_media_link_1' => ['nullable', 'url'],
-            'social_media_link_2' => ['nullable', 'url'],
-            'social_media_link_3' => ['nullable', 'url'],
+            'category' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
+            'date' => ['required'],
+            'description' => ['required'],
+            'image' => ['nullable'],
         ]);
 
         if ($request->file('image')) {
@@ -101,24 +91,19 @@ class AllMemberController extends Controller
             $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
             Storage::putFileAs('public', $image, $imageName);
             $data['image'] = $imageName;
-        }else{
+        } else {
             $imageName = $request->image;
         }
 
-        $data = AllMember::find($id);
+        $data = News::find($id);
 
-        $data->designation =  $request->get('designation');
-        $data->name = $request->get('name');
-        $data->age = $request->get('age');
-        $data->joining_date = $request->get('joining_date');
-        $data->country = $request->get('country');
+        $data->category =  $request->get('category');
+        $data->title = $request->get('title');
+        $data->date = $request->get('date');
         $data->description = $request->get('description');
         $data->image = $imageName;
-        $data->social_media_link_1 = $request->get('social_media_link_1');
-        $data->social_media_link_2 = $request->get('social_media_link_2');
-        $data->social_media_link_3 = $request->get('social_media_link_3');
         $data->save();
-        return redirect()->back()->with('message', 'Team Member has been updated successfully');
+        return redirect()->back()->with('message', 'News has been updated successfully');
     }
 
     /**
@@ -129,10 +114,10 @@ class AllMemberController extends Controller
      */
     public function destroy($id)
     {
-        $members = AllMember::find($id);
+        $members = News::find($id);
         $members->delete();
 
-        return redirect()->route('management-team-members.index')
-            ->with('success', 'Team Member deleted successfully');
+        return redirect()->route('news.index')
+            ->with('success', 'News deleted successfully');
     }
 }
