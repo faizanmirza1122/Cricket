@@ -16,7 +16,15 @@ class PageController extends Controller
     public function news()
     {
         $news = News::orderBy('id', 'DESC')->get();
+
         return view('news', compact('news'));
+    }
+
+    public function newsDetail($slug)
+    {
+        $news = News::where('slug', $slug)->first();
+
+        return view('news-detail', compact('news'));
     }
 
 }

@@ -57,8 +57,7 @@ class TeamSelectionController extends Controller
     public function staffMember($slug)
     {
         $team = AllMember::where('slug', $slug)->first();
-        dd($team);
-        // $team = AllMember::where('slug', $team->id)->get();
+
         return view('teams.staff-member', compact('team'));
     }
 }

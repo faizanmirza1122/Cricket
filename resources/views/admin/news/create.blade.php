@@ -71,10 +71,20 @@
                             </div>
 
                             <div class="form-group form-group-float">
+                                <label class="d-block">Body Image</label>
+                                <input type="file" class="form-control" name="body_image" id="body_image">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Description Under Body Image</label>
+                                <textarea rows="3" cols="3" class="form-control" placeholder="description_under_image.."
+                                    name="description_under_image">{{ old('description_under_image') }}</textarea>
+                            </div>
+
+                            <div class="form-group form-group-float">
                                 <label class="d-block">Image</label>
                                 <input type="file" class="form-control" name="image" id="image">
                             </div>
-
                             <button type="submit" class="btn btn-primary">Save</button>
 
                         </fieldset>

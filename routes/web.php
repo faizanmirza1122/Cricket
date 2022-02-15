@@ -63,6 +63,7 @@ Route::get('/matches-repaly', [MatchesController::class, 'matchesRepaly'])->name
 
 
 Route::get('/news', [PageController::class, 'news'])->name('news');
+Route::get('/news/{slug}', [PageController::class, 'newsDetail'])->name('news-detail');
 Route::get('/shop', [MatchesController::class, 'shop'])->name('shop');
 Route::get('/contact', [MatchesController::class, 'contact'])->name('contact');
 Route::get('/faqs', [MatchesController::class, 'faqs'])->name('faqs');

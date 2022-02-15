@@ -42,10 +42,22 @@ class NewsController extends Controller
         $data = $request->validate([
             'category' => ['required', 'string', 'max:255'],
             'title' => ['required', 'string', 'max:255'],
+            'slug' => ['nullable', 'string', 'max:255'],
             'date' => ['required'],
             'description' => ['required'],
+            'body_image' => ['required'],
+            'description_under_image' => ['required'],
             'image' => ['required'],
         ]);
+
+        $data['slug'] = Str::slug($request->title, '-');
+
+        if ($request->file('body_image')) {
+            $image = $request->file('body_image');
+            $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public', $image, $imageName);
+            $data['body_image'] = $imageName;
+        }
 
         if ($request->file('image')) {
             $image = $request->file('image');
@@ -53,6 +65,7 @@ class NewsController extends Controller
             Storage::putFileAs('public', $image, $imageName);
             $data['image'] = $imageName;
         }
+
         $data = News::create($data);
         return redirect()->route('news.index')->with('message', 'News has been added successfully');
     }
@@ -81,10 +94,22 @@ class NewsController extends Controller
         $data = $request->validate([
             'category' => ['required', 'string', 'max:255'],
             'title' => ['required', 'string', 'max:255'],
+            'slug' => ['required', 'string', 'max:255'],
             'date' => ['required'],
             'description' => ['required'],
+            'body_image' => ['nullable'],
+            'description_under_image' => ['required'],
             'image' => ['nullable'],
         ]);
+
+        if ($request->file('body_image')) {
+            $image = $request->file('body_image');
+            $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public', $image, $imageName);
+            $data['body_image'] = $imageName;
+        } else {
+            $imageName = $request->description_under_image;
+        }
 
         if ($request->file('image')) {
             $image = $request->file('image');
@@ -94,7 +119,7 @@ class NewsController extends Controller
         } else {
             $imageName = $request->image;
         }
-
+        $data['slug'] = Str::slug($request->title, '-');
         $data = News::find($id);
 
         $data->category =  $request->get('category');

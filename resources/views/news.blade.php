@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Content
-      ================================================== -->
+          ================================================== -->
     <main class="site-content" id="wrapper">
 
         <div class="widget-area widger-area--before-loop">
@@ -72,7 +72,8 @@
                     <div class="post__thumbnail">
 
                         @if ($blog)
-                            <a href="#"><img src="{{ asset('storage/' . $blog->image) }}" alt=""></a>
+                            <a href="{{ route('news-detail', [$blog->slug]) }}"><img
+                                    src="{{ asset('storage/' . $blog->image) }}" alt=""></a>
                         @else
                         @endif
 
@@ -87,7 +88,7 @@
                             <h2 class="post__title h4"><a href="#">{{ $blog->title ?? '' }}</a></h2>
                             <ul class="post__meta list-unstyled">
                                 <li class="post__meta-item post__meta-item--date">
-                                    <a href="#">{{ date('F,d-Y', strtotime($blog->date ?? '')); }}</a>
+                                    <a href="#">{{ date('F,d-Y', strtotime($blog->date ?? '')) }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -103,5 +104,4 @@
         </div>
 
     </main>
-
 @endsection
