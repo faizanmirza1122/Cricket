@@ -114,7 +114,6 @@ class AllMemberController extends Controller
             $imageName = $request->image;
         }
 
-        // dd($data);
         $data = AllMember::find($id);
 
         $data->designation =  $request->get('designation');

@@ -48,17 +48,17 @@ class TeamSelectionController extends Controller
         return view('teams.player-page');
     }
 
-
     public function staffPage()
     {
         $teams = AllMember::orderBy('id', 'DESC')->get();
         return view('teams.staff-page', compact('teams'));
     }
 
-    public function staffMember()
+    public function staffMember($slug)
     {
-        $team = AllMember::get();
-        $teamMember = AllMember::where('slug', $team->id);
-        return view('teams.staff-member', compact('teamMember'));
+        $team = AllMember::where('slug', $slug)->first();
+        dd($team);
+        // $team = AllMember::where('slug', $team->id)->get();
+        return view('teams.staff-member', compact('team'));
     }
 }

@@ -79,7 +79,6 @@
 							</li>
 							<li class=""><a href="{{ route('player-page') }}">Player Page</a></li>
 							<li class=""><a href="{{ route('staff-page') }}">Staff Page</a></li>
-							<li class=""><a href="{{ route('staff-member') }}">Staff Member<span class="badge badge-danger">New</span></a></li>
 						</ul>
 					</li>
 					<li class=""><a href="#">Matches</a>
