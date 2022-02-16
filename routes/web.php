@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\HomeController as HmeController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -94,6 +95,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('/management-team-members', AllMemberController::class)->except('show');
 
     Route::resource('/news', NewsController::class)->except('show');
+
+    Route::resource('/product', ProductController::class)->except('show');
 
     Route::post('logout', [AboutController::class, 'logout'])->name('logout');
 
