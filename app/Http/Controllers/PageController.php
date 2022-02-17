@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AllMember;
 use App\Models\News;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -26,5 +26,20 @@ class PageController extends Controller
 
         return view('news-detail', compact('news'));
     }
+
+    public function shop()
+    {
+        $products = Product::orderBy('id', 'DESC')->get();
+
+        return view('shop', compact('products'));
+    }
+
+    public function shopDetail($slug)
+    {
+        $product = Product::where('slug', $slug)->first();
+
+        return view('shop-detail', compact('product'));
+    }
+
 
 }

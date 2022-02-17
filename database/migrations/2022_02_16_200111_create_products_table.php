@@ -19,11 +19,12 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->string('slug');
             $table->string('product_category');
-            $table->string('images');
-            $table->string('featured_image');
+            $table->string('featured_image')->nullable();
+            $table->string('images')->nullable();
             $table->text('product_price');
+            $table->longText('product_description')->nullable();
             $table->text('product_color');
-            $table->string('product_size');
+            $table->text('product_size');
             $table->text('product_quantity');
 
             $table->timestamps();

@@ -4,7 +4,6 @@
 <!-- Content
 		================================================== -->
         <main class="site-content" id="wrapper">
-
 			<div class="widget-area widger-area--before-loop">
 				<div class="widget widget-featured-product bg-image bg--ph-03">
 					<div class="widget__subtitle">Featured Item</div>
@@ -22,21 +21,21 @@
 				</div>
 			</div>
 			<div class="content shop-layout--style-1">
-
+                @forelse ($products as $product)
 				<article class="product">
 					<div class="product__thumbnail">
-						<a href="shop-product.html"><img src="assets/img/samples/product-img-01.png" alt=""></a>
+						<a href="{{ route('shop-detail', $product->slug) }}"><img src="{{ asset('storage/' . $product->featured_image) }}" alt=""></a>
 					</div>
 					<div class="product__body">
 						<div class="product__header">
 							<ul class="product__cats list-unstyled">
 								<li class="product__cats-item color-warning">
-									<a href="#">Framed prints</a>
+									<a href="#">{{ $product->product_categroy }}</a>
 								</li>
 							</ul>
-							<h2 class="product__title h4"><a href="shop-product.html">Magimons black framed print</a></h2>
+							<h2 class="product__title h4"><a href="shop-product.html">{{ $product->product_name }}</a></h2>
 							<ul class="product__meta list-unstyled">
-								<li class="product__meta-item product__price">$38.00</li>
+								<li class="product__meta-item product__price">${{ $product->product_price }}</li>
 								<li class="product__meta-item product__ratings">
 									<div class="fas star-rating">
 										<span style="width: 80%;">&nbsp;</span>
@@ -45,147 +44,14 @@
 							</ul>
 						</div>
 						<div class="product__excerpt">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...
+							{{ $product->product_description }}
 						</div>
 						<a href="shop-product.html" class="btn btn-secondary">Add to cart +</a>
 					</div>
 				</article>
-				<article class="product">
-					<div class="product__thumbnail">
-						<a href="shop-product.html"><img src="assets/img/samples/product-img-02.png" alt=""></a>
-					</div>
-					<div class="product__body">
-						<div class="product__header">
-							<ul class="product__cats list-unstyled">
-								<li class="product__cats-item color-warning">
-									<a href="#">Coffee mugs</a>
-								</li>
-							</ul>
-							<h2 class="product__title h4"><a href="shop-product.html">Necromancers ennamel mug</a></h2>
-							<ul class="product__meta list-unstyled">
-								<li class="product__meta-item product__price">$16.00</li>
-								<li class="product__meta-item product__ratings">
-									<div class="fas star-rating">
-										<span style="width: 60%;">&nbsp;</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="product__excerpt">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...
-						</div>
-						<a href="shop-product.html" class="btn btn-secondary">Add to cart +</a>
-					</div>
-				</article>
-				<article class="product">
-					<div class="product__thumbnail">
-						<a href="shop-product.html"><img src="assets/img/samples/product-img-03.png" alt=""></a>
-					</div>
-					<div class="product__body">
-						<div class="product__header">
-							<ul class="product__cats list-unstyled">
-								<li class="product__cats-item color-warning">
-									<a href="#">Clothing</a>
-								</li>
-							</ul>
-							<h2 class="product__title h4"><a href="shop-product.html">Necromancers women&#x27;s t-shirt</a></h2>
-							<ul class="product__meta list-unstyled">
-								<li class="product__meta-item product__price">$24.99</li>
-								<li class="product__meta-item product__ratings">
-									<div class="fas star-rating">
-										<span style="width: 100%;">&nbsp;</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="product__excerpt">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...
-						</div>
-						<a href="shop-product.html" class="btn btn-secondary">Add to cart +</a>
-					</div>
-				</article>
-				<article class="product">
-					<div class="product__thumbnail">
-						<a href="shop-product.html"><img src="assets/img/samples/product-img-04.png" alt=""></a>
-					</div>
-					<div class="product__body">
-						<div class="product__header">
-							<ul class="product__cats list-unstyled">
-								<li class="product__cats-item color-warning">
-									<a href="#">Framed prints</a>
-								</li>
-							</ul>
-							<h2 class="product__title h4"><a href="shop-product.html">Guardians white frame print</a></h2>
-							<ul class="product__meta list-unstyled">
-								<li class="product__meta-item product__price">$32.00</li>
-								<li class="product__meta-item product__ratings">
-									<div class="fas star-rating">
-										<span style="width: 80%;">&nbsp;</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="product__excerpt">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...
-						</div>
-						<a href="shop-product.html" class="btn btn-secondary">Add to cart +</a>
-					</div>
-				</article>
-				<article class="product">
-					<div class="product__thumbnail">
-						<a href="shop-product.html"><img src="assets/img/samples/product-img-01.png" alt=""></a>
-					</div>
-					<div class="product__body">
-						<div class="product__header">
-							<ul class="product__cats list-unstyled">
-								<li class="product__cats-item color-warning">
-									<a href="#">Framed prints</a>
-								</li>
-							</ul>
-							<h2 class="product__title h4"><a href="shop-product.html">Magimons black framed print</a></h2>
-							<ul class="product__meta list-unstyled">
-								<li class="product__meta-item product__price">$38.00</li>
-								<li class="product__meta-item product__ratings">
-									<div class="fas star-rating">
-										<span style="width: 80%;">&nbsp;</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="product__excerpt">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...
-						</div>
-						<a href="shop-product.html" class="btn btn-secondary">Add to cart +</a>
-					</div>
-				</article>
-				<article class="product">
-					<div class="product__thumbnail">
-						<a href="shop-product.html"><img src="assets/img/samples/product-img-02.png" alt=""></a>
-					</div>
-					<div class="product__body">
-						<div class="product__header">
-							<ul class="product__cats list-unstyled">
-								<li class="product__cats-item color-warning">
-									<a href="#">Coffee mugs</a>
-								</li>
-							</ul>
-							<h2 class="product__title h4"><a href="shop-product.html">Necromancers ennamel mug</a></h2>
-							<ul class="product__meta list-unstyled">
-								<li class="product__meta-item product__price">$16.00</li>
-								<li class="product__meta-item product__ratings">
-									<div class="fas star-rating">
-										<span style="width: 60%;">&nbsp;</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="product__excerpt">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...
-						</div>
-						<a href="shop-product.html" class="btn btn-secondary">Add to cart +</a>
-					</div>
-				</article>
-
+                @empty
+                <h1 class="text-center"> No Data Found </h1>
+                @endforelse
 			</div>
 
 		</main>

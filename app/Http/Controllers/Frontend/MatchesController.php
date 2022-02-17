@@ -71,16 +71,6 @@ class MatchesController extends Controller
         return view('matches.replay');
     }
 
-    public function news()
-    {
-        return view('news');
-    }
-
-    public function shop()
-    {
-        return view('shop');
-    }
-
     public function contact()
     {
         $contact = Contact::orderBy('id', 'DESC')->first();
