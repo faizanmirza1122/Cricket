@@ -119,7 +119,6 @@
                 @if ($main)
 				<a href="/homes"><img src="{{ asset('storage/' . $main->logo) }}" srcset="assets/img/logo@2x.png 2x" alt="Necromancers"></a>
                 @else
-				<a href="/homes"><img src="{{ asset('assets/img/default_logo.png') }}" ></a>
                 @endif
             </div>
 			<!-- Logo - Image Based / End -->
@@ -129,12 +128,7 @@
 				<ul class="main-nav__list">
 					<li class=""><a href="#">News</a>
 						<ul class="main-nav__sub">
-							<li class=""><a href="blog-1.html">News v1</a></li>
-							<li class=""><a href="blog-2.html">News v2</a></li>
-							<li class=""><a href="blog-3.html">News v3</a></li>
-							<li class=""><a href="blog-4.html">News v4</a></li>
-							<li class=""><a href="blog-classic.html">News Classic</a></li>
-							<li class=""><a href="blog-post.html">Post Page</a></li>
+							<li class=""><a href="{{ route('news') }}">News v1</a></li>
 						</ul>
 					</li>
                     <li >
@@ -143,6 +137,12 @@
 							<li class=""><a href="{{ route('contact') }}">Contact</a></li>
 							<li class=""><a href="{{ route('faqs') }}">FAQS</a></li>
 							<li class=""><a href="{{ route('about') }}">About</a></li>
+						</ul>
+					</li>
+                    <li class="">
+						<a href="#">Shop</a>
+						<ul class="main-nav__sub">
+							<li class=""><a href="{{ route('shop') }}">Shop Page v1</a></li>
 						</ul>
 					</li>
 					<!-- Main Navigation Right / End -->
@@ -155,7 +155,7 @@
 
 			<div class="site-content__center">
 				<h1 class="text-white landing-title"><span class="subtitle landing-subtitle">{{ $main->subtitle ?? '' }}</span>{{ $main->title ?? '' }}</h1>
-				<a href="home.html" class="btn btn-primary btn-lg btn--landing"><span>Start Browsing!</span></a>
+				<a href="{{ route('home') }}" class="btn btn-primary btn-lg btn--landing"><span>Start Browsing!</span></a>
 			</div>
 
 		</main>

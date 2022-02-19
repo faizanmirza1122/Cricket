@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->string('product_category');
             $table->string('featured_image')->nullable();
-            $table->string('images')->nullable();
+            $table->text('images')->nullable();
             $table->text('product_price');
             $table->longText('product_description')->nullable();
             $table->text('product_color');

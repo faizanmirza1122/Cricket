@@ -129,9 +129,6 @@
 						<a href="#">Shop</a>
 						<ul class="main-nav__sub">
 							<li class=""><a href="{{ route('shop') }}">Shop Page v1</a></li>
-							{{-- <li class=""><a href="shop-2.html">Shop Page v2</a></li>
-							<li class=""><a href="shop-product.html">Product Page</a></li>
-							<li class=""><a href="shop-checkout.html">Checkout Page</a></li> --}}
 						</ul>
 					</li>
 				</ul>

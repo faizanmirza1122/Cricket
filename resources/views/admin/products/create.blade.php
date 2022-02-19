@@ -1,4 +1,9 @@
 @extends('admin.layouts.app')
+@section('head')
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> --}}
+
+@endsection
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
@@ -50,8 +55,8 @@
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Product Name</label>
-                                <input type="text" name="product_name" value="{{ old('product_name') }}" class="form-control"
-                                    placeholder="Enter your product name...">
+                                <input type="text" name="product_name" value="{{ old('product_name') }}"
+                                    class="form-control" placeholder="Enter your product name...">
                             </div>
 
                             <div class="form-group form-group-float">
@@ -61,38 +66,51 @@
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Product Category</label>
-                                <input type="text" name="product_category" value="{{ old('product_category') }}" class="form-control"
-                                    placeholder="Enter your product category..">
+                                <input type="text" name="product_category" value="{{ old('product_category') }}"
+                                    class="form-control" placeholder="Enter your product category..">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Product Price</label>
-                                <input type="number" name="product_price" value="{{ old('product_price') }}" class="form-control"
-                                    placeholder="Enter your product price..">
+                                <input type="number" name="product_price" value="{{ old('product_price') }}"
+                                    class="form-control" placeholder="Enter your product price..">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Product Color</label>
-                                <input type="text" name="product_color" value="{{ old('product_color') }}" class="form-control"
-                                    placeholder="Enter your product color..">
+                                <input type="text" name="product_color" value="{{ old('product_color') }}"
+                                    class="form-control" placeholder="Enter your product color..">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Product Size</label>
-                                <input type="text" name="product_size" value="{{ old('product_size') }}" class="form-control"
-                                    placeholder="Enter your product size..">
+                                <input type="text" name="product_size" value="{{ old('product_size') }}"
+                                    class="form-control" placeholder="Enter your product size..">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Product quantity</label>
-                                <input type="text" name="product_quantity" value="{{ old('product_quantity') }}" class="form-control"
-                                    placeholder="Enter your product quantity..">
+                                <input type="text" name="product_quantity" value="{{ old('product_quantity') }}"
+                                    class="form-control" placeholder="Enter your product quantity..">
                             </div>
 
-                            <div class="form-group form-group-float">
-                                <label class="d-block">Image</label>
-                                <input type="file" class="form-control" name="images[]" id="images[]">
+                            <div class="input-group control-group increment">
+                                <input type="file" name="images[]" class="form-control">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-success" type="button"><i
+                                            class="glyphicon glyphicon-plus"></i>Add</button>
+                                </div>
                             </div>
+                            <div class="clone hide">
+                                <div class="control-group input-group" style="margin-top:10px">
+                                    <input type="file" name="images[]" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-danger" id="btnw" type="button"><i
+                                                class="glyphicon glyphicon-remove"></i> Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Description</label>
@@ -114,4 +132,16 @@
 
     </div>
     <!-- /main content -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".btn-success").click(function() {
+                var html = $(".clone").html();
+                $(".increment").after(html);
+            });
+            $("body").on("click", ".btn-danger", function() {
+                $(this).parents(".control-group").remove();
+            });
+
+        });
+    </script>
 @endsection

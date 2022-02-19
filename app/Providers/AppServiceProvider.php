@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Main;
+use  Illuminate\Support\Facades\Schema;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function($view) {
             $view->with('logo', Main::first());
         });
+        Schema::defaultStringLength(191);
     }
 }

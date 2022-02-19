@@ -37,8 +37,8 @@ class PageController extends Controller
     public function shopDetail($slug)
     {
         $product = Product::where('slug', $slug)->first();
-
-        return view('shop-detail', compact('product'));
+        $pics = Product::where('slug', $slug)->get();
+        return view('shop-detail', compact('product', 'pics'));
     }
 
 

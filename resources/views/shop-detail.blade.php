@@ -6,10 +6,6 @@
 
             <div class="site-wrapper site-layout--default">
 
-                <!-- Header
-                ================================================== -->
-                <header id="header" class="site-header site-header--bottom"></header>
-                <!-- Header / End -->
 
                 <!-- Content
                 ================================================== -->
@@ -19,9 +15,11 @@
                             <!-- Post -->
                             <article class="product product--single">
                                 <div class="product__thumbnail slick-slider">
+                                    {{-- @foreach(json_decode($pics, true) as $images) as )
                                     <div class="product__thumbnail-item slick-slide">
-                                        <img src="assets/img/samples/product-single-img-01.jpg" alt="">
+                                        <img src="{{ asset('storage/' . $images->image) }}" alt="">
                                     </div>
+                                    @endforeach --}}
                                     <div class="product__thumbnail-item slick-slide">
                                         <img src="assets/img/samples/product-single-img-01.jpg" alt="">
                                     </div>

@@ -37,18 +37,20 @@ class ProductController extends Controller
         $data = $request->validate([
             'product_name' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255'],
-            'featured_image' => ['nullable'],
+            'featured_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:3048'],
             'product_category' => ['required', 'string', 'max:255'],
             'product_size' => ['required', 'string', 'max:255'],
             'product_color' => ['required', 'string', 'max:255'],
             'product_price' => ['required'],
             'product_quantity' => ['required'],
-            'image' => ['nullable'],
+            'images' => ['nullable'],
+            'images.*' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'product_description' => ['required'],
 
         ]);
 
-        $data['slug'] = Str::slug($request->product_name);
+        $data['slug'] = Str::slug($request->product_name, '-');
+        $slug = $data['slug'];
 
         if ($request->file('featured_image')) {
             $image = $request->file('featured_image');
@@ -56,8 +58,28 @@ class ProductController extends Controller
             Storage::putFileAs('public', $image, $imageName);
             $data['featured_image'] = $imageName;
         }
-        // dd($data);
-        $data = Product::create($data);
+
+        if ($request->hasfile('images')) {
+            foreach($request->file('images') as $image)
+            {
+                $name = Str::random(8) . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path().'/public/', $name);
+                $data[] = $name;
+            }
+        }
+
+        $data = new Product();
+        $data->product_name =  $request->get('product_name');
+        $data->slug =  $slug;
+        $data->product_category =  $request->get('product_category');
+        $data->product_size =  $request->get('product_size');
+        $data->product_color =  $request->get('product_color');
+        $data->product_quantity =  $request->get('product_quantity');
+        $data->featured_image =  $imageName;;
+        $data->product_price =  $request->get('product_price');
+        $data->product_description =  $request->get('product_description');
+        $data->images =  json_decode($data);
+        $data->save();
         return redirect()->route('product.index')->with('message', 'Product has been added successfully');
     }
 
