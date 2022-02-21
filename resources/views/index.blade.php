@@ -117,7 +117,7 @@
 			<!-- Logo - Image Based -->
 			<div class="header-logo header-logo--img">
                 @if ($main)
-				<a href="/homes"><img src="{{ asset('storage/' . $main->logo) }}" srcset="assets/img/logo@2x.png 2x" alt="Necromancers"></a>
+				<a href="/home"><img src="{{ asset('storage/' . $main->logo) }}" srcset="assets/img/logo@2x.png 2x" alt="Necromancers"></a>
                 @else
                 @endif
             </div>
