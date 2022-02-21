@@ -102,14 +102,16 @@
                                     name="product_description">{{ $product->product_description ?? '' }}</textarea>
                             </div>
 
-                            <div class="form-group form-group-float">
+                            {{-- <div class="form-group form-group-float">
                                 @if ($product)
-                                    <img src="{{ asset('storage/' . $product->images) }}" width="100px">
-                                @else
+                                @foreach(json_decode($product->images, true) as $images)
+                                    <img src="{{ asset('storage/' . $images->images) }}" width="100px">
+                                @endforeach
+                                    @else
                                 @endif
                                 <label class="d-block">images</label>
                                 <input type="file" class="form-control" name="images" id="images">
-                            </div>
+                            </div> --}}
 
                             <button type="submit" class="btn btn-primary">Save</button>
 

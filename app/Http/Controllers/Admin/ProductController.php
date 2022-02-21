@@ -92,6 +92,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+        // dd($product);
         return view('admin.products.edit', compact('product'));
     }
 
@@ -113,7 +114,7 @@ class ProductController extends Controller
             'product_color' => ['nullable', 'string', 'max:255'],
             'product_price' => ['nullable'],
             'product_quantity' => ['nullable'],
-            // 'images/' => ['nullable'],
+            'images' => ['nullable'],
             'product_description' => ['nullable'],
         ]);
 
@@ -128,6 +129,17 @@ class ProductController extends Controller
             $imageName = $request->image;
         }
 
+        if ($request->hasfile('images')) {
+            foreach($request->file('images') as $image)
+            {
+                $name = Str::random(8) . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path().'/public/', $name);
+                $data[] = $name;
+            }
+        }else{
+            $name = $request->image;
+        }
+
         $data = Product::find($id);
 
         $data->product_name =  $request->get('product_name');
@@ -137,7 +149,7 @@ class ProductController extends Controller
         $data->product_price = $request->get('product_price');
         $data->featured_image = $imageName;
         $data->product_quantity = $request->get('product_quantity');
-        $data->images = $request->get('images');
+        $data->images =  json_decode($data);
         $data->product_description = $request->get('product_description');
         // dd($data);
         $data->save();

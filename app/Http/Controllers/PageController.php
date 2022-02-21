@@ -38,6 +38,7 @@ class PageController extends Controller
     {
         $product = Product::where('slug', $slug)->first();
         $pics = Product::where('slug', $slug)->get();
+        // dd($pics);
         return view('shop-detail', compact('product', 'pics'));
     }
 
