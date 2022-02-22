@@ -199,7 +199,7 @@
                             </ul>
                         </li>
 
-                        <li class="nav-item nav-item-submenu">
+                        {{-- <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Products</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Themes">
@@ -208,22 +208,24 @@
                                 <li class="nav-item"><a href="{{ route('product.index') }}"
                                         class="nav-link ">View All</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Team</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Themes">
-                                <li class="nav-item"><a href="#" class="nav-link ">Team Selections</a>
+                                <li class="nav-item"><a href="{{ route('team.create') }}" class="nav-link ">Create</a>
                                 </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Team Overview</a>
+                                <li class="nav-item"><a href="{{ route('team.index') }}" class="nav-link ">View All</a>
+                                </li>
+                                {{-- <li class="nav-item"><a href="#" class="nav-link ">Team Overview</a>
                                 </li>
                                 <li class="nav-item"><a href="#" class="nav-link ">Player Information</a>
                                 </li>
                                 <li class="nav-item"><a href="{{ route('management-team-members.index') }}" class="nav-link ">Staff Page</a>
                                 </li>
                                 <li class="nav-item"><a href="#" class="nav-link ">Staff Member</a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </li>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\AllMember;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamSelectionController extends Controller
@@ -13,24 +14,11 @@ class TeamSelectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ts1()
-    {
-        return view('teams.team-s-v1');
-    }
 
     public function ts2()
     {
-        return view('teams.team-s-v2');
-    }
-
-    public function ts3()
-    {
-        return view('teams.team-s-v3');
-    }
-
-    public function ts4()
-    {
-        return view('teams.team-s-v4');
+        $teams = Team::limit(4)->get();
+        return view('teams.team-s-v2', compact('teams'));
     }
 
     public function to1()

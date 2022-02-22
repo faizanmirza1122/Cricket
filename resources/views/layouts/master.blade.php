@@ -66,10 +66,7 @@
 							<li class="">
 								<a href="#">Team Selections</a>
 								<ul class="main-nav__sub main-nav__sub--dropup">
-									<li class=""><a href="{{ route('ts1') }}">Team Selection v1</a></li>
 									<li class=""><a href="{{ route('ts2') }}">Team Selection v2</a></li>
-									<li class=""><a href="{{ route('ts3') }}">Team Selection v3</a></li>
-									<li class=""><a href="{{ route('ts4') }}">Team Selection v4</a></li>
 								</ul>
 							</li>
 							<li class="">
@@ -427,10 +424,7 @@
 								<li class="">
 									<a href="#">Team Pages</a>
 									<ul class="mobile-nav__sub">
-										<li class=""><a href="team-selection-1.html">Team Selection v1</a></li>
 										<li class=""><a href="team-selection-2.html">Team Selection v2</a></li>
-										<li class=""><a href="team-selection-3.html">Team Selection v3</a></li>
-										<li class=""><a href="team-selection-4.html">Team Selection v4</a></li>
 										<li class=""><a href="team-overview.html">Team Overview v1</a></li>
 										<li class=""><a href="team-overview-2.html">Team Overview v2</a></li>
 										<li><a href="team-overview.html?slide=1">Team Statistics</a></li>

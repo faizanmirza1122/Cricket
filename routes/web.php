@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AllMemberController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\PlayerController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TeamSelectionController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -35,10 +37,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Teams
-Route::get('/team-selection-v1', [TeamSelectionController::class, 'ts1'])->name('ts1');
 Route::get('/team-selection-v2', [TeamSelectionController::class, 'ts2'])->name('ts2');
-Route::get('/team-selection-v3', [TeamSelectionController::class, 'ts3'])->name('ts3');
-Route::get('/team-selection-v4', [TeamSelectionController::class, 'ts4'])->name('ts4');
 
 //Team Overview
 Route::get('/team-overview-1', [TeamSelectionController::class, 'to1'])->name('to1');
@@ -101,7 +100,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::resource('/news', NewsController::class)->except('show');
 
-    Route::resource('/product', ProductController::class)->except('show');
+    Route::resource('/shop', ProductController::class)->except('show');
+
+    Route::resource('/team', TeamController::class)->except('show');
+    Route::resource('/team/{id}', PlayerController::class)->except('show');
 
     Route::post('logout', [AboutController::class, 'logout'])->name('logout');
 
