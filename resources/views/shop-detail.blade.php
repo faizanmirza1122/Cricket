@@ -28,16 +28,16 @@
                         <div class="product__header">
                             <ul class="product__cats list-unstyled">
                                 <li class="product__cats-item color-warning">
-                                    <a href="#">{{ $product->product_category }}</a>
+                                    <a href="#">{{ $product->product_category ?? '' }}</a>
                                 </li>
                             </ul>
-                            <h2 class="product__title h3">{{ $product->product_name }}</h2>
+                            <h2 class="product__title h3">{{ $product->product_name ?? '' }}</h2>
                             <ul class="product__meta list-unstyled">
-                                <li class="product__meta-item product__price">${{ $product->product_price }}</li>
+                                <li class="product__meta-item product__price">${{ $product->product_price ?? '' }}</li>
                             </ul>
                         </div>
                         <div class="product__excerpt">
-                            {{ $product->product_description }}
+                            {{ $product->product_description ?? '' }}
                         </div>
                         <ul class="product__options list-unstyled">
                             <li class="product__option">

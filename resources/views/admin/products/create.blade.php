@@ -38,7 +38,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('shop.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @include('flash-message')
                         @if ($errors->any())

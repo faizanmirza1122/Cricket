@@ -23,6 +23,9 @@ class CreatePlayersTable extends Migration
             $table->string('player_born_country');
             $table->string('player_team');
             $table->string('player_role');
+            $table->string('image')->nullable();
+            $table->text('score')->nullable();
+            $table->text('hero')->nullable();
             $table->text('player_description');
             $table->string('player_social_link_1')->nullable();
             $table->string('player_social_link_2')->nullable();

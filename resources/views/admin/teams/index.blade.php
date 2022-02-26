@@ -1,6 +1,5 @@
 @extends('admin.layouts.app')
 @section('content')
-
     <!-- Page content -->
     <div class="page-content">
 
@@ -54,7 +53,7 @@
                                 <tr>
 
                                     <td>{{ $key + 1 }}</td>
-                                    <td><img src="{{ asset('storage/' . $team->image) }}" width="100px"></td>
+                                    <td><img src="{{ asset('storage/' . $team->sidebar_icon) }}" width="100px"></td>
                                     <td>{{ $team->title }}</td>
                                     <td>{{ $team->subtitle }}</td>
                                     <td class="text-center">
@@ -63,9 +62,11 @@
                                                 <a href="#" class="list-icons-item" data-toggle="dropdown">
                                                     <i class="icon-menu9"></i>
                                                 </a>
-                                                <form action="{{ route('team.destroy', $team->id) }}"
-                                                    method="POST">
-                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                <div class="dropdown-menu dropdown-menu-right">
+
+                                                    <a href="{{ route('team.players.index', $team->id) }}"
+                                                        class="dropdown-item"><i class="icon-pencil7"></i> View Players</a>
+                                                    <form action="{{ route('team.destroy', $team->id) }}" method="POST">
                                                         <a href="{{ route('team.edit', $team->id) }}"
                                                             class="dropdown-item"><i class="icon-pencil7"></i> edit</a>
                                                         <a onclick="return confirm('Are you sure?')">
@@ -73,10 +74,11 @@
                                                                 class="btn bg-transparent dropdown-item"><i
                                                                     class="icon-trash"></i> Delete</button>
                                                         </a>
-                                                    </div>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
@@ -101,6 +103,4 @@
 
     </div>
     <!-- /page content -->
-
 @endsection
-

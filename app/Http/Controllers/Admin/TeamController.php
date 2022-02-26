@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Player;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -18,6 +19,7 @@ class TeamController extends Controller
     public function index()
     {
         $teams = Team::orderBy('id', 'DESC')->get();
+
         return view('admin.teams.index', compact('teams'));
     }
 
@@ -42,12 +44,32 @@ class TeamController extends Controller
         $data = $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255'],
-            'subtitle' => ['nullable', 'string', 'max:255'],
-            'icon' => ['required', 'image'],
-            'image' => ['required', 'image'],
+            'subtitle' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'since' => ['required'],
+            'prize_earned' => ['required'],
+            'description' => ['required'],
+            'sidebar_icon' => ['nullable', 'image'],
+            'icon' => ['nullable', 'image'],
+            'image' => ['nullable', 'image'],
+            'final_score' => ['nullable'],
+            'match_result' => ['nullable', 'in:win,loss'],
+            'team_matchup_heading_1' => ['nullable', 'string', 'max:255'],
+            'team_matchup_title_1' => ['nullable', 'string', 'max:255'],
+            'team_matchup_heading_2' => ['nullable', 'string', 'max:255'],
+            'team_matchup_title_2' => ['nullable', 'string', 'max:255'],
+            'team_matchup_heading_3' => ['nullable', 'string', 'max:255'],
+            'team_matchup_title_3' => ['nullable', 'string', 'max:255'],
         ]);
 
         $data['slug'] = Str::slug($request->title, '-');
+
+        if ($request->file('sidebar_icon')) {
+            $image = $request->file('sidebar_icon');
+            $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public', $image, $imageName);
+            $data['sidebar_icon'] = $imageName;
+        }
 
         if ($request->file('icon')) {
             $image = $request->file('icon');
@@ -58,11 +80,10 @@ class TeamController extends Controller
 
         if ($request->file('image')) {
             $image = $request->file('image');
-            $name = Str::random(8) . '.' . $image->getClientOriginalExtension();
-            Storage::putFileAs('public', $image, $name);
-            $data['image'] = $name;
+            $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public', $image, $imageName);
+            $data['image'] = $imageName;
         }
-
         $data = Team::create($data);
         return redirect()->route('team.index')->with('message', 'teams has been added successfully');
     }
@@ -86,23 +107,42 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['nullable', 'string', 'max:255'],
             'slug' => ['nullable', 'string', 'max:255'],
             'subtitle' => ['nullable', 'string', 'max:255'],
+            'country' => ['nullable', 'string', 'max:255'],
+            'since' => ['nullable'],
+            'prize_earned' => ['nullable'],
+            'description' => ['nullable'],
+            'sidebar_icon' => ['nullable', 'image'],
             'icon' => ['nullable', 'image'],
             'image' => ['nullable', 'image'],
+            'final_score' => ['nullable'],
+            'match_result' => ['nullable', 'in:win,loss'],
+            'team_matchup_heading_1' => ['nullable', 'string', 'max:255'],
+            'team_matchup_title_1' => ['nullable', 'string', 'max:255'],
+            'team_matchup_heading_2' => ['nullable', 'string', 'max:255'],
+            'team_matchup_title_2' => ['nullable', 'string', 'max:255'],
+            'team_matchup_heading_3' => ['nullable', 'string', 'max:255'],
+            'team_matchup_title_3' => ['nullable', 'string', 'max:255'],
         ]);
+
+        if ($request->file('sidebar_icon')) {
+            $image = $request->file('sidebar_icon');
+            $sideImageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public', $image, $sideImageName);
+            $data['sidebar_icon'] = $sideImageName;
+        }
+
 
         if ($request->file('icon')) {
             $image = $request->file('icon');
             $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
             Storage::putFileAs('public', $image, $imageName);
             $data['icon'] = $imageName;
-        } else {
-            $imageName = $request->icon;
         }
 
         if ($request->file('image')) {
@@ -110,17 +150,13 @@ class TeamController extends Controller
             $name = Str::random(8) . '.' . $image->getClientOriginalExtension();
             Storage::putFileAs('public', $image, $name);
             $data['image'] = $name;
-        } else {
-            $name = $request->image;
         }
-        $data['slug'] = Str::slug($request->title, '-');
-        $data = Team::find($id);
 
-        $data->title = $request->get('title');
-        $data->subtitle = $request->get('subtitle');
-        $data->icon = $imageName;
-        $data->image = $name;
-        $data->save();
+        $data['slug'] = Str::slug($request->title, '-');
+
+        $team = Team::find($id);
+        $team->update($data);
+
         return redirect()->back()->with('message', 'teams has been updated successfully');
     }
 

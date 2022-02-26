@@ -13,9 +13,11 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\HomeController as HmeController;
+use App\Http\Controllers\Admin\MatchTypeController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\PageController;
+use App\Models\MatchType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,21 +32,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/linkstorage', function () {
-  Artisan::call('storage:link');
+    Artisan::call('storage:link');
 });
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Teams
-Route::get('/team-selection-v2', [TeamSelectionController::class, 'ts2'])->name('ts2');
-
+Route::get('/team', [TeamSelectionController::class, 'ts2'])->name('ts2');
 //Team Overview
-Route::get('/team-overview-1', [TeamSelectionController::class, 'to1'])->name('to1');
-Route::get('/team-overview-2', [TeamSelectionController::class, 'to2'])->name('to2');
-
+Route::get('/team/{slug}/overview', [TeamSelectionController::class, 'to1'])->name('to1');
 //teams.player-page
-Route::get('/player-page', [TeamSelectionController::class, 'playerPage'])->name('player-page');
+Route::get('/team/{team}/player/{player}', [TeamSelectionController::class, 'playerPage'])->name('player-information');
 
 
 //teams.staff-page
@@ -103,9 +102,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('/shop', ProductController::class)->except('show');
 
     Route::resource('/team', TeamController::class)->except('show');
-    Route::resource('/team/{id}', PlayerController::class)->except('show');
+    Route::resource('team.players', PlayerController::class)->except('show');
+
+    Route::resource('match-type', MatchTypeController::class)->except('show');
 
     Route::post('logout', [AboutController::class, 'logout'])->name('logout');
-
 });
-

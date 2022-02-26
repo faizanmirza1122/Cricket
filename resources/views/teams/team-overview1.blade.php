@@ -13,36 +13,36 @@
 								<div class="team-carousel__item" data-icon="team-overview">
 									<div class="row">
 										<div class="col-lg-11">
-											<h3 class="player-info-subtitle h4 text-uppercase">Necromancers</h3>
-											<h2 class="player-info-title h1 text-uppercase">Xenowatch</h2>
+											<h3 class="player-info-subtitle h4 text-uppercase">{{ $team->subtitle ?? '' }}</h3>
+											<h2 class="player-info-title h1 text-uppercase">{{ $team->title ?? '' }}</h2>
 											<div class="row">
 												<div class="col-6 col-md-6 col-xl-4">
 													<div class="player-info-detail">
 														<div class="player-info-detail__label">Country</div>
-														<div class="player-info-detail__title">United States</div>
+														<div class="player-info-detail__title">{{ $team->country ?? '' }}</div>
 													</div>
 												</div>
 												<div class="col-6 col-md-6 col-xl-4">
 													<div class="player-info-detail">
 														<div class="player-info-detail__label">Since</div>
-														<div class="player-info-detail__title">March 2012</div>
+														<div class="player-info-detail__title">{{ date('F,d-Y', strtotime($team->date)) }}</div>
 													</div>
 												</div>
 												<div class="col-6 col-md-6 col-xl-4">
 													<div class="player-info-detail">
 														<div class="player-info-detail__label">Prize earned</div>
-														<div class="player-info-detail__title color-primary">U$D 125.360</div>
+														<div class="player-info-detail__title color-primary">U$D {{ $team->prize_earned ?? '' }}</div>
 													</div>
 												</div>
 											</div>
 											<p>
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-											</p>
+                                                {{ $team->description ?? '' }}
+                                            </p>
 										</div>
 									</div>
 								</div>
 
-								<div class="team-carousel__item" data-icon="stats">
+								{{-- <div class="team-carousel__item" data-icon="stats">
 									<div class="row">
 										<div class="col-lg-11">
 											<h3 class="player-info-subtitle h4 text-uppercase">Necromancers</h3>
@@ -404,7 +404,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 							</div>
 						</div>
 					</div>
@@ -431,11 +431,16 @@
 
 							<!-- Filter -->
 							<ul class="team-player__filter list-unstyled nav">
-								<li class="team-player__filter-item">
+                                @forelse ($players as $player)
+                                <li class="team-player__filter-item">
 									<a href="#player-0" role="tab" data-toggle="tab" class="team-player__filter-inner active">
-										<img src="assets/img/samples/streams-filter-avatar-02.png" alt="James Spiegel" class="team-player__filter-img">
+										<img src="{{ asset('storage/'. $player->image) }}" alt="James Spiegel" class="team-player__filter-img">
 									</a>
 								</li>
+                                @empty
+
+                                @endforelse
+								{{--
 								<li class="team-player__filter-item">
 									<a href="#player-1" role="tab" data-toggle="tab" class="team-player__filter-inner ">
 										<img src="assets/img/samples/streams-filter-avatar-03.png" alt="Julie Rodgers" class="team-player__filter-img">
@@ -455,30 +460,35 @@
 									<a href="#player-4" role="tab" data-toggle="tab" class="team-player__filter-inner ">
 										<img src="assets/img/samples/streams-filter-avatar-06.png" alt="Sarah Stacy" class="team-player__filter-img">
 									</a>
-								</li>
+								</li> --}}
 							</ul>
 							<!-- Filter / End -->
-							<div class="tab-content">
 
-								<div class="tab-pane fade show active" id="player-0" role="tabpanel">
+							<div class="tab-content">
+                                @forelse ($players as $player)
+                                <div class="tab-pane fade show active" id="player-0" role="tabpanel">
 									<div class="team-player__info">
 										<div class="team-player__header">
-											<h2 class="team-player__name h6 color-primary">James Spiegel</h2>
+											<h2 class="team-player__name h6 color-primary">{{ $player->player_born_country }}</h2>
 											<h1 class="team-player__nickname h3">
-												<span class="position-relative">DaVikinger90<a class="add-icon" href="team-player-1.html"></a></span>
+												<span class="position-relative">{{ $player->player_name }}<a class="add-icon" href="{{ route('player-information', [$team->slug, $player->slug]) }}"></a></span>
 											</h1>
 											<ul class="social-menu social-menu--default">
-												<li><a href="https://www.facebook.com/danfisher.dev/" target="_blank"></a></li>
-												<li><a href="https://twitter.com/danfisher_dev" target="_blank"></a></li>
-												<li><a href="https://twitch.tv" target="_blank"></a></li>
-												<li><a href="https://www.instagram.com/dan.fisher.dev/" target="_blank"></a></li>
+												<li><a href="{{ $player->player_social_link_1 }}" target="_blank"></a></li>
+												<li><a href="{{ $player->player_social_link_2 }}" target="_blank"></a></li>
+												<li><a href="{{ $player->player_social_link_3 }}" target="_blank"></a></li>
+												<li><a href="{{ $player->player_social_link_4 }}" target="_blank"></a></li>
 											</ul>
 										</div>
 										<div class="team-player__photo">
-											<img src="assets/img/samples/team-info-page-player-photo-01.png" alt="James Spiegel aka DaVikinger90">
+											<img src="{{ asset('storage/'. $player->image) }}" alt="James Spiegel aka DaVikinger90">
 										</div>
 									</div>
 								</div>
+                                @empty
+
+                                @endforelse
+
 								<div class="tab-pane fade " id="player-1" role="tabpanel">
 									<div class="team-player__info">
 										<div class="team-player__header">
@@ -497,7 +507,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="tab-pane fade " id="player-2" role="tabpanel">
+								{{-- <div class="tab-pane fade " id="player-2" role="tabpanel">
 									<div class="team-player__info">
 										<div class="team-player__header">
 											<h2 class="team-player__name h6 color-primary">April Summers</h2>
@@ -551,7 +561,7 @@
 											<img src="assets/img/samples/team-info-page-player-photo-05.png" alt="Sarah Stacy aka FAYEDBEBOP">
 										</div>
 									</div>
-								</div>
+								</div> --}}
 
 							</div>
 						</div>

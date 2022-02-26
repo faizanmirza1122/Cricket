@@ -39,11 +39,27 @@
 
 	<!-- Custom CSS-->
 	<link href="assets/css/custom.css" rel="stylesheet">
+	<style>
+		.bg-clr{
+			background-color:#ffd202;
+		}
+		.main-nav__toggle, .main-nav__toggle-2{
+			background-color:#ffd202;
+		}
+		.main-nav__toggle:before, .main-nav__toggle-2:before{
+		background-color:#ffd202;
+		}
+		.main-nav ul li a:hover{
+		color:#ffd202
+		}
+		
+		</style>
+		
 
 </head>
 
 @if ($main)
-<body class="site-layout--landing preloader-is--active bg-image bg-fixed "  style="background-image: url('{{ asset('storage/' . $main->image ) }}')">
+<body class="site-layout--landing preloader-is--active bg-image bg-fixed "  style="background-image: url('{{ url('storage/' . $main->image ) }}')">
     @else
     <body class="site-layout--landing preloader-is--active bg-image bg-fixed ">
 @endif
@@ -64,20 +80,9 @@
 							<li class="">
 								<a href="#">Team Selections</a>
 								<ul class="main-nav__sub main-nav__sub--dropup">
-									<li class=""><a href="{{ route('ts1') }}">Team Selection v1</a></li>
-									<li class=""><a href="{{ route('ts2') }}">Team Selection v2</a></li>
-									<li class=""><a href="{{ route('ts3') }}">Team Selection v3</a></li>
-									<li class=""><a href="{{ route('ts4') }}">Team Selection v4</a></li>
+									<li class=""><a href="{{ route('ts2') }}">Teams</a></li>
 								</ul>
 							</li>
-							<li class="">
-								<a href="team-overview.html">Team Overview</a>
-								<ul class="main-nav__sub">
-									<li class=""><a href="{{ route('to1') }}">Team Overview v1</a></li>
-									<li class=""><a href="{{ route('to2') }}">Team Overview v2</a></li>
-								</ul>
-							</li>
-							<li class=""><a href="{{ route('player-page') }}">Player Page</a></li>
 							<li class=""><a href="{{ route('staff-page') }}">Staff Page</a></li>
 						</ul>
 					</li>
@@ -117,7 +122,7 @@
 			<!-- Logo - Image Based -->
 			<div class="header-logo header-logo--img">
                 @if ($main)
-				<a href="/home"><img src="{{ asset('storage/' . $main->logo) }}" srcset="assets/img/logo@2x.png 2x" alt="Necromancers"></a>
+				<a href="/home"><img src="{{ url('public/storage/' . $main->logo) }}" alt="Necromancers"></a>
                 @else
                 @endif
             </div>
@@ -153,9 +158,9 @@
 		================================================== -->
 		<main class="site-content text-center" id="wrapper">
 
-			<div class="site-content__center">
-				<h1 class="text-white landing-title"><span class="subtitle landing-subtitle">{{ $main->subtitle ?? '' }}</span>{{ $main->title ?? '' }}</h1>
-				<a href="{{ route('home') }}" class="btn btn-primary btn-lg btn--landing"><span>Start Browsing!</span></a>
+			<div class="site-content__center" >
+				<h1 class="text-white landing-title"><span class="subtitle landing-subtitle" style="color:#ffd202">{{ $main->subtitle ?? '' }}</span>{{ $main->title ?? '' }}</h1>
+				<a href="{{ route('home') }}" class="btn bg-clr btn-lg btn--landing"><span>Start Browsing!</span></a>
 			</div>
 
 		</main>

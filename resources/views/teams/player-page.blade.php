@@ -7,57 +7,58 @@
 			<div class="container container--large">
 				<div class="team-carousel">
 					<div class="team-carousel__content">
-
 						<!-- Section: Lineups -->
 						<div class="team-carousel__item" data-icon="lineups">
 							<div class="row">
 								<div class="col-lg-6">
-									<h3 class="player-info-subtitle h4 text-uppercase">James Spiegel</h3>
-									<h2 class="player-info-title h1">DaVikinger90</h2>
+									<h3 class="player-info-subtitle h4 text-uppercase">{{ $player_info->player_born_country ?? '' }}</h3>
+									<h2 class="player-info-title h1">{{ $player_info->player_name ?? '' }}</h2>
 									<div class="row">
 										<div class="col-6 col-md-6 col-xl-4">
 											<div class="player-info-detail">
 												<div class="player-info-detail__label">Age</div>
-												<div class="player-info-detail__title">22 Years</div>
+												<div class="player-info-detail__title">{{ $player_info->age ?? '' }} Years</div>
 											</div>
 										</div>
 										<div class="col-6 col-md-6 col-xl-4">
 											<div class="player-info-detail">
 												<div class="player-info-detail__label">Since</div>
-												<div class="player-info-detail__title">March 2015</div>
+												<div class="player-info-detail__title">{{ date('F,d-Y', strtotime($player_info->since ?? '')) }}</div>
 											</div>
 										</div>
 										<div class="col-6 col-md-6 col-xl-4">
 											<div class="player-info-detail">
 												<div class="player-info-detail__label">Born</div>
-												<div class="player-info-detail__title">Los Angeles, USA</div>
+												<div class="player-info-detail__title">{{ $player_info->player_born_country ?? '' }}</div>
 											</div>
 										</div>
 										<div class="col-6 col-md-6 col-xl-4">
 											<div class="player-info-detail">
 												<div class="player-info-detail__label">Team</div>
-												<div class="player-info-detail__title">Xenowatch</div>
+												<div class="player-info-detail__title">{{ $player_info->player_team ?? '' }}</div>
 											</div>
 										</div>
 										<div class="col-6 col-md-6 col-xl-4">
 											<div class="player-info-detail">
 												<div class="player-info-detail__label">Role</div>
-												<div class="player-info-detail__title">Support</div>
+												<div class="player-info-detail__title">{{ $player_info->role ?? '' }}</div>
 											</div>
 										</div>
 										<div class="col-6 col-md-6 col-xl-4">
 											<div class="player-info-detail">
 												<div class="player-info-detail__label">Social</div>
 												<ul class="social-menu social-menu--default">
-													<li><a href="https://www.facebook.com/danfisher.dev/" target="_blank"></a></li>
-													<li><a href="https://twitter.com/danfisher_dev" target="_blank"></a></li>
-													<li><a href="https://twitch.tv" target="_blank"></a></li>
-													<li><a href="https://www.instagram.com/dan.fisher.dev/" target="_blank"></a></li>
+													<li><a href="{{ $player_info->player_social_link_1 ?? ''  }}" target="_blank"></a></li>
+													<li><a href="{{ $player_info->player_social_link_2 ?? ''  }}" target="_blank"></a></li>
+													<li><a href="{{ $player_info->player_social_link_3 ?? ''  }}" target="_blank"></a></li>
+													<li><a href="{{ $player_info->player_social_link_4 ?? ''  }}" target="_blank"></a></li>
 												</ul>
 											</div>
 										</div>
 									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+									<p>
+                                        {{ $player_info->player_description ?? '' }}
+                                    </p>
 								</div>
 							</div>
 						</div>
@@ -480,44 +481,13 @@
 						</div>
 						<!-- Section: Hardware / End -->
 
-						<!-- Section: Replay -->
-						<div class="team-carousel__item" data-icon="replay">
-							<div class="row">
-								<div class="col-lg-6">
-									<h3 class="player-info-subtitle h5">DaVikinger90</h3>
-									<a href="" class="btn btn-twitch float-right">
-										<i class="fab fa-twitch">&nbsp;</i>Follow Me!
-									</a>
-									<h2 class="player-info-title text-uppercase">Livestream</h2>
 
-									<!-- Video -->
-									<article class="stream has-post-thumbnail" data-id="playhearthstone" data-controls="true" data-provider="twitch" data-thumbnail="assets/img/samples/stream-img-01.jpg" data-setsize="true" data-easy-embed>
-										<div class="stream__thumbnail">
-											<img src="assets/img/samples/stream-img-01.jpg" alt="">
-										</div>
-										<div class="stream__icon"></div>
-										<div class="stream__header">
-											<div class="stream__info">
-												<div class="stream__avatar">
-													<img src="assets/img/samples/streams-archive-avatar-01.jpg" alt="">
-												</div>
-												<h6 class="stream__title">Davikinger plays &quot;Clash of eternity&quot; <span class="badge badge-danger badge-live">Live</span></h6>
-												<div class="stream__date">August 3rd, 2018</div>
-											</div>
-										</div>
-									</article>
-									<!-- Video / End -->
-
-								</div>
-							</div>
-						</div>
-						<!-- Section: Replay / End -->
 
 					</div>
 				</div>
 				<div class="team-player">
 					<div class="team-player__photo">
-						<img src="assets/img/samples/player-info-page-player-photo-01.png" alt="">
+						<img src="{{ asset('storage/' . $player_info->image ?? '') }}" alt="">
 					</div>
 					<div class="team-player__base">
 						<!-- Decoration -->

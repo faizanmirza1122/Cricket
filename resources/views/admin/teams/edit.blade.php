@@ -62,6 +62,30 @@
                                     placeholder="Enter subtitle...">
                             </div>
 
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Country</label>
+                                <input type="text" value="{{ old('country', $team->country ?? '' ) }}" name="country" class="form-control"
+                                    placeholder="Enter country...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Since</label>
+                                <input type="date" value="{{ old('since', $team->since ?? '') }}" name="since" class="form-control"
+                                    placeholder="Enter since...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Prize Earned</label>
+                                <input type="text" value="{{ old('prize_earned', $team->prize_earned ?? '') }}" name="prize_earned" class="form-control"
+                                    placeholder="Enter prize_earned...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Description</label>
+                                <textarea rows="3" cols="3" class="form-control" placeholder="Description.."
+                                    name="description">{{ old('description', $team->description ?? '') }}</textarea>
+                            </div>
+
                             <div class="form-group form-group-float">
                                 @if ($team)
                                     <img src="{{ asset('storage/' . $team->icon) }}" width="100px">
@@ -78,6 +102,57 @@
                                 @endif
                                 <label class="d-block">Image</label>
                                 <input type="file" class="form-control" name="image" id="image">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Final Score</label>
+                                <input type="text" name="final_score" value="{{ old('final_score', $team->final_score ?? '' ) }}" class="form-control"
+                                    placeholder="Enter final_score...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Match Result</label>
+                                <select data-placeholder="Select Match Result"  name="match_result" class="form-control" >
+                                    <option >--</option>
+                                    <option value="win"  {{ $team->match_result == 'win' ? 'selected' : '' }}>Winner</option>
+                                    <option value="loss"  {{ $team->match_result == 'loss' ? 'selected' : '' }}>Losser</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Team Matchup Heading 1</label>
+                                <input type="text" value="{{ old('team_matchup_heading_1', $team->team_matchup_heading_1 ?? '' ) }}" name="team_matchup_heading_1" class="form-control"
+                                    placeholder="Enter team_matchup_heading_1...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Team Matchup Title 1</label>
+                                <input type="text" value="{{ old('team_matchup_title_1', $team->team_matchup_title_1 ?? '' ) }}" name="team_matchup_title_1" class="form-control"
+                                    placeholder="Enter final team_matchup_title_1...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Team Matchup Heading 2</label>
+                                <input type="text" value="{{ old('team_matchup_heading_2', $team->team_matchup_heading_2 ?? '' ) }}" name="team_matchup_heading_2" class="form-control"
+                                    placeholder="Enter team_matchup_heading_2...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Team Matchup Title 2</label>
+                                <input type="text" value="{{ old('team_matchup_title_2', $team->team_matchup_title_2 ?? '' ) }}" name="team_matchup_title_2" class="form-control"
+                                    placeholder="Enter final team_matchup_title_2...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Team Matchup Heading 3</label>
+                                <input type="text" value="{{ old('team_matchup_heading_3', $team->team_matchup_heading_3 ?? '' ) }}" name="team_matchup_heading_3" class="form-control"
+                                    placeholder="Enter team_matchup_heading_3...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Team Matchup Title 3</label>
+                                <input type="text" value="{{ old('team_matchup_heading_3', $team->team_matchup_heading_3 ?? '' ) }}" name="team_matchup_title_3" class="form-control"
+                                    placeholder="Enter final team_matchup_title_3...">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Save</button>

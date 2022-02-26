@@ -19,7 +19,7 @@
                     <div class="d-flex">
                         <div class="breadcrumb">
                             <a href="/admin/dashboard" class="breadcrumb-item"><i class="icon-product2 mr-2"></i> Dashboard</a>
-                            <a href="{{ route('product.index') }}" class="breadcrumb-item">All Products</a>
+                            <a href="{{ route('shop.index') }}" class="breadcrumb-item">All Products</a>
                             <span class="breadcrumb-item active">Index</span>
                         </div>
 
@@ -35,7 +35,7 @@
                 <!-- Basic datatable -->
                 <div class="card">
                     <div class="card-body ">
-                        <a class="btn btn-primary float-right" href="{{ route('product.create') }}"> Add New Product</a>
+                        <a class="btn btn-primary float-right" href="{{ route('shop.create') }}"> Add New Product</a>
                     </div>
 
                     <table class="table datatable-basic">

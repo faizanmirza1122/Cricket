@@ -15,7 +15,7 @@
                 @forelse ($teams as $team)
                     <div class="col-sm-6 col-lg-3">
                         <div class="team-selection-item team-selection-item--style-1 text-center">
-                            <a href="team-overview.html" class="team-selection-item__thumbnail">
+                            <a href="{{ route('to1', $team->slug) }}" class="team-selection-item__thumbnail">
                                 <div class="team-selection-item__thumbnail-inner">
                                     @if ($team->image)
                                         <img src="{{ asset('storage/' . $team->image) }}" alt="">

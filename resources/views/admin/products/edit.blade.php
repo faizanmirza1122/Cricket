@@ -16,7 +16,7 @@
                 <div class="d-flex">
                     <div class="breadcrumb">
                         <a href="/admin/dashboard" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
-                        <a href="{{ route('home.index') }}" class="breadcrumb-item">Home</a>
+                        <a href="{{ route('shop.index') }}" class="breadcrumb-item">Shop</a>
                         <span class="breadcrumb-item active">Edit</span>
                     </div>
 
@@ -34,7 +34,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('shop.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         {{ method_field('PUT') }}
                         @include('flash-message')

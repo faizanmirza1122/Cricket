@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\AllMember;
 use App\Models\Team;
+use App\Models\Player;
 use Illuminate\Http\Request;
 
 class TeamSelectionController extends Controller
@@ -21,19 +22,20 @@ class TeamSelectionController extends Controller
         return view('teams.team-s-v2', compact('teams'));
     }
 
-    public function to1()
+    public function to1($slug)
     {
-        return view('teams.team-overview1');
+
+        $team = Team::where('slug', $slug)->first();
+
+        $players = Player::with('team')->get();
+        // dd($player);
+        return view('teams.team-overview1', compact('team', 'players'));
     }
 
-    public function to2()
+    public function playerPage($team, $player)
     {
-        return view('teams.team-overview2');
-    }
-
-    public function playerPage()
-    {
-        return view('teams.player-page');
+        $player_info = Player::where('slug', $player)->first();
+        return view('teams.player-page', compact('player_info'));
     }
 
     public function staffPage()

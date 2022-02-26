@@ -33,8 +33,8 @@
             <div class="card">
 
                 <div class="card-body">
-
-                    <form action="{{ route('team.update', $team->id) }}" method="POST" enctype="multipart/form-data">
+                    {{-- {{ dd($team, $pl   ayer) }} --}}
+                    <form action="{{ route('team.players.update', [$team ,$player->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         {{ method_field('PUT') }}
                         @include('flash-message')
@@ -48,32 +48,77 @@
                             </div>
                         @endif
                         <fieldset class="mb-3">
-                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit Team</legend>
+                            <legend class="text-uppercase font-size-sm font-weight-bold">Create Team</legend>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Title</label>
-                                <input type="text" name="title" value="{{ old('title', $team->title ?? '' ) }}" class="form-control"
-                                    placeholder="Enter title...">
+                                <label class="d-block">Player Name</label>
+                                <input type="text" value="{{ old('player_name', $player->player_name ?? '' ) }}" name="player_name" class="form-control"
+                                    placeholder="Enter player_name...">
                             </div>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Subtitle</label>
-                                <input type="text" name="subtitle" value="{{ old('subtitle', $team->subtitle ?? '' ) }}" class="form-control"
-                                    placeholder="Enter subtitle...">
+                                <label class="d-block">Player Age</label>
+                                <input type="number" value="{{ old('player_age', $player->player_age ?? '' ) }}" name="player_age" class="form-control"
+                                    placeholder="Enter player_age...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Since</label>
+                                <input type="date" value="{{ old('player_since', $player->player_since ?? '' ) }}" name="player_since" class="form-control"
+                                    placeholder="Enter player_since...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Country</label>
+                                <input type="text" value="{{ old('player_born_country', $player->player_born_country ?? '' ) }}" name="player_born_country" class="form-control"
+                                    placeholder="Enter player_born_country...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Team</label>
+                                <input type="text" value="{{ old('player_team', $player->player_team ?? '' ) }}" name="player_team" class="form-control"
+                                    placeholder="Enter player_team...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Role</label>
+                                <input type="text" value="{{ old('player_role', $player->player_role ?? '' ) }}" name="player_role" class="form-control"
+                                    placeholder="Enter player_role...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Description</label>
+                                <input type="text" value="{{ old('player_description', $player->player_description ?? '' ) }}" name="player_description" class="form-control"
+                                    placeholder="Enter player_description...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Social Link 1 </label>
+                                <input type="text" value="{{ old('player_social_link_1', $player->player_social_link_1 ?? '' ) }}" name="player_social_link_1" class="form-control"
+                                    placeholder="Enter player_social_link_1...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Social Link 2 </label>
+                                <input type="text" value="{{ old('player_social_link_2', $player->player_social_link_2 ?? '' ) }}" name="player_social_link_2" class="form-control"
+                                    placeholder="Enter player_social_link_2...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Social Link 3 </label>
+                                <input type="text" value="{{ old('player_social_link_3', $player->player_social_link_3 ?? '' ) }}" name="player_social_link_3" class="form-control"
+                                    placeholder="Enter player_social_link_3...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Player Social Link 4 </label>
+                                <input type="text" value="{{ old('player_social_link_4', $player->player_social_link_4 ?? '' ) }}" name="player_social_link_4" class="form-control"
+                                    placeholder="Enter player_social_link_4...">
                             </div>
 
                             <div class="form-group form-group-float">
-                                @if ($team)
-                                    <img src="{{ asset('storage/' . $team->icon) }}" width="100px">
-                                @else
-                                @endif
-                                <label class="d-block">Icon</label>
-                                <input type="file" class="form-control" name="icon" id="icon">
-                            </div>
-
-                            <div class="form-group form-group-float">
-                                @if ($team)
-                                    <img src="{{ asset('storage/' . $team->image) }}" width="100px">
+                                @if ($player->image)
+                                    <img src="{{ asset('storage/' . $player->image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Image</label>

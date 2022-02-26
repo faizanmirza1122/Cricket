@@ -199,16 +199,16 @@
                             </ul>
                         </li>
 
-                        {{-- <li class="nav-item nav-item-submenu">
-                            <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Products</span></a>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Shop</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Themes">
-                                <li class="nav-item"><a href="{{ route('product.create') }}"
+                                <li class="nav-item"><a href="{{ route('shop.create') }}"
                                         class="nav-link ">Create</a></li>
-                                <li class="nav-item"><a href="{{ route('product.index') }}"
+                                <li class="nav-item"><a href="{{ route('shop.index') }}"
                                         class="nav-link ">View All</a></li>
                             </ul>
-                        </li> --}}
+                        </li>
 
                         <li class="nav-item nav-item-submenu">
                             <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Team</span></a>
@@ -218,14 +218,17 @@
                                 </li>
                                 <li class="nav-item"><a href="{{ route('team.index') }}" class="nav-link ">View All</a>
                                 </li>
-                                {{-- <li class="nav-item"><a href="#" class="nav-link ">Team Overview</a>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Match Type</span></a>
+
+                            <ul class="nav nav-group-sub" data-submenu-title="Themes">
+                                <li class="nav-item"><a href="{{ route('match-type.create') }}" class="nav-link ">Create</a>
                                 </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Player Information</a>
+                                <li class="nav-item"><a href="{{ route('match-type.index') }}" class="nav-link ">View All</a>
                                 </li>
-                                <li class="nav-item"><a href="{{ route('management-team-members.index') }}" class="nav-link ">Staff Page</a>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Staff Member</a>
-                                </li> --}}
                             </ul>
                         </li>
 
