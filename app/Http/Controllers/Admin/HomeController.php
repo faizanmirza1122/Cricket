@@ -41,10 +41,13 @@ class HomeController extends Controller
     {
         $data = $request->validate([
             'title' => ['required'],
-            'subtitle' => ['required'],
+            'slug' => ['nullable', 'string', 'max:255'],
             'date' => ['required'],
             'description' => ['required'],
             'image' => ['required'],
+            'category' => ['required', 'string', 'max:255'],
+            'body_image' => ['required'],
+            'description_under_image' => ['required'],
         ]);
 
         if ($request->file('image')) {
@@ -52,6 +55,13 @@ class HomeController extends Controller
             $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
             Storage::putFileAs('public', $image, $imageName);
             $data['image'] = $imageName;
+        }
+
+        if ($request->file('body_image')) {
+            $image = $request->file('body_image');
+            $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public', $image, $imageName);
+            $data['body_image'] = $imageName;
         }
         $data = Home::create($data);
         return redirect()->route('home.index')->with('message', 'Home has been added successfully');
@@ -81,11 +91,24 @@ class HomeController extends Controller
     {
         $data = $request->validate([
             'title' => ['nullable'],
+            'slug' => ['nullable', 'string', 'max:255'],
             'subtitle' => ['nullable'],
             'date' => ['nullable'],
             'description' => ['nullable'],
             'image' => ['nullable'],
+            'category' => ['nullable', 'string', 'max:255'],
+            'body_image' => ['nullable'],
+            'description_under_image' => ['nullable'],
         ]);
+
+        $data['slug'] = Str::slug($request->title, '-');
+
+        if ($request->file('body_image')) {
+            $image = $request->file('body_image');
+            $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
+            Storage::putFileAs('public', $image, $imageName);
+            $data['body_image'] = $imageName;
+        }
 
         if ($request->file('image')) {
             $image = $request->file('image');
@@ -94,14 +117,9 @@ class HomeController extends Controller
             $data['image'] = $imageName;
         }
 
-        $data = Home::find($id);
-        // Getting values from the blade template form
-        $data->title =  $request->get('title');
-        $data->subtitle = $request->get('subtitle');
-        $data->date = $request->get('date');
-        $data->description = $request->get('description');
-        $data->image = $imageName;
-        $data->save();
+        $home = Home::find($id);
+        $home->update($data);
+
         return redirect()->back()->with('message', 'Home has been updated successfully');
     }
 

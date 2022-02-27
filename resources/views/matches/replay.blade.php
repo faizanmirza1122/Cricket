@@ -14,21 +14,21 @@
 
 				<ul class="match-stats-links match-stats-links--main">
 					<li>
-						<a href="./matches-overview-1.html">
+						<a href="{{ route('matches-overview1') }}">
 							<svg role="img" class="df-icon df-icon--overview">
 								<use xlink:href="assets/img/necromancers.svg#overview"/>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="./matches-stats-1.html">
+						<a href="{{ route('match-stats1') }}">
 							<svg role="img" class="df-icon df-icon--stats">
 								<use xlink:href="assets/img/necromancers.svg#stats"/>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="./matches-lineups-1.html">
+						<a href="{{ route('matches-lineups1') }}">
 							<svg role="img" class="df-icon df-icon--lineups">
 								<use xlink:href="assets/img/necromancers.svg#lineups"/>
 							</svg>

@@ -63,7 +63,7 @@
 				<article class="post has-post-thumbnail ">
 					<div class="post__thumbnail">
 
-						<a href="blog-post.html"><img src="{{ asset('storage/' . $home->image) }}" alt=""></a>
+						<a href="{{ route('home-detail', $home->slug) }}"><img src="{{ asset('storage/' . $home->image) }}" alt=""></a>
 
 
 					</div>
@@ -75,7 +75,7 @@
 									<a href="#">{{ $home->subtitle }}</a>
 								</li>
 							</ul>
-							<h2 class="post__title h4"><a href="blog-post.html">{{ $home->title }}</a></h2>
+							<h2 class="post__title h4"><a href="{{ route('home-detail', $home->slug) }}">{{ $home->title }}</a></h2>
 							<ul class="post__meta list-unstyled">
 								<li class="post__meta-item post__meta-item--date">
 									<a href="#">{{ $home->date }}</a>

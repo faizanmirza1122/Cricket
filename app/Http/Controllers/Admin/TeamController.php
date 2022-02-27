@@ -54,12 +54,6 @@ class TeamController extends Controller
             'image' => ['nullable', 'image'],
             'final_score' => ['nullable'],
             'match_result' => ['nullable', 'in:win,loss'],
-            'team_matchup_heading_1' => ['nullable', 'string', 'max:255'],
-            'team_matchup_title_1' => ['nullable', 'string', 'max:255'],
-            'team_matchup_heading_2' => ['nullable', 'string', 'max:255'],
-            'team_matchup_title_2' => ['nullable', 'string', 'max:255'],
-            'team_matchup_heading_3' => ['nullable', 'string', 'max:255'],
-            'team_matchup_title_3' => ['nullable', 'string', 'max:255'],
         ]);
 
         $data['slug'] = Str::slug($request->title, '-');
@@ -123,11 +117,6 @@ public function update(Request $request, $id)
             'final_score' => ['nullable'],
             'match_result' => ['nullable', 'in:win,loss'],
             'team_matchup_heading_1' => ['nullable', 'string', 'max:255'],
-            'team_matchup_title_1' => ['nullable', 'string', 'max:255'],
-            'team_matchup_heading_2' => ['nullable', 'string', 'max:255'],
-            'team_matchup_title_2' => ['nullable', 'string', 'max:255'],
-            'team_matchup_heading_3' => ['nullable', 'string', 'max:255'],
-            'team_matchup_title_3' => ['nullable', 'string', 'max:255'],
         ]);
 
         if ($request->file('sidebar_icon')) {

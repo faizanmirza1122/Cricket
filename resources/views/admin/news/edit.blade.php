@@ -16,7 +16,7 @@
                 <div class="d-flex">
                     <div class="breadcrumb">
                         <a href="/admin/dashboard" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
-                        <a href="{{ route('news.index') }}" class="breadcrumb-item">Staff Page</a>
+                        <a href="{{ route('news.index') }}" class="breadcrumb-item">News</a>
                         <span class="breadcrumb-item active">Edit</span>
                     </div>
 
@@ -48,7 +48,7 @@
                             </div>
                         @endif
                         <fieldset class="mb-3">
-                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit Staff Page</legend>
+                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit News</legend>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Category</label>

@@ -56,12 +56,13 @@
                                 class="form-control" placeholder="Enter name...">
                             </div>
 
-                            <div class="form-group">
-                                <label>Type</label>
-                                <select data-placeholder="Select Match Type" name="type"  value="{{ old('name', $matchType->type ?? '' ) }}" class="form-control form-control-select2" data-fouc>
-                                    <option value="tournament">Tournament</option>
-                                    <option value="series">Series</option>
-                                    <option value="league">League</option>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Type</label>
+                                <select data-placeholder="Select Match Type" name="type" value="{{old('type')}}" class="form-control" >
+                                    <option >--</option>
+                                    <option value="tournament" {{ $matchType->type == 'tournament' ? 'selected' : '' }}>Tournament</option>
+                                    <option value="series" {{ $matchType->type == 'series' ? 'selected' :'' }}>Series</option>
+                                    <option value="league" {{ $matchType->type == 'league' ? 'selected' : '' }}>League</option>
                                 </select>
                             </div>
 

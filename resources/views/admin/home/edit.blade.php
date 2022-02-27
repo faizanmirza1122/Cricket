@@ -48,30 +48,44 @@
                             </div>
                         @endif
                         <fieldset class="mb-3">
-                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit Home</legend>
-                            @include('flash-message')
+                            <legend class="text-uppercase font-size-sm font-weight-bold">Edit home</legend>
+
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Title</label>
-                                <input type="text" name="title" value="{{ $home->title ?? '' }}" class="form-control"
-                                    placeholder="Enter your side poster title...">
+                                <label class="d-block">Category</label>
+                                <input type="text" name="category" value="{{ old('category', $home->category ?? '' ) }}"
+                                class="form-control" placeholder="Enter category...">
                             </div>
 
                             <div class="form-group  form-group-float">
-                                <label class="d-block">Subtitle</label>
-                                <input type="text" name="subtitle" value="{{ $home->subtitle ?? '' }}"
-                                    class="form-control" placeholder="Enter your side poster subtitle...">
+                                <label class="d-block">Title</label>
+                                <input type="text" name="title" value="{{ old('title', $home->title ?? '' ) }}" class="form-control"
+                                    placeholder="Enter title...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Date</label>
-                                <input class="form-control" type="date" name="date" value="{{ $home->date ?? '' }}">
-
+                                <input class="form-control" type="date" name="date" value="{{ old('date', $home->date ?? '' ) }}">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Description</label>
-                                <textarea rows="3" cols="3" class="form-control" placeholder="Default textarea"
-                                    name="description">{{ $home->description ?? '' }}</textarea>
+                                <textarea rows="3" cols="3" class="form-control" placeholder="Enter Description.."
+                                    name="description">{{ old('description', $home->description ?? '' ) }}</textarea>
+                            </div>
+
+                            <div class="form-group form-group-float">
+                                @if ($home)
+                                    <img src="{{ asset('storage/' . $home->body_image) }}" width="100px">
+                                @else
+                                @endif
+                                <label class="d-block">Body Image</label>
+                                <input type="file" class="form-control" name="body_image" id="body_image">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Description Under Image</label>
+                                <textarea rows="3" cols="3" class="form-control" placeholder="Enter description_under_image.."
+                                    name="description_under_image">{{ old('description_under_image', $home->description_under_image ?? '' ) }}</textarea>
                             </div>
 
                             <div class="form-group form-group-float">

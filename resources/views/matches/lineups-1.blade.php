@@ -14,14 +14,14 @@
 
 				<ul class="match-stats-links match-stats-links--main">
 					<li>
-						<a href="./matches-overview-1.html">
+						<a href="{{ route('matches-overview1') }}">
 							<svg role="img" class="df-icon df-icon--overview">
 								<use xlink:href="assets/img/necromancers.svg#overview"/>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="./matches-stats-1.html">
+						<a href="{{ route('match-stats1') }}">
 							<svg role="img" class="df-icon df-icon--stats">
 								<use xlink:href="assets/img/necromancers.svg#stats"/>
 							</svg>
@@ -35,7 +35,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="./matches-replay.html">
+						<a href="{{ route('matches-repaly') }}">
 							<svg role="img" class="df-icon df-icon--replay">
 								<use xlink:href="assets/img/necromancers.svg#replay"/>
 							</svg>

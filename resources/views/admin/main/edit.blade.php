@@ -78,6 +78,12 @@
                             </div>
 
                             <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Icon Class 1</label>
+                                <input type="text" name="social_link_icon_class_1" value="{{ $main->social_link_icon_class_1 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_icon_class_1...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link 1</label>
                                 <input type="text" name="social_link_1" value="{{ $main->social_link_1 ?? '' }}"
                                     class="form-control" placeholder="Enter your social_link_1...">
@@ -91,6 +97,12 @@
                                 <label class="d-block">Social Link Text 1</label>
                                 <input type="text" name="social_link_text_1" value="{{ $main->social_link_text_1 ?? '' }}"
                                     class="form-control" placeholder="Enter your social_link_text_1...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Icon Class 2</label>
+                                <input type="text" name="social_link_icon_class_2" value="{{ $main->social_link_icon_class_2 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_icon_class_2...">
                             </div>
 
                             <div class="form-group  form-group-float">
@@ -110,6 +122,12 @@
                             </div>
 
                             <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Icon Class 3</label>
+                                <input type="text" name="social_link_icon_class_3" value="{{ $main->social_link_icon_class_3 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_icon_class_3...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link 3</label>
                                 <input type="text" name="social_link_3" value="{{ $main->social_link_3 ?? '' }}"
                                     class="form-control" placeholder="Enter your social_link_3...">
@@ -123,6 +141,12 @@
                                 <label class="d-block">Social Link Text 3</label>
                                 <input type="text" name="social_link_text_3" value="{{ $main->social_link_text_3 ?? '' }}"
                                     class="form-control" placeholder="Enter your social_link_text_3...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Icon Class 4</label>
+                                <input type="text" name="social_link_icon_class_4" value="{{ $main->social_link_icon_class_4 ?? '' }}"
+                                    class="form-control" placeholder="Enter your social_link_icon_class_4...">
                             </div>
 
                             <div class="form-group  form-group-float">

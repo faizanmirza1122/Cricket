@@ -6,18 +6,7 @@
         <main class="site-content" id="wrapper">
 			<div class="widget-area widger-area--before-loop">
 				<div class="widget widget-featured-product bg-image bg--ph-03">
-					<div class="widget__subtitle">Featured Item</div>
-					<h1 class="widget__title h2"><span class="color-primary">Necromancers</span> men's t-shirt</h1>
-					<div class="widget__thumbnail">
-						<img class="" src="assets/img/samples/widget-featured-product-img-01.png" alt="">
-						<div class="widget__price">
-							<a class="add-icon" href="shop-product.html"></a>
-							<div class="widget__price-label">Get it for</div>
-							<div class="widget__price-count">
-								$<span class="color-primary">24.99</span>
-							</div>
-						</div>
-					</div>
+					<h1 class="widget__title h2"><span class="color-primary">BNW ESPORTS</span>Shop</h1>
 				</div>
 			</div>
 			<div class="content shop-layout--style-1">

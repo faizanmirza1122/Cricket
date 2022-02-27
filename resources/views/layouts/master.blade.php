@@ -11,9 +11,9 @@
 @yield('head')
 	<!-- Favicons
 	================================================== -->
-	<link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.ico') }}">
-	<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicons/favicon-120.png') }}">
-	<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicons/favicon-152.png') }}">
+	<link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicon.png') }}">
+	<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicon.png') }}">
 
 	<!-- Mobile Specific Metas
 	================================================== -->
@@ -128,22 +128,18 @@
 							<li class=""><a href="#">Match Stats</a>
 								<ul class="main-nav__sub">
 									<li class=""><a href="{{ route('match-stats1') }}">Match Stats v1</a></li>
-									<li class=""><a href="{{ route('match-stats2') }}">Match Stats v2</a></li>
-									<li class=""><a href="{{ route('match-stats3') }}">Match Stats v3</a></li>
 								</ul>
 							</li>
 							<li class="">
 								<a href="#">Match Lineups</a>
 								<ul class="main-nav__sub">
 									<li class=""><a href="{{ route('matches-lineups1') }}">Match Lineups v1</a></li>
-									<li class=""><a href="{{ route('matches-lineups2') }}">Match Lineups v2</a></li>
-									<li class=""><a href="{{ route('matches-lineups3') }}">Match Lineups v3</a></li>
+
 								</ul>
 							</li>
 							<li class=""><a href="#">Match Overviews</a>
 								<ul class="main-nav__sub">
 									<li class=""><a href="{{ route('matches-overview1') }}">Match Overview v1</a></li>
-									<li class=""><a href="{{ route('matches-overview2') }}">Match Overview v2</a></li>
 								</ul>
 							</li>
 							<li class=""><a href="{{ route('matches-repaly') }}">Match Replay</a></li>
@@ -184,7 +180,7 @@
 						<use xlink:href="assets/img/necromancers.svg#close"/>
 					</svg>
 				</div>
-				<div class="header-social-toggle d-none d-md-block">
+				{{-- <div class="header-social-toggle d-none d-md-block">
 					<svg role="img" class="df-icon df-icon--thumb-up">
 						<use xlink:href="assets/img/necromancers.svg#thumb-up"/>
 					</svg>
@@ -195,45 +191,8 @@
 						<li><a href="https://twitter.com/danfisher_dev"><span class="link-subtitle">Twitter</span>Necrotwt</a></li>
 						<li><a href="https://www.facebook.com/danfisher.dev/"><span class="link-subtitle">Facebook</span>Necrogame</a></li>
 					</ul>
-				</div>
-				<div class="header-cart-toggle">
-					<svg role="img" class="df-icon df-icon--bag">
-						<use xlink:href="assets/img/necromancers.svg#bag"/>
-					</svg>
-					<svg role="img" class="df-icon df-icon--close">
-						<use xlink:href="assets/img/necromancers.svg#close"/>
-					</svg>
-					<span class="header-cart-toggle__items-count">4</span>
-				</div>
-				<div class="header-search-toggle">
-					<svg role="img" class="df-icon df-icon--search">
-						<use xlink:href="assets/img/necromancers.svg#search"/>
-					</svg>
-					<svg role="img" class="df-icon df-icon--search-close">
-						<use xlink:href="assets/img/necromancers.svg#search-close"/>
-					</svg>
-				</div>
-				<div class="header-account hide">
-					<div class="header-account__avatar">
-						<img src="assets/img/samples/account-user-avatar.jpg" srcset="assets/img/samples/account-user-avatar@2x.jpg 2x" alt="">
-					</div>
-					<div class="header-account__body">
-						Hello!
-						<div class="header-account__name">James Spiegel</div>
-					</div>
-					<div class="header-account__icon">
-						<a href="shop-account-settings.html">
-							<svg role="img" class="df-icon df-icon--account">
-								<use xlink:href="assets/img/necromancers.svg#account"/>
-							</svg>
-						</a>
-						<a href="login-register.html">
-							<svg role="img" class="df-icon df-icon--logout">
-								<use xlink:href="assets/img/necromancers.svg#logout"/>
-							</svg>
-						</a>
-					</div>
-				</div>
+				</div> --}}
+
 				<div class="header-menu-toggle">
 					<div class="header-menu-toggle__inner">
 						<span>&nbsp;</span>

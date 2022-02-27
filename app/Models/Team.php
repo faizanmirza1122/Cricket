@@ -13,6 +13,15 @@ class Team extends Model
     protected $guarded = [];
 
     public function players(){
-        return $this->hasMany(Player::class, 'id', 'team_id');
+        return $this->hasMany(Player::class, 'team_id');
     }
+
+    public function match1(){
+        return $this->belongsTo(Match::class, 'team_1');
+    }
+
+    public function match2(){
+        return $this->belongsTo(Match::class, 'team_2');
+    }
+
 }

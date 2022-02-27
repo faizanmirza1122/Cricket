@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BNW ESPORTS</title>
 
+    	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}">
+	<link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/img/favicon.png') }}">
+	<link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/img/favicon.png') }}">
+
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet"
         type="text/css">
@@ -236,19 +242,9 @@
                             <a href="#" class="nav-link"><i class="icon-library2"></i> <span>Matches</span></a>
 
                             <ul class="nav nav-group-sub" data-submenu-title="Themes">
-                                <li class="nav-item"><a href="#" class="nav-link ">Match Scores</a>
+                                <li class="nav-item"><a href="{{ route('match.create') }}" class="nav-link ">Create</a>
                                 </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Upcoming Matches</a>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Standings</a>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Match Stats</a>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Math Lineups</a>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Match Overview</a>
-                                </li>
-                                <li class="nav-item"><a href="#" class="nav-link ">Match Replay</a>
+                                <li class="nav-item"><a href="{{ route('match.index') }}" class="nav-link ">View All</a>
                                 </li>
                             </ul>
                         </li>

@@ -22,21 +22,21 @@
 						</a>
 					</li>
 					<li>
-						<a href="./matches-stats-1.html">
+						<a href="{{ route('match-stats1') }}">
 							<svg role="img" class="df-icon df-icon--stats">
 								<use xlink:href="assets/img/necromancers.svg#stats"/>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="./matches-lineups-1.html">
+						<a href="{{ route('matches-lineups1') }}">
 							<svg role="img" class="df-icon df-icon--lineups">
 								<use xlink:href="assets/img/necromancers.svg#lineups"/>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="./matches-replay.html">
+						<a href="{{ route('matches-repaly') }}">
 							<svg role="img" class="df-icon df-icon--replay">
 								<use xlink:href="assets/img/necromancers.svg#replay"/>
 							</svg>
@@ -73,23 +73,7 @@
 							</figcaption>
 						</figure>
 					</div>
-					<ul class="match-overview__footer list-unstyled">
-						<li>
-							<span>Instance</span>Week 5 Day 2
-						</li>
-						<li>
-							<span>Time</span>10:30pm PCT
-						</li>
-						<li>
-							<span>Total Duration</span>01:56:32
-						</li>
-						<li>
-							<span>Venue</span>Shenlong Arena
-						</li>
-						<li>
-							<span>Game</span>Xenowatch
-						</li>
-					</ul>
+
 				</div>
 			</div>
 		</main>

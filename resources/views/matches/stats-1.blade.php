@@ -15,7 +15,7 @@
 
 				<ul class="match-stats-links match-stats-links--main">
 					<li>
-						<a href="./matches-overview-1.html">
+						<a href="{{ route('matches-overview1') }}">
 							<svg role="img" class="df-icon df-icon--overview">
 								<use xlink:href="assets/img/necromancers.svg#overview"/>
 							</svg>
@@ -29,14 +29,14 @@
 						</a>
 					</li>
 					<li>
-						<a href="./matches-lineups-1.html">
+						<a href="{{ route('matches-lineups1') }}">
 							<svg role="img" class="df-icon df-icon--lineups">
 								<use xlink:href="assets/img/necromancers.svg#lineups"/>
 							</svg>
 						</a>
 					</li>
 					<li>
-						<a href="./matches-replay.html">
+						<a href="{{ route('matches-repaly') }}">
 							<svg role="img" class="df-icon df-icon--replay">
 								<use xlink:href="assets/img/necromancers.svg#replay"/>
 							</svg>
@@ -49,12 +49,12 @@
 						<li class="nav-item">
 							<a href="#tab-1" role="tab" data-toggle="tab" class="active">Game 01</a>
 						</li>
-						<li class="nav-item">
+						{{-- <li class="nav-item">
 							<a href="#tab-2" role="tab" data-toggle="tab" class="">Game 02</a>
 						</li>
 						<li class="nav-item">
 							<a href="#tab-3" role="tab" data-toggle="tab" class="">Game 03</a>
-						</li>
+						</li> --}}
 					</ul>
 					<div class="matches-tabs__content tab-content">
 						<div class="match-stats-container tab-pane fade show active" id="tab-1" role="tabpanel">
@@ -86,10 +86,10 @@
 											</figcaption>
 										</figure>
 									</li>
-									<li><span>Map / Level</span><span>El Plateado</span></li>
-									<li><span>Mission</span><span>Escort</span></li>
-									<li><span>Duration</span><span>23:49</span></li>
-									<li><span>Status</span><span>Final Score</span></li>
+									<li><span>{{  $stat->general_stats_map_heading ?? '' }}</span><span>{{ $stat->general_stats_map_title ?? '' }}</span></li>
+									<li><span>{{  $stat->general_stats_mission_heading ?? '' }}</span><span>{{ $stat->general_stats_mission_title ?? '' }}</span></li>
+									<li><span>{{  $stat->general_stats_duration_heading ?? '' }}</span><span>{{ $stat->general_stats_duration_title ?? '' }}</span></li>
+									<li><span>{{  $stat->general_stats_status_heading ?? '' }}</span><span>{{ $stat->general_stats_status_title ?? '' }} </span></li>
 								</ul>
 							</div>
 							<div class="match-stats-widget match-stats-widget--matchup">
@@ -99,64 +99,40 @@
 								<ul class="match-stats-widget__body">
 									<li>
 										<div class="match-stats-progress">
-											<div class="match-stats-progress__label">Total Kills</div>
-											<div class="match-stats-progress__score">29</div>
+											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_1 }}</div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_1 }}</div>
 											<div class="match-stats-progress__bar">
 												<span class="team-1" style="width: 24%">&nbsp;</span>
 												<span class="team-2">&nbsp;</span>
 											</div>
-											<div class="match-stats-progress__score">44</div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_1 }}</div>
 										</div>
 									</li>
 									<li>
 										<div class="match-stats-progress">
-											<div class="match-stats-progress__label">Damage Dealt (K)</div>
-											<div class="match-stats-progress__score">110.4</div>
+											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_2 }}</div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_heading_2 }}</div>
 											<div class="match-stats-progress__bar">
 												<span class="team-1" style="width: 80%">&nbsp;</span>
 												<span class="team-2">&nbsp;</span>
 											</div>
-											<div class="match-stats-progress__score">94.7</div>
+											<div class="match-stats-progress__score">{{ $stat->team_2_matchup_title_2 }}</div>
 										</div>
 									</li>
 									<li>
 										<div class="match-stats-progress">
-											<div class="match-stats-progress__label">Healing Done (K)</div>
-											<div class="match-stats-progress__score">67.8</div>
+											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_3 }} </div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_3 }}</div>
 											<div class="match-stats-progress__bar">
 												<span class="team-1" style="width: 60%">&nbsp;</span>
 												<span class="team-2">&nbsp;</span>
 											</div>
-											<div class="match-stats-progress__score">61.3</div>
+											<div class="match-stats-progress__score">{{ $stat->team_2_matchup_title_3 }}</div>
 										</div>
-									</li>
-									<li class="match-stats-widget__achievements">
-										<ul>
-											<li>
-												<img src="assets/img/icon-medal-gold.png" alt="">2
-											</li>
-											<li>
-												<img src="assets/img/icon-medal-silver.png" alt="">0
-											</li>
-											<li>
-												<img src="assets/img/icon-medal-bronze.png" alt="">1
-											</li>
-										</ul>
-										<ul>
-											<li>
-												<img src="assets/img/icon-medal-gold.png" alt="">1
-											</li>
-											<li>
-												<img src="assets/img/icon-medal-silver.png" alt="">2
-											</li>
-											<li>
-												<img src="assets/img/icon-medal-bronze.png" alt="">0
-											</li>
-										</ul>
 									</li>
 								</ul>
 							</div>
-							<div class="match-stats-widget match-stats-widget--leaders">
+							{{-- <div class="match-stats-widget match-stats-widget--leaders">
 								<div class="match-stats-widget__header">
 									Game Leaders
 								</div>
@@ -175,7 +151,7 @@
 											<img src="assets/img/samples/logo-necromancers-30.png" srcset="assets/img/samples/logo-necromancers-30@2x.png 2x" alt="Necromancers Logo">
 										</figure>
 									</li>
-									<li><span>Most damage dealt</span><span>48.365</span></li>
+									<li><span>Most damage dealt</span><span>.365</span></li>
 								</ul>
 								<ul class="match-stats-widget__item">
 									<li>
@@ -194,9 +170,9 @@
 									</li>
 									<li><span>Most healing done</span><span>29.088</span></li>
 								</ul>
-							</div>
+							</div> --}}
 						</div>
-
+{{--
 						<div class="match-stats-container tab-pane fade" id="tab-2" role="tabpanel">
 							<div class="match-stats-widget match-stats-widget--general">
 								<div class="match-stats-widget__header">
@@ -475,7 +451,7 @@
 									<li><span>Most healing done</span><span>29.088</span></li>
 								</ul>
 							</div>
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</div>
