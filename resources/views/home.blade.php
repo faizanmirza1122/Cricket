@@ -16,7 +16,6 @@
 						</div>
 						<div class="player__thumbnail">
 							<img src="assets/img/samples/team-info-page-player-photo-03.png" alt="">
-							<a href="team-player-3.html" class="more-info-link h6"><span class="add-icon"></span>More info</a>
 						</div>
 					</article>
 					<article class="widget-carousel__item player bg-image bg--ph-05">
@@ -63,7 +62,7 @@
 				<article class="post has-post-thumbnail ">
 					<div class="post__thumbnail">
 
-						<a href="{{ route('home-detail', $home->slug) }}"><img src="{{ asset('storage/' . $home->image) }}" alt=""></a>
+						<a href="{{ route('home-detail', $home->slug) }}"><img src="{{ asset('public/storage/' . $home->image) }}" alt=""></a>
 
 
 					</div>

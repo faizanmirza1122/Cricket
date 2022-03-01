@@ -487,7 +487,7 @@
 				</div>
 				<div class="team-player">
 					<div class="team-player__photo">
-						<img src="{{ asset('storage/' . $player_info->image ?? '') }}" alt="">
+						<img src="{{ asset('public/storage/' . $player_info->image ?? '') }}" alt="">
 					</div>
 					<div class="team-player__base">
 						<!-- Decoration -->

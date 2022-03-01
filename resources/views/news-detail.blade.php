@@ -11,7 +11,7 @@
                     <article class="post post--single">
                         <figure class="post__thumbnail">
                             @if ($news)
-                                <img src="{{ asset('storage/' . $news->image) }}" alt="">
+                                <img src="{{ asset('public/storage/' . $news->image) }}" alt="">
                             @else
                             @endif
                         </figure>
@@ -30,7 +30,7 @@
                             </p>
                             <figure>
                                 @if ($news)
-                                    <img src="{{ asset('storage/' . $news->image) }}" alt="">
+                                    <img src="{{ asset('public/storage/' . $news->image) }}" alt="">
                                     <figcaption>{{ $news->name }}</figcaption>
                                 @else
                                 @endif

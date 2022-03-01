@@ -1,7 +1,7 @@
 <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
     <div>
         @if ($logo)
-        <img src="{{ asset('storage/' . $logo->logo ) }}" width="200px">
+        <img src="{{ asset('public/storage/' . $logo->logo ) }}" width="200px">
             @else
         @endif
     </div>

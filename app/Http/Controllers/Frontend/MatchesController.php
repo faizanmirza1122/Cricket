@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Contact;
-use App\Models\Match;
 use App\Models\Faqs;
+use App\Models\TeamMatch;
 use Illuminate\Http\Request;
 
 class MatchesController extends Controller
@@ -14,22 +14,28 @@ class MatchesController extends Controller
 
     public function scores()
     {
-        return view('matches.scores');
+        $matchScore = TeamMatch::with(['matchType'])->orderBy('date', 'DESC')->get();
+        return view('matches.scores', compact('matchScore'));
     }
 
     public function upcomingMatch()
     {
-        return view('matches.upcoming');
+        $upcomingMatches = TeamMatch::with(['matchType'])->orderBy('date', 'DESC')->get();
+        // dd($upcomingMatches);
+        return view('matches.upcoming', compact('upcomingMatches'));
     }
 
     public function matchesStanding()
     {
-        return view('matches.standings');
+        $standings = TeamMatch::with(['matchType', 'team1', 'team2'])->orderBy('date', 'DESC')->get();
+        // dd($standings);
+        return view('matches.standings', compact('standings'));
     }
 
     public function matchStats1()
     {
-        $stat = Match::first();
+        $stat = TeamMatch::first();
+
         return view('matches.stats-1', compact('stat'));
     }
 
@@ -42,7 +48,7 @@ class MatchesController extends Controller
 
     public function matchesOverview1()
     {
-        // $fixture = Match::where('id', $team1->id);
+        // $fixture = TeamMatch::where('id', $team1->id);
         return view('matches.overview-1');
     }
 

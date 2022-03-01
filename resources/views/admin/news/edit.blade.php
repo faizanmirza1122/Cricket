@@ -75,7 +75,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($news)
-                                    <img src="{{ asset('storage/' . $news->body_image) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $news->body_image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Body Image</label>
@@ -90,7 +90,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($news)
-                                    <img src="{{ asset('storage/' . $news->image) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $news->image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Image</label>

@@ -434,7 +434,7 @@
                                 @forelse ($players as $player)
                                 <li class="team-player__filter-item">
 									<a href="#player-0" role="tab" data-toggle="tab" class="team-player__filter-inner active">
-										<img src="{{ asset('storage/'. $player->image) }}" alt="James Spiegel" class="team-player__filter-img">
+										<img src="{{ asset('public/storage/'. $player->image) }}" alt="James Spiegel" class="team-player__filter-img">
 									</a>
 								</li>
                                 @empty
@@ -481,7 +481,7 @@
 											</ul>
 										</div>
 										<div class="team-player__photo">
-											<img src="{{ asset('storage/'. $player->image) }}" alt="James Spiegel aka DaVikinger90">
+											<img src="{{ asset('public/storage/'. $player->image) }}" alt="James Spiegel aka DaVikinger90">
 										</div>
 									</div>
 								</div>

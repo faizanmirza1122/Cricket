@@ -13,7 +13,7 @@
                 @forelse ($products as $product)
 				<article class="product">
 					<div class="product__thumbnail">
-						<a href="{{ route('shop-detail', $product->slug) }}"><img src="{{ asset('storage/' . $product->featured_image) }}" alt=""></a>
+						<a href="{{ route('shop-detail', $product->slug) }}"><img src="{{ asset('public/storage/' . $product->featured_image) }}" alt=""></a>
 					</div>
 					<div class="product__body">
 						<div class="product__header">

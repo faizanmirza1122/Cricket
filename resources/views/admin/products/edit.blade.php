@@ -59,7 +59,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($product)
-                                    <img src="{{ asset('storage/' . $product->featured_image) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $product->featured_image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Featured Image</label>
@@ -105,7 +105,7 @@
                             {{-- <div class="form-group form-group-float">
                                 @if ($product)
                                 @foreach(json_decode($product->images, true) as $images)
-                                    <img src="{{ asset('storage/' . $images->images) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $images->images) }}" width="100px">
                                 @endforeach
                                     @else
                                 @endif

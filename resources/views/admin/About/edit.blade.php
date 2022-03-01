@@ -53,7 +53,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($about)
-                                    <img src="{{ asset('storage/' . $about->side_logo_1) }}" width="100px" />
+                                    <img src="{{ asset('public/storage/' . $about->side_logo_1) }}" width="100px" />
                                 @else
                                 @endif
                                 <label class="d-block">Side Logo 1</label>
@@ -80,7 +80,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($about)
-                                    <img src="{{ asset('storage/' . $about->image) }}" width="100px" />
+                                    <img src="{{ asset('public/storage/' . $about->image) }}" width="100px" />
                                 @else
                                 @endif
                                 <label class="d-block">Image</label>
@@ -102,7 +102,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($about)
-                                    <img src="{{ asset('storage/' . $about->logo_1) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $about->logo_1) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Logo 1</label>
@@ -125,7 +125,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($about)
-                                    <img src="{{ asset('storage/' . $about->logo_2) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $about->logo_2) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Logo 2</label>
@@ -148,7 +148,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($about)
-                                    <img src="{{ asset('storage/' . $about->logo_3) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $about->logo_3) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Logo 3</label>

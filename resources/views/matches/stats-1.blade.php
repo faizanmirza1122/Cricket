@@ -99,35 +99,35 @@
 								<ul class="match-stats-widget__body">
 									<li>
 										<div class="match-stats-progress">
-											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_1 }}</div>
-											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_1 }}</div>
+											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_1 ?? '' }}</div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_1 ?? '' }}</div>
 											<div class="match-stats-progress__bar">
 												<span class="team-1" style="width: 24%">&nbsp;</span>
 												<span class="team-2">&nbsp;</span>
 											</div>
-											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_1 }}</div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_1 ?? '' }}</div>
 										</div>
 									</li>
 									<li>
 										<div class="match-stats-progress">
-											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_2 }}</div>
-											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_heading_2 }}</div>
+											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_2 ?? '' }}</div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_heading_2 ?? '' }}</div>
 											<div class="match-stats-progress__bar">
 												<span class="team-1" style="width: 80%">&nbsp;</span>
 												<span class="team-2">&nbsp;</span>
 											</div>
-											<div class="match-stats-progress__score">{{ $stat->team_2_matchup_title_2 }}</div>
+											<div class="match-stats-progress__score">{{ $stat->team_2_matchup_title_2 ?? '' }}</div>
 										</div>
 									</li>
 									<li>
 										<div class="match-stats-progress">
-											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_3 }} </div>
-											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_3 }}</div>
+											<div class="match-stats-progress__label"> {{ $stat->team_1_matchup_heading_3 ?? '' }} </div>
+											<div class="match-stats-progress__score">{{ $stat->team_1_matchup_title_3 ?? '' }}</div>
 											<div class="match-stats-progress__bar">
 												<span class="team-1" style="width: 60%">&nbsp;</span>
 												<span class="team-2">&nbsp;</span>
 											</div>
-											<div class="match-stats-progress__score">{{ $stat->team_2_matchup_title_3 }}</div>
+											<div class="match-stats-progress__score">{{ $stat->team_2_matchup_title_3 ?? '' }}</div>
 										</div>
 									</li>
 								</ul>

@@ -55,7 +55,7 @@
                                 <tr>
 
                                     <td>{{ $key + 1 }}</td>
-                                    <td><img src="{{ asset('storage/' . $home->image) }}" width="100px"></td>
+                                    <td><img src="{{ asset('public/storage/' . $home->image) }}" width="100px"></td>
                                     <td>{{ $home->title }}</td>
                                     <td>{{ $home->category }}</td>
                                     <td>{{ $home->date }}</td>

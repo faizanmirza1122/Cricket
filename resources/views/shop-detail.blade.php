@@ -18,7 +18,7 @@
                             {{-- @foreach ($pics as $image)
                                 <div class="product__thumbnail-item slick-slide">
                                     @foreach (json_encode($image->images) as $picture) {
-                                        <img src="{{ asset('storage/' . $picture->image) }}" alt="">
+                                        <img src="{{ asset('public/storage/' . $picture->image) }}" alt="">
                                 </div>
                             '@endforeach --}}
                             <div class="product__thumbnail-item slick-slide">

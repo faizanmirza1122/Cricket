@@ -12,7 +12,7 @@
 				<div class="site-content__holder">
 					<figure class="page-thumbnail page-thumbnail--default">
                         @if ($team)
-						<img src="{{ asset('storage/' . $team->image) }}" alt="">
+						<img src="{{ asset('public/storage/' . $team->image) }}" alt="">
                             @else
                         @endif
 					</figure>

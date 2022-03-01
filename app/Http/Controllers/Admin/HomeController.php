@@ -50,6 +50,8 @@ class HomeController extends Controller
             'description_under_image' => ['required'],
         ]);
 
+        $data['slug'] = Str::slug($request->title, '-');
+
         if ($request->file('image')) {
             $image = $request->file('image');
             $imageName = Str::random(8) . '.' . $image->getClientOriginalExtension();
@@ -63,6 +65,7 @@ class HomeController extends Controller
             Storage::putFileAs('public', $image, $imageName);
             $data['body_image'] = $imageName;
         }
+
         $data = Home::create($data);
         return redirect()->route('home.index')->with('message', 'Home has been added successfully');
 

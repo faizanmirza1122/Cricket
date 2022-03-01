@@ -39,6 +39,7 @@ class MainController extends Controller
             'social_link_icon_class_2' => ['nullable'],
             'social_link_icon_class_3' => ['nullable'],
             'social_link_icon_class_4' => ['nullable'],
+            'social_link_icon_class_5' => ['nullable'],
             'social_link_1' => ['required', 'url'],
             'social_link_name_1' => ['required'],
             'social_link_text_1' => ['required'],
@@ -51,6 +52,9 @@ class MainController extends Controller
             'social_link_4' => ['required', 'url'],
             'social_link_name_4' => ['required'],
             'social_link_text_4' => ['required'],
+            'social_link_5' => ['required', 'url'],
+            'social_link_name_5' => ['required'],
+            'social_link_text_5' => ['required'],
         ]);
 
         if ($request->file('image')) {

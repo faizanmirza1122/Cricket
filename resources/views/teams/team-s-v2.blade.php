@@ -18,7 +18,7 @@
                             <a href="{{ route('to1', $team->slug) }}" class="team-selection-item__thumbnail">
                                 <div class="team-selection-item__thumbnail-inner">
                                     @if ($team->image)
-                                        <img src="{{ asset('storage/' . $team->image) }}" alt="">
+                                        <img src="{{ asset('public/storage/' . $team->image) }}" alt="">
                                     @else
                                     @endif
                                 </div>

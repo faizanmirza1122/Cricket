@@ -3,9 +3,9 @@
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AllMemberController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\ChangePasswordController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\PlayerController;
-use App\Http\Controllers\Admin\MatchController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TeamSelectionController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -17,8 +17,8 @@ use App\Http\Controllers\Admin\HomeController as HmeController;
 use App\Http\Controllers\Admin\MatchTypeController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TeamMatchController;
 use App\Http\Controllers\PageController;
-use App\Models\MatchType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -103,7 +103,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     Route::resource('match-type', MatchTypeController::class)->except('show');
 
-    Route::resource('match', MatchController::class)->except('show');
+    Route::resource('match', TeamMatchController::class)->except('show');
 
     Route::post('logout', [AboutController::class, 'logout'])->name('logout');
+
+    Route::get('change-password', [ChangePasswordController::class, 'index'])->name('change.password.index');
+Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
 });

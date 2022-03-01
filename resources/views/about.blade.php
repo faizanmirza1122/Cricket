@@ -51,7 +51,7 @@
                             <div class="counter">
                                 <div class="counter__icon counter__icon--left">
                                     @if ($about)
-                                        <img src="{{ asset('storage/' . $about->logo_1) }}" width="35px">
+                                        <img src="{{ asset('public/storage/' . $about->logo_1) }}" width="35px">
                                     @else
                                     @endif
                                 </div>
@@ -63,7 +63,7 @@
                             <div class="counter">
                                 <div class="counter__icon counter__icon--left">
                                     @if ($about)
-                                        <img src="{{ asset('storage/' . $about->logo_2) }}" width="35px">
+                                        <img src="{{ asset('public/storage/' . $about->logo_2) }}" width="35px">
                                     @else
                                     @endif
                                 </div>
@@ -75,7 +75,7 @@
                             <div class="counter">
                                 <div class="counter__icon counter__icon--left">
                                     @if ($about)
-                                        <img src="{{ asset('storage/' . $about->logo_3) }}" width="35px">
+                                        <img src="{{ asset('public/storage/' . $about->logo_3) }}" width="35px">
                                     @else
                                     @endif
                                 </div>

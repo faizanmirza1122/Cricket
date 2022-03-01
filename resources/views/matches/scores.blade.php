@@ -33,7 +33,7 @@
 						<li data-filter=".dec-19"><span>2019</span>Dec</li>
 					</ul>
 
-					<div class="matches-filter">
+					{{-- <div class="matches-filter">
 						<label class="matches-filter__label">Team filter</label>
 						<select class="cs-select">
 							<option value="">All Teams</option>
@@ -42,290 +42,52 @@
 							<option value="">Striker Go</option>
 							<option value="">Fortdaite</option>
 						</select>
-					</div>
-
+					</div> --}}
 					<div class="matches-scores row">
+                        @forelse ($matchScore as $score)
 						<div class="col-md-12 col-lg-6 sep-18 oct-18 dec-18 jan-19 mar-19 apr-19 jun-19 jul-19 sep-19 oct-19 dec-19">
 							<div class="match-score">
 								<div class="match-score__header">
-									<div class="match-score__competition">Xenowatch West League</div>
-									<div class="match-score__date">Thursday, Jan 17th</div>
+									<div class="match-score__competition"> {{ ($score->matchType->type) }}</div>
+									<div class="match-score__date">{{ date('F,d', strtotime($score->date)) }}</div>
 								</div>
 								<div class="match-score__body">
 									<figure class="match-team" role="group">
 										<figure class="match-team-logo match-team-logo--team-1" role="group">
-											<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
+											<img src="{{ asset('public/storage/' .  $score->team1[0]->icon ?? '') }}" srcset="{{ asset('public/storage/' .  $score->team1[0]->icon ?? '') }}" alt="BNW ESPORTS Logo">
 										</figure>
 										<figcaption>
-											<div class="match-team__name">Necromancers</div>
-												<div class="match-team__country ">United States</div>
+											<div class="match-team__name">{{ $score->team1[0]->title ?? '' }}</div>
+												<div class="match-team__country ">{{ $score->team1[0]->country ?? '' }}</div>
 										</figcaption>
 									</figure>
 									<div class="match-result match-result--live">
-										<span class="match-result__score">4 : 2</span>
-										<span class="match-result__label">36:24</span>
+										<span class="match-result__score">{{ $score->team1[0]->final_score ?? '' }} : {{ $score->team2[0]->final_score ?? '' }}</span>
+										<span class="match-result__label">Final Score</span>
 									</div>
 									<figure class="match-team" role="group">
 										<figure class="match-team-logo match-team-logo--team-2" role="group">
 											<img src="assets/img/samples/logo-rhinos-42.png" srcset="assets/img/samples/logo-rhinos-42@2x.png 2x" alt="Raging Rhinos Logo">
 										</figure>
 										<figcaption>
-											<div class="match-team__name">Raging Rhinos</div>
-												<div class="match-team__country ">Japan</div>
+											<div class="match-team__name">{{ $score->team2[0]->title ?? '' }}</div>
+												<div class="match-team__country ">{{ $score->team2[0]->country ?? '' }}</div>
 										</figcaption>
 									</figure>
 								</div>
 								<div class="match-score__footer">
 									<figure class="match-team-logo match-team-logo--team-1" role="group">
-										<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
+										<img src="{{ asset('public/storage/' .  $score->team2[0]->icon ?? '') }}" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
 									</figure>
-									<ul class="match-stats-links">
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--overview">
-													<use xlink:href="assets/img/necromancers.svg#overview"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--stats">
-													<use xlink:href="assets/img/necromancers.svg#stats"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--lineups">
-													<use xlink:href="assets/img/necromancers.svg#lineups"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--replay">
-													<use xlink:href="assets/img/necromancers.svg#replay"/>
-												</svg>
-											</a>
-										</li>
-									</ul>
-									<figure class="match-team-logo match-team-logo--team-2" role="group">
-										<img src="assets/img/samples/logo-rhinos-42.png" srcset="assets/img/samples/logo-rhinos-42@2x.png 2x" alt="Raging Rhinos Logo">
-									</figure>
+
 								</div>
 							</div>
 						</div>
-						<div class="col-md-12 col-lg-6 sep-18 nov-18 dec-18 feb-19 mar-19 may-19 jun-19 aug-19 sep-19 nov-19 dec-19">
-							<div class="match-score">
-								<div class="match-score__header">
-									<div class="match-score__competition">Xenowatch Usa Cup</div>
-									<div class="match-score__date">Saturday, Jan 12th</div>
-								</div>
-								<div class="match-score__body">
-									<figure class="match-team" role="group">
-										<figure class="match-team-logo match-team-logo--team-1" role="group">
-											<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
-										</figure>
-										<figcaption>
-											<div class="match-team__name">Necromancers</div>
-												<div class="match-team__country ">United States</div>
-										</figcaption>
-									</figure>
-									<div class="match-result match-result--winner-right">
-										<span class="match-result__score">1 : 3</span>
-										<span class="match-result__label">Final score</span>
-									</div>
-									<figure class="match-team" role="group">
-										<figure class="match-team-logo match-team-logo--team-3" role="group">
-											<img src="assets/img/samples/logo-bulls-42.png" srcset="assets/img/samples/logo-bulls-42@2x.png 2x" alt="Angry Bulls Logo">
-										</figure>
-										<figcaption>
-											<div class="match-team__name">Angry Bulls</div>
-												<div class="match-team__country ">Spain</div>
-										</figcaption>
-									</figure>
-								</div>
-								<div class="match-score__footer">
-									<figure class="match-team-logo match-team-logo--team-1" role="group">
-										<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
-									</figure>
-									<ul class="match-stats-links">
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--overview">
-													<use xlink:href="assets/img/necromancers.svg#overview"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--stats">
-													<use xlink:href="assets/img/necromancers.svg#stats"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--lineups">
-													<use xlink:href="assets/img/necromancers.svg#lineups"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--replay">
-													<use xlink:href="assets/img/necromancers.svg#replay"/>
-												</svg>
-											</a>
-										</li>
-									</ul>
-									<figure class="match-team-logo match-team-logo--team-3" role="group">
-										<img src="assets/img/samples/logo-bulls-42.png" srcset="assets/img/samples/logo-bulls-42@2x.png 2x" alt="Angry Bulls Logo">
-									</figure>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12 col-lg-6 sep-18 oct-18 nov-18 dec-18 jan-19 feb-19 mar-19 apr-19 may-19 jun-19 jul-19 aug-19 sep-19 oct-19 nov-19 dec-19">
-							<div class="match-score">
-								<div class="match-score__header">
-									<div class="match-score__competition">Xenowatch USA Cup</div>
-									<div class="match-score__date">Monday, Jan 7th</div>
-								</div>
-								<div class="match-score__body">
-									<figure class="match-team" role="group">
-										<figure class="match-team-logo match-team-logo--team-1" role="group">
-											<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
-										</figure>
-										<figcaption>
-											<div class="match-team__name">Necromancers</div>
-												<div class="match-team__country ">United States</div>
-										</figcaption>
-									</figure>
-									<div class="match-result match-result--winner-left">
-										<span class="match-result__score">3 : 1</span>
-										<span class="match-result__label">Final score</span>
-									</div>
-									<figure class="match-team" role="group">
-										<figure class="match-team-logo match-team-logo--team-4" role="group">
-											<img src="assets/img/samples/logo-panthers-42.png" srcset="assets/img/samples/logo-panthers-42@2x.png 2x" alt="Ice Panthers Logo">
-										</figure>
-										<figcaption>
-											<div class="match-team__name">Ice Panthers</div>
-												<div class="match-team__country ">Portugal</div>
-										</figcaption>
-									</figure>
-								</div>
-								<div class="match-score__footer">
-									<figure class="match-team-logo match-team-logo--team-1" role="group">
-										<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
-									</figure>
-									<ul class="match-stats-links">
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--overview">
-													<use xlink:href="assets/img/necromancers.svg#overview"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="matches-stats-1.html#tab-2">
-												<svg role="img" class="df-icon df-icon--stats">
-													<use xlink:href="assets/img/necromancers.svg#stats"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--lineups">
-													<use xlink:href="assets/img/necromancers.svg#lineups"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--replay">
-													<use xlink:href="assets/img/necromancers.svg#replay"/>
-												</svg>
-											</a>
-										</li>
-									</ul>
-									<figure class="match-team-logo match-team-logo--team-4" role="group">
-										<img src="assets/img/samples/logo-panthers-42.png" srcset="assets/img/samples/logo-panthers-42@2x.png 2x" alt="Ice Panthers Logo">
-									</figure>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12 col-lg-6 sep-18 nov-18 dec-18 feb-19 mar-19 may-19 jun-19 aug-19 sep-19 nov-19 dec-19">
-							<div class="match-score">
-								<div class="match-score__header">
-									<div class="match-score__competition">Xenowatch West League</div>
-									<div class="match-score__date">Friday, Jan 4th</div>
-								</div>
-								<div class="match-score__body">
-									<figure class="match-team" role="group">
-										<figure class="match-team-logo match-team-logo--team-1" role="group">
-											<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
-										</figure>
-										<figcaption>
-											<div class="match-team__name">Necromancers</div>
-												<div class="match-team__country ">United States</div>
-										</figcaption>
-									</figure>
-									<div class="match-result match-result--winner-left">
-										<span class="match-result__score">2 : 1</span>
-										<span class="match-result__label">Final score</span>
-									</div>
-									<figure class="match-team" role="group">
-										<figure class="match-team-logo match-team-logo--team-5" role="group">
-											<img src="assets/img/samples/logo-eagles-42.png" srcset="assets/img/samples/logo-eagles-42@2x.png 2x" alt="Fierce Eagles Logo">
-										</figure>
-										<figcaption>
-											<div class="match-team__name">Fierce Eagles</div>
-												<div class="match-team__country ">France</div>
-										</figcaption>
-									</figure>
-								</div>
-								<div class="match-score__footer">
-									<figure class="match-team-logo match-team-logo--team-1" role="group">
-										<img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
-									</figure>
-									<ul class="match-stats-links">
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--overview">
-													<use xlink:href="assets/img/necromancers.svg#overview"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--stats">
-													<use xlink:href="assets/img/necromancers.svg#stats"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--lineups">
-													<use xlink:href="assets/img/necromancers.svg#lineups"/>
-												</svg>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<svg role="img" class="df-icon df-icon--replay">
-													<use xlink:href="assets/img/necromancers.svg#replay"/>
-												</svg>
-											</a>
-										</li>
-									</ul>
-									<figure class="match-team-logo match-team-logo--team-5" role="group">
-										<img src="assets/img/samples/logo-eagles-42.png" srcset="assets/img/samples/logo-eagles-42@2x.png 2x" alt="Fierce Eagles Logo">
-									</figure>
-								</div>
-							</div>
-						</div>
+                        @empty
+                        <h1 class="text-center"> No Data Found</h1>
+                        @endforelse
 					</div>
+
 				</div>
 			</div>
 		</main>

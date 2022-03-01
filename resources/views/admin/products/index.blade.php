@@ -54,7 +54,7 @@
                                 <tr>
 
                                     <td>{{ $key + 1 }}</td>
-                                    <td><img src="{{ asset('storage/' . $product->featured_image) }}" width="100px"></td>
+                                    <td><img src="{{ asset('public/storage/' . $product->featured_image) }}" width="100px"></td>
                                     <td>{{ $product->product_name }}</td>
                                     <td>{{ $product->product_category }}</td>
                                     <td>{{ $product->product_price }}</td>
@@ -64,9 +64,9 @@
                                                 <a href="#" class="list-icons-item" data-toggle="dropdown">
                                                     <i class="icon-menu9"></i>
                                                 </a>
-                                                <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                                <form action="{{ route('shop.destroy', $product->id) }}" method="POST">
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <a href="{{ route('product.edit', $product->id) }}"
+                                                        <a href="{{ route('shop.edit', $product->id) }}"
                                                             class="dropdown-item"><i class="icon-pencil7"></i> edit</a>
                                                         <a onclick="return confirm('Are you sure?')" >
                                                             <button type="submit" class="btn bg-transparent dropdown-item"><i

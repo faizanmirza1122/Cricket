@@ -18,10 +18,9 @@ class PlayerController extends Controller
      */
     public function index(Team $team)
     {
-       $players= Player::with('team')->get();
-    //    $players= $team->players;
-    //    $players= Player::with('team')->get();
-    //    dd($players);
+       $team= Team::where('id', $team->id)->first();
+       $players= $team->players()->get();
+
         return view('admin.teams.players.index', compact('players', 'team'));
     }
 
@@ -32,7 +31,6 @@ class PlayerController extends Controller
      */
     public function create($team)
     {
-        // dd($team);
         return view('admin.teams.players.create', compact('team'));
     }
 

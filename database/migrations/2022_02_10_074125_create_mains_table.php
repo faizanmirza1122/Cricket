@@ -31,6 +31,14 @@ class CreateMainsTable extends Migration
             $table->string('social_link_4');
             $table->string('social_link_name_4');
             $table->string('social_link_text_4');
+            $table->string('social_link_5');
+            $table->string('social_link_name_5');
+            $table->string('social_link_text_5');
+            $table->string('social_link_icon_class_1')->nullable();
+            $table->string('social_link_icon_class_2')->nullable();
+            $table->string('social_link_icon_class_3')->nullable();
+            $table->string('social_link_icon_class_4')->nullable();
+            $table->string('social_link_icon_class_5')->nullable();
 
             $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();

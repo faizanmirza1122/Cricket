@@ -16,10 +16,13 @@ class CreateHomesTable extends Migration
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('subtitle');
             $table->date('date');
             $table->longtext('description');
             $table->string('image')->nullable();
+            $table->string('category');
+            $table->string('slug')->nullable();
+            $table->string('body_image')->nullable();
+            $table->longText('description_under_image')->nullable();
             $table->timestamps();
         });
     }

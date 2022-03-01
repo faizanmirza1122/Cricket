@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Team;
+use App\Models\Product;
+use App\Models\TeamMatch;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,7 +17,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $team= Team::get()->count();
+        $match= TeamMatch::get()->count();
+        $product = Product::get()->count();
+        return view('admin.dashboard', compact('team', 'match', 'product'));
     }
 
 

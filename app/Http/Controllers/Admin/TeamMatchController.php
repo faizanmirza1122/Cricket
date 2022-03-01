@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TeamMatch;
 use App\Models\MatchType;
 use App\Models\Team;
-use App\Models\TeamMatch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class MatchController extends Controller
+class TeamMatchController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -54,8 +54,8 @@ class MatchController extends Controller
             'team_1_match_result' => ['required', 'in:win,loss'],
             'team_2_match_result' => ['required', 'in:win,loss'],
             'date' => ['required', 'date'],
-            'match_start_time' => ['required', 'time'],
-            'match_end_time' => ['required', 'time'],
+            'match_start_time' => ['required'],
+            'match_end_time' => ['required'],
             'team_1_matchup_heading_1' => ['required', 'string', 'max:255'],
             'team_1_matchup_title_1' => ['required', 'string', 'max:255'],
             'team_1_matchup_heading_2' => ['required', 'string', 'max:255'],
@@ -73,7 +73,7 @@ class MatchController extends Controller
             'general_stats_mission_heading' => ['required', 'string', 'max:255'],
             'general_stats_mission_title' => ['required', 'string', 'max:255'],
             'general_stats_duration_heading' => ['required', 'string', 'max:255'],
-            'general_stats_duration_title' => ['required',],
+            'general_stats_duration_title' => ['required'],
         ]);
 
         $data = TeamMatch::create($data);
@@ -89,15 +89,15 @@ class MatchController extends Controller
     public function edit($id)
     {
         $match = TeamMatch::find($id);
-        $matchTypes = MatchType::orderBy('id', 'DESC')->get();
 
+        $matchTypes = MatchType::orderBy('id', 'DESC')->first();
+        $matchTypesold = MatchType::where('id', $matchTypes->id)->first();
+
+        dd($matchTypesold);
         $team = TeamMatch::find($id);
-        // $team1 = TeamMatch::where('team_1', $team->id)->first();
-        // $team2 = '';
 
         $team1 = Team::orderBy('id', 'DESC')->get();
         $team2 = Team::orderBy('id', 'DESC')->get();
-        // dd($team1);
 
         return view('admin.match.edit', compact('match', 'matchTypes','team1','team2'));
     }

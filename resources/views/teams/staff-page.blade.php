@@ -14,7 +14,7 @@
 				<article class="staff-member has-post-thumbnail">
 					<div class="staff-member__thumbnail">
                         @if ($team)
-						<a href="{{ route('staff-member', [$team->slug]) }}"><img src="{{ asset('storage/' . $team->image) }}" alt="Marina Gonzales"></a>
+						<a href="{{ route('staff-member', [$team->slug]) }}"><img src="{{ asset('public/storage/' . $team->image) }}" alt="Marina Gonzales"></a>
                         @else
                         @endif
 					</div>

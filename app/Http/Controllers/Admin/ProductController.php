@@ -80,7 +80,7 @@ class ProductController extends Controller
         $data->product_description =  $request->get('product_description');
         $data->images =  json_decode($data);
         $data->save();
-        return redirect()->route('product.index')->with('message', 'Product has been added successfully');
+        return redirect()->route('shop.index')->with('message', 'Product has been added successfully');
     }
 
     /**
@@ -167,7 +167,7 @@ class ProductController extends Controller
         $products = Product::find($id);
         $products->delete();
 
-        return redirect()->route('product.index')
+        return redirect()->route('shop.index')
             ->with('success', 'Product deleted successfully');
     }
 }

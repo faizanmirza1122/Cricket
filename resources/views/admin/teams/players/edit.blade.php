@@ -118,7 +118,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($player->image)
-                                    <img src="{{ asset('storage/' . $player->image) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $player->image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Image</label>

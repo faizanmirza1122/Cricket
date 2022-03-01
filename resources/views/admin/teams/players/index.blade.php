@@ -53,12 +53,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- {{ dd($players) }} --}}
                             @forelse($players as $key => $player)
                                 <tr>
 
                                     <td>{{ $key + 1 }}</td>
-                                    <td><img src="{{ asset('storage/' . $player->image) }}" width="100px"></td>
+                                    <td><img src="{{ asset('public/storage/' . $player->image) }}" width="100px"></td>
                                     <td>{{ $player->player_name }}</td>
                                     <td>{{ $player->player_team }}</td>
                                     <td>{{ $player->player_role }}</td>

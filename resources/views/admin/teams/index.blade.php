@@ -53,7 +53,7 @@
                                 <tr>
 
                                     <td>{{ $key + 1 }}</td>
-                                    <td><img src="{{ asset('storage/' . $team->sidebar_icon) }}" width="100px"></td>
+                                    <td><img src="{{ asset('public/storage/' . $team->sidebar_icon) }}" width="100px"></td>
                                     <td>{{ $team->title }}</td>
                                     <td>{{ $team->subtitle }}</td>
                                     <td class="text-center">

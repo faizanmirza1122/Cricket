@@ -6,17 +6,17 @@
         <main class="site-content site-content--center page" id="wrapper">
 			<div class="container container--large">
 				<div class="page-heading page-heading--default">
-					<div class="page-heading__subtitle h5 color-primary">Necromancers</div>
+					<div class="page-heading__subtitle h5 color-primary">BNW ESPORTS</div>
 					<h1 class="page-heading__title h2">Standings</h1>
 				</div>
-				<div class="matches-filter">
+				{{-- <div class="matches-filter">
 					<label class="matches-filter__label">Competition filter</label>
 					<select class="cs-select">
 						<option value="" selected>Xenowatch West League</option>
 						<option value="">Xenowatch East League</option>
 						<option value="">Xenowatch USA Cup</option>
 					</select>
-				</div>
+				</div> --}}
 				<div class="table-responsive mt-sm-auto mb-sm-auto">
 					<table class="table matches-table standings-table">
 						<thead>
@@ -25,17 +25,11 @@
 								<th>Team</th>
 								<th>Wins</th>
 								<th>Losses</th>
-								<th>Kills</th>
-								<th>Deaths</th>
-								<th>Assists</th>
-								<th>KDA.R</th>
-								<th>T.DGM</th>
-								<th>T.HEA</th>
-								<th>Streak</th>
 								<th>Record</th>
 							</tr>
 						</thead>
 						<tbody>
+                            @forelse ($standings as $stand)
 							<tr>
 								<td>01</td>
 								<td class="standings-table__team">
@@ -44,24 +38,22 @@
 											<img src="assets/img/samples/logo-panthers-30.png" srcset="assets/img/samples/logo-panthers-30@2x.png 2x" alt="Ice Panthers Logo">
 										</figure>
 										<figcaption>
-											<div class="match-team__name">Ice Panthers</div>
-												<div class="match-team__country ">Portugal</div>
+											<div class="match-team__name"> {{ ($stand->team1->title ?? '' ) }}</div>
+												<div class="match-team__country ">{{ ($stand->team1->country ?? '' ) }}</div>
 										</figcaption>
 									</figure>
 								</td>
-								<td class="standings-table__wins">16</td>
-								<td class="standings-table__losses">4</td>
-								<td>62</td>
-								<td>33</td>
-								<td>19</td>
-								<td>7.8</td>
-								<td>64.5k</td>
-								<td>82.1k</td>
-								<td><span class="standings-table__streak--wins">W</span> 5</td>
+								<td class="standings-table__wins">{{ ($stand->team1->team_1_match_result ?? '' ) }}</td>
+								<td class="standings-table__losses">{{ ($stand->team1->team_2_match_result ?? '' ) }}</td>
+
 								<td>9:1</td>
 							</tr>
 
-							<tr>
+                            @empty
+                            <h1 class="text-center"> No Data Found</h1>
+                            @endforelse
+
+							{{-- <tr>
 								<td>02</td>
 								<td class="standings-table__team">
 									<figure class="match-team" role="group">
@@ -159,7 +151,7 @@
 								<td>50.8k</td>
 								<td><span class="standings-table__streak--losses">L</span> 3</td>
 								<td>4:2</td>
-							</tr>
+							</tr> --}}
 						</tbody>
 					</table>
 				</div>

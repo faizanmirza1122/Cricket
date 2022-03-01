@@ -49,19 +49,19 @@
 
                             <div class="form-group form-group-float">
                                 <label class="d-block">Title</label>
-                                <input type="text" name="title" value="{{ $main->title ?? '' }}" class="form-control"
+                                <input type="text" name="title" value="{{ old('title', $main->title ?? '') }}" class="form-control"
                                     placeholder="Enter your title...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Subtitle</label>
-                                <input type="text" name="subtitle" value="{{ $main->subtitle ?? '' }}"
+                                <input type="text" name="subtitle" value="{{ old('subtitle', $main->subtitle ?? '') }}"
                                     class="form-control" placeholder="Enter your subtitle...">
                             </div>
 
                             <div class="form-group form-group-float">
                                 @if ($main)
-                                    <img src="{{ asset('storage/' . $main->logo) }}" width="100px" />
+                                    <img src="{{ asset('public/storage/' . $main->logo) }}" width="100px" />
                                 @else
                                 @endif
                                 <label class="d-block">Logo</label>
@@ -70,7 +70,7 @@
 
                             <div class="form-group form-group-float">
                                 @if ($main)
-                                    <img src="{{ asset('storage/' . $main->image) }}" width="100px">
+                                    <img src="{{ asset('public/storage/' . $main->image) }}" width="100px">
                                 @else
                                 @endif
                                 <label class="d-block">Background Image</label>
@@ -79,90 +79,112 @@
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Icon Class 1</label>
-                                <input type="text" name="social_link_icon_class_1" value="{{ $main->social_link_icon_class_1 ?? '' }}"
+                                <input type="text" name="social_link_icon_class_1" value="{{ old('social_link_icon_class_1', $main->social_link_icon_class_1 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_icon_class_1...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link 1</label>
-                                <input type="text" name="social_link_1" value="{{ $main->social_link_1 ?? '' }}"
+                                <input type="text" name="social_link_1" value="{{ old('social_link_1', $main->social_link_1 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_1...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Name 1</label>
-                                <input type="text" name="social_link_name_1" value="{{ $main->social_link_name_1 ?? '' }}"
+                                <input type="text" name="social_link_name_1" value="{{ old('social_link_name_1', $main->social_link_name_1 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_name_1...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Text 1</label>
-                                <input type="text" name="social_link_text_1" value="{{ $main->social_link_text_1 ?? '' }}"
+                                <input type="text" name="social_link_text_1" value="{{ old('social_link_text_1', $main->social_link_text_1 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_text_1...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Icon Class 2</label>
-                                <input type="text" name="social_link_icon_class_2" value="{{ $main->social_link_icon_class_2 ?? '' }}"
+                                <input type="text" name="social_link_icon_class_2" value="{{ old('social_link_icon_class_2', $main->social_link_icon_class_2 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_icon_class_2...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link 2</label>
-                                <input type="text" name="social_link_2" value="{{ $main->social_link_2 ?? '' }}"
+                                <input type="text" name="social_link_2" value="{{ old('social_link_2', $main->social_link_2 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_2...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Name 2</label>
-                                <input type="text" name="social_link_name_2" value="{{ $main->social_link_name_2 ?? '' }}"
+                                <input type="text" name="social_link_name_2" value="{{ old('social_link_name_2', $main->social_link_name_2 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_name_2...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Text 2</label>
-                                <input type="text" name="social_link_text_2" value="{{ $main->social_link_text_2 ?? '' }}"
+                                <input type="text" name="social_link_text_2" value="{{ old('social_link_text_2', $main->social_link_text_2 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_text_2...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Icon Class 3</label>
-                                <input type="text" name="social_link_icon_class_3" value="{{ $main->social_link_icon_class_3 ?? '' }}"
+                                <input type="text" name="social_link_icon_class_3" value="{{ old('social_link_icon_class_3', $main->social_link_icon_class_3 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_icon_class_3...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link 3</label>
-                                <input type="text" name="social_link_3" value="{{ $main->social_link_3 ?? '' }}"
+                                <input type="text" name="social_link_3" value="{{ old('social_link_3', $main->social_link_3 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_3...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Name 3</label>
-                                <input type="text" name="social_link_name_3" value="{{ $main->social_link_name_3 ?? '' }}"
+                                <input type="text" name="social_link_name_3" value="{{ old('social_link_name_3', $main->social_link_name_3 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_name_3...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Text 3</label>
-                                <input type="text" name="social_link_text_3" value="{{ $main->social_link_text_3 ?? '' }}"
+                                <input type="text" name="social_link_text_3" value="{{ old('social_link_text_3', $main->social_link_text_3 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_text_3...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Icon Class 4</label>
-                                <input type="text" name="social_link_icon_class_4" value="{{ $main->social_link_icon_class_4 ?? '' }}"
+                                <input type="text" name="social_link_icon_class_4" value="{{ old('social_link_icon_class_4', $main->social_link_icon_class_4 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_icon_class_4...">
                             </div>
 
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link 4</label>
-                                <input type="text" name="social_link_4" value="{{ $main->social_link_4 ?? '' }}"
+                                <input type="text" name="social_link_4" value="{{ old('social_link_4', $main->social_link_4 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_4...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Name 4</label>
-                                <input type="text" name="social_link_name_4" value="{{ $main->social_link_name_4 ?? '' }}"
+                                <input type="text" name="social_link_name_4" value="{{ old('social_link_name_4', $main->social_link_name_4 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_name_4...">
                             </div>
                             <div class="form-group  form-group-float">
                                 <label class="d-block">Social Link Text 4</label>
-                                <input type="text" name="social_link_text_4" value="{{ $main->social_link_text_4 ?? '' }}"
+                                <input type="text" name="social_link_text_4" value="{{ old('social_link_text_4', $main->social_link_text_4 ?? '') }}"
                                     class="form-control" placeholder="Enter your social_link_text_4...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Icon Class 5</label>
+                                <input type="text" name="social_link_icon_class_5" value="{{ old('social_link_icon_class_5', $main->social_link_icon_class_5 ?? '') }}"
+                                    class="form-control" placeholder="Enter your social_link_icon_class_5...">
+                            </div>
+
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link 5</label>
+                                <input type="text" name="social_link_5" value="{{ old('social_link_5', $main->social_link_5 ?? '') }}"
+                                    class="form-control" placeholder="Enter your social_link_5...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Name 5</label>
+                                <input type="text" name="social_link_name_5" value="{{ old('social_link_name_5', $main->social_link_name_5 ?? '') }}"
+                                    class="form-control" placeholder="Enter your social_link_name_5...">
+                            </div>
+                            <div class="form-group  form-group-float">
+                                <label class="d-block">Social Link Text 5</label>
+                                <input type="text" name="social_link_text_5" value="{{ old('social_link_text_5', $main->social_link_text_5 ?? '') }}"
+                                    class="form-control" placeholder="Enter your social_link_text_5...">
                             </div>
 
 

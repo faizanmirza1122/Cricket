@@ -99,7 +99,7 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
+                        <a href="{{ route('change.password.index') }}" class="dropdown-item"><i class="icon-user-plus"></i> Change Password</a>
                         {{-- <div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a> --}}
 
@@ -154,7 +154,7 @@
                                 <div class="media">
                                     <div class="">
                                         @if ($logo)
-                                            <a href="#"><img src="{{ asset('storage/' . $logo->logo) }}" width="50"
+                                            <a href="#"><img src="{{ asset('public/storage/' . $logo->logo) }}" width="50"
                                                     height="50" alt=""></a>
                                         @else
                                         @endif
@@ -170,7 +170,7 @@
                                 title="Main"></i>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{ route('dashboard') }}" class="nav-link">
                                 <i class="icon-home4"></i>
                                 <span>
                                     Dashboard

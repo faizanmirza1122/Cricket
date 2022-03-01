@@ -17,11 +17,11 @@ class Team extends Model
     }
 
     public function match1(){
-        return $this->belongsTo(Match::class, 'team_1');
+        return $this->belongsTo(TeamMatch::class, 'team_2');
     }
 
     public function match2(){
-        return $this->belongsTo(Match::class, 'team_2');
+        return $this->belongsTo(TeamMatch::class, 'team_2');
     }
 
 }

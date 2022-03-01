@@ -74,39 +74,15 @@
 			<nav class="main-nav">
 				<ul class="main-nav__list">
 					<li class=""><a href="{{ route('home') }}">Home</a></li>
-					<li class="">
-						<a href="#">Teams</a>
-						<ul class="main-nav__sub">
-							<li class="">
-								<a href="#">Team Selections</a>
-								<ul class="main-nav__sub main-nav__sub--dropup">
-									<li class=""><a href="{{ route('ts2') }}">Teams</a></li>
-								</ul>
-							</li>
-							<li class=""><a href="{{ route('staff-page') }}">Staff Page</a></li>
-						</ul>
-					</li>
-					<li class=""><a href="#">Matches</a>
+					<li class=""><a href="{{ route('ts2') }}">Teams</a></li>
+                    <li class=""><a href="#">Matches</a>
 						<ul class="main-nav__sub">
 							<li class=""><a href="{{ route('matches-scores') }}">Match Scores</a></li>
 							<li class=""><a href="{{ route('upcoming-match') }}">Upcoming Matches</a></li>
 							<li class=""><a href="{{ route('matches-standing') }}">Standings</a></li>
-							<li class=""><a href="#">Match Stats</a>
-								<ul class="main-nav__sub">
-									<li class=""><a href="{{ route('match-stats1') }}">Match Stats v1</a></li>
-								</ul>
-							</li>
-							<li class="">
-								<a href="#">Match Lineups</a>
-								<ul class="main-nav__sub">
-									<li class=""><a href="{{ route('matches-lineups1') }}">Match Lineups v1</a></li>
-								</ul>
-							</li>
-							<li class=""><a href="#">Match Overviews</a>
-								<ul class="main-nav__sub">
-									<li class=""><a href="{{ route('matches-overview1') }}">Match Overview v1</a></li>
-								</ul>
-							</li>
+                            <li class=""><a href="{{ route('match-stats1') }}">Match Stats</a></li>
+                            <li class=""><a href="{{ route('matches-lineups1') }}">Match Lineups</a></li>
+                            <li class=""><a href="{{ route('matches-overview1') }}">Match Overview</a></li>
 							<li class=""><a href="{{ route('matches-repaly') }}">Match Replay</a></li>
 						</ul>
 					</li>
@@ -126,25 +102,18 @@
 			<!-- Main Navigation Right -->
 			<nav class="main-nav">
 				<ul class="main-nav__list">
-					<li class=""><a href="#">News</a>
-						<ul class="main-nav__sub">
-							<li class=""><a href="{{ route('news') }}">News v1</a></li>
-						</ul>
-					</li>
-                    <li >
+                    <li class=""><a href="{{ route('news') }}">News</a></li>
+					<li >
 						<a href="#">About us</a>
 						<ul class="main-nav__sub">
 							<li class=""><a href="{{ route('contact') }}">Contact</a></li>
 							<li class=""><a href="{{ route('faqs') }}">FAQS</a></li>
 							<li class=""><a href="{{ route('about') }}">About</a></li>
+                            <li class=""><a href="{{ route('staff-page') }}">Staff Page</a></li>
 						</ul>
 					</li>
-                    <li class="">
-						<a href="#">Shop</a>
-						<ul class="main-nav__sub">
-							<li class=""><a href="{{ route('shop') }}">Shop Page v1</a></li>
-						</ul>
-					</li>
+
+					<li class=""><a href="{{ route('shop') }}">Shop</a></li>
 					<!-- Main Navigation Right / End -->
 		</header>
 		<!-- Header / End -->
@@ -186,6 +155,13 @@
 					<a href="{{ $main->social_link_4 ?? '' }}" target="_blank">
 						<i class="{{ $main->social_link_icon_class_4 ?? '' }}"></i>
 						<span class="link-subtitle">{{ $main->social_link_name_4 ?? '' }}</span>{{ $main->social_link_text_4 ?? '' }}
+					</a>
+				</li>
+
+                <li>
+					<a href="{{ $main->social_link_5 ?? '' }}" target="_blank">
+						<i class="{{ $main->social_link_icon_class_5 ?? '' }}"></i>
+						<span class="link-subtitle">{{ $main->social_link_name_5 ?? '' }}</span>{{ $main->social_link_text_5 ?? '' }}
 					</a>
 				</li>
 			</ul>

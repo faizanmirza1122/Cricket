@@ -56,7 +56,7 @@
                                 <tr>
 
                                     <td>{{ $key + 1 }}</td>
-                                    <td><img src="{{ asset('storage/' . $team->image) }}" width="100px"></td>
+                                    <td><img src="{{ asset('public/storage/' . $team->image) }}" width="100px"></td>
                                     <td>{{ $team->name }}</td>
                                     <td>{{ $team->designation }}</td>
                                     <td>{{ $team->joining_date }}</td>
